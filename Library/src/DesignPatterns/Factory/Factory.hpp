@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2024
-** Raytracer
+** Library
 ** File description:
 ** Factory
 */
@@ -26,7 +26,7 @@
 ///
 /// \par Example:
 /// \code
-/// #include "Factory.hpp"
+/// #include "Library.hpp"
 /// #include <iostream>
 ///
 /// #define UNUSED __attribute__((unused))
@@ -81,8 +81,8 @@
 #include <memory>
 #include <mutex>
 
-#include "AException.hpp"
-#include "Singleton.hpp"
+#include "Utils/AException/AException.hpp"
+#include "DesignPatterns/Singleton/Singleton.hpp"
 
 namespace Library
 {
@@ -102,6 +102,8 @@ namespace Library
             {
                 ALREADY_REGISTERED,
                 UNKNOWN_KEY_AT_CREATE,
+                UNKNOWN_ERROR_AT_REGISTER,
+                UNKNOWN_ERROR_AT_CREATE
             } FactoryExceptionsType_e;
 
             /// \brief FactoryExceptionsMessage Structure
@@ -121,7 +123,9 @@ namespace Library
             /// \brief FactoryExceptions Error Messages
             static const FactoryExceptionsMessage_t FACTORY_EXCEPTIONS_ERROR_MESSAGES[] = {
                 {FactoryExceptionsType_e::ALREADY_REGISTERED, "The key is already registered"},
-                {FactoryExceptionsType_e::UNKNOWN_KEY_AT_CREATE, "The key is unknown at create"}};
+                {FactoryExceptionsType_e::UNKNOWN_KEY_AT_CREATE, "The key is unknown at create"},
+                {FactoryExceptionsType_e::UNKNOWN_ERROR_AT_REGISTER, "An unknown error occurred at register"},
+                {FactoryExceptionsType_e::UNKNOWN_ERROR_AT_CREATE, "An unknown error occurred at create"}};
 
             /// \brief FactoryExceptions Class
             ///
@@ -173,35 +177,78 @@ namespace Library
             /// \brief Register a creator function for the object type
             ///
             /// This method registers a creator function for the object type identified
-            /// by the key. The creator function may be a lambda function or a function
-            /// pointer that takes a FactoryParams object as a parameter and returns a
-            /// shared pointer to the object.
+            /// by the key. If a creator for the specified key is already registered,
+            /// this method throws an ALREADY_REGISTERED exception. The creator function
+            /// may be a lambda function or a function pointer that takes a FactoryParams
+            /// object as a parameter and returns a shared pointer to the object.
             ///
-            /// \param key The key used to identify the object type
-            /// \param creator The creator function for the object type
+            /// \param key The key used to uniquely identify the object type. This key
+            /// must not already be registered; otherwise, an exception is thrown.
+            /// \param creator The creator function for the object type, which takes
+            /// a FactoryParams object and returns a shared pointer to the newly created
+            /// object.
+            /// \throws Exceptions::FactoryExceptions If the key is already registered.
+            /// \throws Exceptions::FactoryExceptions If an unknown error occurs during registration.
+            /// \throws Library::Utils::AException If a deeper error occurs during registration.
             void Register(const TypeKeyValue &key, std::function<std::shared_ptr<TypeFactoryObject>(const FactoryParams &)> &creator)
             {
-                std::lock_guard<std::mutex> lock(__mutex);
-                if (__creators.find(static_cast<TypeKeyValue>(key)) != __creators.end())
-                    throw Exceptions::FactoryExceptions(Exceptions::FactoryExceptionsType_e::ALREADY_REGISTERED, FILE_DATA);
-                __creators[static_cast<TypeKeyValue>(key)] = creator;
+                try
+                {
+                    std::lock_guard<std::mutex> lock(__mutex);
+                    if (__creators.find(static_cast<TypeKeyValue>(key)) != __creators.end())
+                        throw Exceptions::FactoryExceptions(Exceptions::FactoryExceptionsType_e::ALREADY_REGISTERED, FILE_DATA);
+                    __creators[static_cast<TypeKeyValue>(key)] = creator;
+                }
+                catch (const Exceptions::FactoryExceptions &except)
+                {
+                    throw except;
+                }
+                catch (const Library::Utils::AException &except)
+                {
+                    throw except;
+                }
+                catch (...)
+                {
+                    throw Exceptions::FactoryExceptions(Exceptions::FactoryExceptionsType_e::UNKNOWN_ERROR_AT_REGISTER, FILE_DATA);
+                }
             }
 
             /// \brief Create an object of the specified type
             ///
-            /// This method creates an object of the specified type using the key-value
-            /// pair. If the key is not found in the map of creators, the method returns
-            /// a null pointer.
+            /// This method creates an object of the specified type using the key to locate
+            /// the corresponding creator function. If no creator is registered for the key,
+            /// this method throws a UNKNOWN_KEY_AT_CREATE exception. The params object can
+            /// be used to pass additional parameters to the creator function if necessary.
             ///
-            /// \param key The key used to identify the object type
-            /// \param params The FactoryParams object passed to the creator function
-            /// \return A shared pointer to the object
+            /// \param key The key used to identify the object type. This key should match
+            /// one that has been previously registered with a corresponding creator.
+            /// \param params An optional FactoryParams object that may be required by
+            /// the creator function to create the object.
+            /// \return A shared pointer to the newly created object of type TypeFactoryObject.
+            /// \throws Exceptions::FactoryExceptions If no creator is registered for the given key.
+            /// \throws Exceptions::FactoryExceptions If an unknown error occurs during object creation.
+            /// \throws Library::Utils::AException If a deeper error occurs during object creation.
             [[nodiscard]] std::shared_ptr<TypeFactoryObject> Create(const TypeKeyValue &key, const FactoryParams &params = FactoryParams()) const
             {
-                std::lock_guard<std::mutex> lock(__mutex);
-                if (__creators.find(key) == __creators.end())
-                    throw Exceptions::FactoryExceptions(Exceptions::FactoryExceptionsType_e::UNKNOWN_KEY_AT_CREATE, FILE_DATA);
-                return __creators.at(static_cast<TypeKeyValue>(key))(params);
+                try
+                {
+                    std::lock_guard<std::mutex> lock(__mutex);
+                    if (__creators.find(key) == __creators.end())
+                        throw Exceptions::FactoryExceptions(Exceptions::FactoryExceptionsType_e::UNKNOWN_KEY_AT_CREATE, FILE_DATA);
+                    return __creators.at(static_cast<TypeKeyValue>(key))(params);
+                }
+                catch (const Exceptions::FactoryExceptions &except)
+                {
+                    throw except;
+                }
+                catch (const Library::Utils::AException &except)
+                {
+                    throw except;
+                }
+                catch (...)
+                {
+                    throw Exceptions::FactoryExceptions(Exceptions::FactoryExceptionsType_e::UNKNOWN_ERROR_AT_CREATE, FILE_DATA);
+                }
             }
 
         private:

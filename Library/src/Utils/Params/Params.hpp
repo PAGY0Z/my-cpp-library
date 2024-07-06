@@ -49,7 +49,7 @@
 #include <vector>
 #include <string>
 
-#include "Singleton.hpp"
+#include "DesignPatterns/Singleton/Singleton.hpp"
 
 namespace Library
 {
