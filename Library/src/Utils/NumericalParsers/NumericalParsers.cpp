@@ -7,10 +7,39 @@
 
 #include "NumericalParsers.hpp"
 
-bool Library::Utils::ParseInt(const std::string &string, int &value) noexcept
+bool Library::Utils::NumericalParsers::IsIntegerNumber(const std::string &string) noexcept
 {
     try
     {
+        size_t i = 0;
+        size_t len = string.length();
+        size_t save = i;
+
+        while (i < len && (string[i] == ' ' || string[i] == '\t'))
+            i++;
+        while (i < len && (string[i] == '+' || string[i] == '-'))
+            i++;
+        save = i;
+        while (i < len && '0' <= string[i] && string[i] <= '9')
+            i++;
+        if (i == save)
+            return false;
+        while (i < len && (string[i] == ' ' || string[i] == '\t'))
+            i++;
+        return i == len;
+    }
+    catch (const std::exception &except)
+    {
+        return false;
+    }
+}
+
+bool Library::Utils::NumericalParsers::ParseInt(const std::string &string, int &value) noexcept
+{
+    try
+    {
+        if (!Library::Utils::NumericalParsers::IsIntegerNumber(string))
+            return false;
         value = std::stoi(string);
     }
     catch (const std::exception &except)
@@ -20,10 +49,12 @@ bool Library::Utils::ParseInt(const std::string &string, int &value) noexcept
     return true;
 }
 
-bool Library::Utils::ParseLong(const std::string &string, long &value) noexcept
+bool Library::Utils::NumericalParsers::ParseLong(const std::string &string, long &value) noexcept
 {
     try
     {
+        if (!Library::Utils::NumericalParsers::IsIntegerNumber(string))
+            return false;
         value = std::stol(string);
     }
     catch (const std::exception &except)
@@ -33,10 +64,12 @@ bool Library::Utils::ParseLong(const std::string &string, long &value) noexcept
     return true;
 }
 
-bool Library::Utils::ParseUnsignedLong(const std::string &string, unsigned long &value) noexcept
+bool Library::Utils::NumericalParsers::ParseUnsignedLong(const std::string &string, unsigned long &value) noexcept
 {
     try
     {
+        if (!Library::Utils::NumericalParsers::IsIntegerNumber(string))
+            return false;
         value = std::stoul(string);
     }
     catch (const std::exception &except)
@@ -46,10 +79,12 @@ bool Library::Utils::ParseUnsignedLong(const std::string &string, unsigned long 
     return true;
 }
 
-bool Library::Utils::ParseLongLong(const std::string &string, long long &value) noexcept
+bool Library::Utils::NumericalParsers::ParseLongLong(const std::string &string, long long &value) noexcept
 {
     try
     {
+        if (!Library::Utils::NumericalParsers::IsIntegerNumber(string))
+            return false;
         value = std::stoll(string);
     }
     catch (const std::exception &except)
@@ -59,10 +94,12 @@ bool Library::Utils::ParseLongLong(const std::string &string, long long &value) 
     return true;
 }
 
-bool Library::Utils::ParseUnsignedLongLong(const std::string &string, unsigned long long &value) noexcept
+bool Library::Utils::NumericalParsers::ParseUnsignedLongLong(const std::string &string, unsigned long long &value) noexcept
 {
     try
     {
+        if (!Library::Utils::NumericalParsers::IsIntegerNumber(string))
+            return false;
         value = std::stoull(string);
     }
     catch (const std::exception &except)
@@ -72,10 +109,12 @@ bool Library::Utils::ParseUnsignedLongLong(const std::string &string, unsigned l
     return true;
 }
 
-bool Library::Utils::ParseShort(const std::string &string, short &value) noexcept
+bool Library::Utils::NumericalParsers::ParseShort(const std::string &string, short &value) noexcept
 {
     try
     {
+        if (!Library::Utils::NumericalParsers::IsIntegerNumber(string))
+            return false;
         value = static_cast<short>(std::stoi(string));
     }
     catch (const std::exception &except)
@@ -85,10 +124,12 @@ bool Library::Utils::ParseShort(const std::string &string, short &value) noexcep
     return true;
 }
 
-bool Library::Utils::ParseUnsignedShort(const std::string &string, unsigned short &value) noexcept
+bool Library::Utils::NumericalParsers::ParseUnsignedShort(const std::string &string, unsigned short &value) noexcept
 {
     try
     {
+        if (!Library::Utils::NumericalParsers::IsIntegerNumber(string))
+            return false;
         value = static_cast<unsigned short>(std::stoul(string));
     }
     catch (const std::exception &except)
@@ -98,7 +139,7 @@ bool Library::Utils::ParseUnsignedShort(const std::string &string, unsigned shor
     return true;
 }
 
-bool Library::Utils::ParseFloat(const std::string &string, float &value) noexcept
+bool Library::Utils::NumericalParsers::ParseFloat(const std::string &string, float &value) noexcept
 {
     try
     {
@@ -111,7 +152,7 @@ bool Library::Utils::ParseFloat(const std::string &string, float &value) noexcep
     return true;
 }
 
-bool Library::Utils::ParseDouble(const std::string &string, double &value) noexcept
+bool Library::Utils::NumericalParsers::ParseDouble(const std::string &string, double &value) noexcept
 {
     try
     {
@@ -124,7 +165,7 @@ bool Library::Utils::ParseDouble(const std::string &string, double &value) noexc
     return true;
 }
 
-bool Library::Utils::ParseLongDouble(const std::string &string, long double &value) noexcept
+bool Library::Utils::NumericalParsers::ParseLongDouble(const std::string &string, long double &value) noexcept
 {
     try
     {
@@ -137,7 +178,7 @@ bool Library::Utils::ParseLongDouble(const std::string &string, long double &val
     return true;
 }
 
-bool Library::Utils::ParseBool(const std::string &string, bool &value) noexcept
+bool Library::Utils::NumericalParsers::ParseBool(const std::string &string, bool &value) noexcept
 {
     if (string == "true" || string == "1")
     {

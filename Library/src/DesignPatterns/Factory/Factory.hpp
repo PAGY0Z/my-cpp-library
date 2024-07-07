@@ -93,16 +93,20 @@ namespace Library
             /// \brief FactoryExceptionsType Enumeration
             ///
             /// The FactoryExceptionsType enumeration defines the types of exceptions
-            /// that can be thrown by the Factory class template. The enumeration
-            /// includes the following types of exceptions:
+            /// that can be thrown by the Factory class template.
             ///
-            /// - ALREADY_REGISTERED: The key is already registered
-            /// - UNKNOWN_KEY_AT_CREATE: The key is unknown at create
+            /// \note The enumeration values are as follows:
+            /// \note - ALREADY_REGISTERED: The key is already registered
+            /// \note - UNKNOWN_KEY_AT_CREATE: The key is unknown at create
             typedef enum FactoryExceptionsType_e
             {
+                /// @brief The key is already registered
                 ALREADY_REGISTERED,
+                /// @brief The key is unknown at create
                 UNKNOWN_KEY_AT_CREATE,
+                /// @brief An unknown error occurred at register
                 UNKNOWN_ERROR_AT_REGISTER,
+                /// @brief An unknown error occurred at create
                 UNKNOWN_ERROR_AT_CREATE
             } FactoryExceptionsType_e;
 
@@ -110,13 +114,16 @@ namespace Library
             ///
             /// The FactoryExceptionsMessage structure defines the message associated
             /// with each type of exception that can be thrown by the Factory class
-            /// template. The structure includes the following members:
+            /// template.
             ///
-            /// - __type: The type of exception
-            /// - __message: The message associated with the exception
+            /// \note The structure includes the following members:
+            /// \note - __type: The type of exception
+            /// \note - __message: The message associated with the exception
             typedef struct FactoryExceptionsMessage_s
             {
-                FactoryExceptionsType_e __type;
+                /// @brief The type of exception
+                const FactoryExceptionsType_e __type;
+                /// @brief The message associated with the exception
                 const std::string &__message;
             } FactoryExceptionsMessage_t;
 

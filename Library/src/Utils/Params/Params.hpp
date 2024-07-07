@@ -51,6 +51,10 @@
 
 #include "DesignPatterns/Singleton/Singleton.hpp"
 
+static const char *const emptyArgv[] = {NULL};
+
+#define EMPTY_ARGV emptyArgv
+
 namespace Library
 {
     namespace Utils
@@ -77,7 +81,7 @@ namespace Library
             /// \param argc The number of command-line arguments
             /// \param argv The array of command-line arguments
             /// \return The Singleton instance of the Params class by reference
-            [[nodiscard]] static Params &GetInstance(const int argc = 0, const char *const *argv = nullptr) { return Library::DesignPatterns::Singleton<Params>::GetInstance(argc, argv); }
+            [[nodiscard]] static Params &GetInstance(const unsigned int argc = 0, const char *const *argv = EMPTY_ARGV) { return Library::DesignPatterns::Singleton<Params>::GetInstance(argc, argv); }
 
             /// \brief Get the number of command-line arguments
             ///
@@ -85,7 +89,7 @@ namespace Library
             /// the program.
             ///
             /// \return The number of command-line arguments
-            [[nodiscard]] int GetArgc() const { return __argc; }
+            [[nodiscard]] unsigned int GetArgc() const { return __argc; }
 
             /// \brief Get the array of command-line arguments
             ///
@@ -94,14 +98,6 @@ namespace Library
             ///
             /// \return The array of command-line arguments
             [[nodiscard]] const char *const *GetArgv() const { return __argv; }
-
-            /// \brief Get the vector of command-line arguments
-            ///
-            /// This method returns the vector of command-line arguments passed to
-            /// the program as strings.
-            ///
-            /// \return The vector of command-line arguments as strings
-            [[nodiscard]] const std::vector<std::string> &GetParamsVector() const { return __paramsVector; }
 
         private:
             /// \brief Constructor
@@ -113,20 +109,13 @@ namespace Library
             ///
             /// \param argc The number of command-line arguments
             /// \param argv The array of command-line arguments
-            Params(const int argc = 0, const char *const *argv = nullptr) : Library::DesignPatterns::Singleton<Params>(), __argc(argc), __argv(argv)
-            {
-                for (int i = 0; i < argc; i++)
-                    __paramsVector.push_back(argv[i]);
-            }
+            Params(const unsigned int argc, const char *const *argv) : Library::DesignPatterns::Singleton<Params>(), __argc(argc), __argv(argv) {}
 
             /// \brief The number of command-line arguments
-            const int __argc;
+            const unsigned int __argc;
 
             /// \brief The array of command-line arguments
             const char *const *__argv;
-
-            /// \brief The vector of command-line arguments as strings
-            std::vector<std::string> __paramsVector;
         };
     } // namespace Utils
 } // namespace Library
