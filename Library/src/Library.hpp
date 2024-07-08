@@ -5,6 +5,44 @@
 ** Library
 */
 
+/// \file Library.hpp
+/// \author PAG_Y0Z
+/// \brief Header file for the Library
+/// \date 02-07-2024
+/// \version 1.0
+///
+/// This file contains the includes for the Library project. The Library project
+/// is a template project that can be used as a starting point for new projects.
+/// The Library project contains a number of utility classes and functions that
+/// can be used to simplify the development of new projects.
+///
+/// \details The Library project is a template project that can be used as a
+/// starting point for new projects. The Library project contains a number of
+/// utility classes and functions that can be used to simplify the development
+/// of new projects. The Library project is organized into a number of directories,
+/// each containing a different set of classes and functions. The Library project
+/// is designed to be easy to use and extend, making it an ideal starting point
+/// for new projects.
+///
+/// \par Example:
+/// \code
+/// #include "Library.hpp"
+///
+/// int program_main()
+/// {
+///     // Main program logic goes here
+///     return 0;
+/// }
+///
+/// \endcode
+///
+/// \see Library.hpp
+/// \see Utils/Params/Params.hpp
+/// \see Utils/AException/AException.hpp
+/// \see Utils/NumericalParsers/NumericalParsers.hpp
+/// \see DesignPatterns/Singleton/Singleton.hpp
+/// \see DesignPatterns/Factory/Factory.hpp
+
 #ifndef LIBRARY_HPP_
 #define LIBRARY_HPP_
 

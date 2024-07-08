@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2024
-** Raytracer
+** Template
 ** File description:
 ** program_main
 */

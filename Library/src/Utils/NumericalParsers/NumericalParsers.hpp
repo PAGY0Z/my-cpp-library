@@ -1,35 +1,44 @@
 /*
 ** EPITECH PROJECT, 2024
-** Library
+** Template
 ** File description:
 ** NumericalParsers
 */
 
 /// \file NumericalParsers.hpp
 /// \author PAG_Y0Z
-/// \brief NumericalParsers
+/// \brief NumericalParsers implementation
 /// \date 02-07-2024
 /// \version 1.0
 ///
-/// This file contains the definition of
+/// This file contains the definition of the NumericalParsers functions.
+/// The NumericalParsers functions are used to parse numerical values from
+/// strings. The NumericalParsers functions are used to parse integers, floats,
+/// and booleans from strings.
 ///
-/// \details The
+/// \details The NumericalParsers functions are used to parse numerical values
+/// from strings. The NumericalParsers functions are used to parse integers,
+/// floats, and booleans from strings. The NumericalParsers uses the standard
+/// library functions std::stoi, std::stol, std::stoul, std::stoll, std::stoull,
+/// std::stof, std::stod, std::stold to parse numerical values from strings.
 ///
 /// \par Example:
 /// \code
+///
 /// #include "Library.hpp"
 ///
 /// int main()
 /// {
 ///     int value;
 ///
-///     if (Library::Utils::ParseInt("42", value))
+///     if (Library::Utils::NumericalParsers::ParseInt("42", value))
 ///         std::cout << "Parsed value: " << value << std::endl;
 ///     else
 ///         std::cerr << "Failed to parse value" << std::endl;
 ///
 ///     return 0;
 /// }
+///
 /// \endcode
 ///
 /// \see NumericalParsers.cpp

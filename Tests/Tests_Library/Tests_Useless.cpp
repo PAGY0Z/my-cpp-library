@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2024
-** Raytracer
+** Template
 ** File description:
-** tests_useless
+** Tests_Useless
 */
 
 #include <gtest/gtest.h>

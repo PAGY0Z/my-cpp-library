@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(Template VERSION 1.0.1)
+set(PROJECT_NAME Template)
+
+project(${PROJECT_NAME} VERSION 1.0.1)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -15,7 +17,7 @@ if(CODE_COVERAGE AND CMAKE_COMPILER_IS_GNUCXX)
 endif()
 
 add_subdirectory(Library)
-add_subdirectory(Template)
+add_subdirectory(${PROJECT_NAME})
 
 if(BUILD_TESTS)
     enable_testing()

@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2024
-** Library
+** Template
 ** File description:
 ** Main
 */
