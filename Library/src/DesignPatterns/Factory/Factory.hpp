@@ -243,11 +243,11 @@ namespace Library
                 }
                 catch (const Exceptions::FactoryExceptions &except)
                 {
-                    throw except;
+                    throw;
                 }
                 catch (const Library::Utils::AException &except)
                 {
-                    throw except;
+                    throw;
                 }
                 catch (...)
                 {
@@ -279,11 +279,11 @@ namespace Library
                 }
                 catch (const Exceptions::FactoryExceptions &except)
                 {
-                    throw except;
+                    throw;
                 }
                 catch (const Library::Utils::AException &except)
                 {
-                    throw except;
+                    throw;
                 }
                 catch (...)
                 {
@@ -307,11 +307,11 @@ namespace Library
                 }
                 catch (const Exceptions::FactoryExceptions &except)
                 {
-                    throw except;
+                    throw;
                 }
                 catch (const Library::Utils::AException &except)
                 {
-                    throw except;
+                    throw;
                 }
                 catch (...)
                 {
@@ -345,11 +345,11 @@ namespace Library
                 }
                 catch (const Exceptions::FactoryExceptions &except)
                 {
-                    throw except;
+                    throw;
                 }
                 catch (const Library::Utils::AException &except)
                 {
-                    throw except;
+                    throw;
                 }
                 catch (...)
                 {
