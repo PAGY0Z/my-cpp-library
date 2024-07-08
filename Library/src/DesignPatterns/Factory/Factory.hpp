@@ -72,6 +72,15 @@
 /// \see Factory.hpp
 /// \see Singleton.hpp
 /// \see FactoryParams
+///
+/// ## Quotes
+///
+/// > Oh is fun to create a Factory class template that is thread-safe.
+/// > Probably the best thing I have done in my development career.
+/// > Imagine the field of possibilities that this class template can open.
+/// >
+/// > Who would have thought ? huh ?
+/// *- PAGY0Z*
 
 #ifndef FACTORY_HPP_
 #define FACTORY_HPP_
@@ -98,6 +107,11 @@ namespace Library
             /// \note The enumeration values are as follows:
             /// \note - ALREADY_REGISTERED: The key is already registered
             /// \note - UNKNOWN_KEY_AT_CREATE: The key is unknown at create
+            /// \note - UNKNOWN_ERROR_AT_REGISTER: An unknown error occurred at register
+            /// \note - UNKNOWN_ERROR_AT_CREATE: An unknown error occurred at create
+            /// \note - UNKNOWN_KEY_AT_UNREGISTER: The key is unknown at unregister
+            /// \note - UNKNOWN_ERROR_AT_UNREGISTER: An unknown error occurred at unregister
+            /// \note - UNKNOWN_ERROR_AT_CLEAR: An unknown error occurred at clear
             typedef enum FactoryExceptionsType_e
             {
                 /// @brief The key is already registered
@@ -107,7 +121,13 @@ namespace Library
                 /// @brief An unknown error occurred at register
                 UNKNOWN_ERROR_AT_REGISTER,
                 /// @brief An unknown error occurred at create
-                UNKNOWN_ERROR_AT_CREATE
+                UNKNOWN_ERROR_AT_CREATE,
+                /// @brief The key is unknown at unregister
+                UNKNOWN_KEY_AT_UNREGISTER,
+                /// @brief An unknown error occurred at unregister
+                UNKNOWN_ERROR_AT_UNREGISTER,
+                /// @brief An unknown error occurred at clear
+                UNKNOWN_ERROR_AT_CLEAR
             } FactoryExceptionsType_e;
 
             /// \brief FactoryExceptionsMessage Structure
@@ -132,7 +152,10 @@ namespace Library
                 {FactoryExceptionsType_e::ALREADY_REGISTERED, "The key is already registered"},
                 {FactoryExceptionsType_e::UNKNOWN_KEY_AT_CREATE, "The key is unknown at create"},
                 {FactoryExceptionsType_e::UNKNOWN_ERROR_AT_REGISTER, "An unknown error occurred at register"},
-                {FactoryExceptionsType_e::UNKNOWN_ERROR_AT_CREATE, "An unknown error occurred at create"}};
+                {FactoryExceptionsType_e::UNKNOWN_ERROR_AT_CREATE, "An unknown error occurred at create"},
+                {FactoryExceptionsType_e::UNKNOWN_KEY_AT_UNREGISTER, "The key is unknown at unregister"},
+                {FactoryExceptionsType_e::UNKNOWN_ERROR_AT_UNREGISTER, "An unknown error occurred at unregister"},
+                {FactoryExceptionsType_e::UNKNOWN_ERROR_AT_CLEAR, "An unknown error occurred at clear"}};
 
             /// \brief FactoryExceptions Class
             ///
@@ -164,6 +187,18 @@ namespace Library
         /// class template provides a way to register and create objects of a specific
         /// type using a key-value pair. The key is used to identify the object type,
         /// and the value is a function that creates the object.
+        ///
+        /// \invariant The Factory class maintains the invariant that each key is
+        /// associated with at most one creator function.
+        ///
+        /// \post After registration, the Factory class will be able to create objects
+        /// of the specified type using the provided key.
+        ///
+        /// \todo
+        /// - Changing the Factory class to use a different way to receive the parameters for the creator functions.
+        ///
+        /// \remark This implementation uses a thread-safe Singleton pattern to ensure
+        /// that only one instance of the Factory class is created.
         ///
         /// \tparam TypeFactoryObject The type of the object that will be created by the Factory
         /// \tparam TypeKeyValue The type of the key used to identify the object type
@@ -217,6 +252,70 @@ namespace Library
                 catch (...)
                 {
                     throw Exceptions::FactoryExceptions(Exceptions::FactoryExceptionsType_e::UNKNOWN_ERROR_AT_REGISTER, FILE_DATA);
+                }
+            }
+
+            /// \brief Unregister a creator function for the object type
+            ///
+            /// This method unregisters the creator function for the object type identified
+            /// by the key. If no creator is registered for the specified key, this method
+            /// throws an UNKNOWN_KEY_AT_UNREGISTER exception. The key must match one that
+            /// has been previously registered with a corresponding creator.
+            ///
+            /// \param key The key used to uniquely identify the object type. This key
+            /// must match one that has been previously registered; otherwise, an exception
+            /// is thrown.
+            /// \throws Exceptions::FactoryExceptions If the key is unknown at unregister.
+            /// \throws Exceptions::FactoryExceptions If an unknown error occurs during unregistration.
+            /// \throws Library::Utils::AException If a deeper error occurs during unregistration.
+            void Unregister(const TypeKeyValue &key)
+            {
+                try
+                {
+                    std::lock_guard<std::mutex> lock(__mutex);
+                    if (__creators.find(static_cast<TypeKeyValue>(key)) == __creators.end())
+                        throw Exceptions::FactoryExceptions(Exceptions::FactoryExceptionsType_e::UNKNOWN_KEY_AT_UNREGISTER, FILE_DATA);
+                    __creators.erase(static_cast<TypeKeyValue>(key));
+                }
+                catch (const Exceptions::FactoryExceptions &except)
+                {
+                    throw except;
+                }
+                catch (const Library::Utils::AException &except)
+                {
+                    throw except;
+                }
+                catch (...)
+                {
+                    throw Exceptions::FactoryExceptions(Exceptions::FactoryExceptionsType_e::UNKNOWN_ERROR_AT_UNREGISTER, FILE_DATA);
+                }
+            }
+
+            /// \brief Clear all registered creators
+            ///
+            /// This method clears all registered creators from the Factory. After calling
+            /// this method, the Factory will have no registered creators.
+            ///
+            /// \throws Exceptions::FactoryExceptions If an unknown error occurs during clearing.
+            /// \throws Library::Utils::AException If a deeper error occurs during clearing.
+            void Clear()
+            {
+                try
+                {
+                    std::lock_guard<std::mutex> lock(__mutex);
+                    __creators.clear();
+                }
+                catch (const Exceptions::FactoryExceptions &except)
+                {
+                    throw except;
+                }
+                catch (const Library::Utils::AException &except)
+                {
+                    throw except;
+                }
+                catch (...)
+                {
+                    throw Exceptions::FactoryExceptions(Exceptions::FactoryExceptionsType_e::UNKNOWN_ERROR_AT_CLEAR, FILE_DATA);
                 }
             }
 

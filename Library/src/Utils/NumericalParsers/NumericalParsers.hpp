@@ -48,6 +48,29 @@
 
 #include <string>
 
+//  * @warning this is a warning only for demonstration purposes
+//  *
+//  * @note this is a note to show that notes work. They can also include `code`:
+//  * @code{.c}
+//  * void this_looks_awesome();
+//  * @endcode
+//  *
+//  * @bug example bug
+//  *
+//  * @deprecated None of this will be deprecated, because it's beautiful!
+//  *
+//  * @invariant This is an invariant
+//  *
+//  * @pre This is a precondition
+//  *
+//  * @post This is a postcondition
+//  *
+//  * @todo This theme is never finished!
+//  *
+//  * @remark This is awesome!
+//  *
+//  */
+
 namespace Library
 {
     namespace Utils
@@ -60,6 +83,9 @@ namespace Library
             /// is an integer number, the function returns `true`. Otherwise, the
             /// function returns `false`.
             ///
+            /// \remark A string is considered an integer number if it contains only
+            /// digits and 0+('-' || '+') at the beginning.
+            ///
             /// \param string The string to check
             /// \return `true` if the string is an integer number, `false` otherwise
             [[nodiscard]] bool IsIntegerNumber(const std::string &string) noexcept;
@@ -70,6 +96,11 @@ namespace Library
             /// parsing is successful, the integer value is stored in the `value`
             /// parameter and the function returns `true`. If the parsing fails, the
             /// function returns `false`.
+            ///
+            /// \remark The function uses the std::stoi function to parse the integer
+            /// value from the string.
+            /// \remark Uses the IsIntegerNumber function to check if the string is an
+            /// integer number.
             ///
             /// \param string The string to parse
             /// \param value The integer value
@@ -83,6 +114,11 @@ namespace Library
             /// parameter and the function returns `true`. If the parsing fails, the
             /// function returns `false`.
             ///
+            /// \remark The function uses the std::stol function to parse the long
+            /// integer value from the string.
+            /// \remark Uses the IsIntegerNumber function to check if the string is an
+            /// integer number.
+            ///
             /// \param string The string to parse
             /// \param value The long integer value
             /// \return `true` if the parsing is successful, `false` otherwise
@@ -94,6 +130,11 @@ namespace Library
             /// If the parsing is successful, the unsigned long integer value is stored
             /// in the `value` parameter and the function returns `true`. If the parsing
             /// fails, the function returns `false`.
+            ///
+            /// \remark The function uses the std::stoul function to parse the unsigned
+            /// long integer value from the string.
+            /// \remark Uses the IsIntegerNumber function to check if the string is an
+            /// integer number.
             ///
             /// \param string The string to parse
             /// \param value The unsigned long integer value
@@ -107,6 +148,11 @@ namespace Library
             /// parameter and the function returns `true`. If the parsing fails, the
             /// function returns `false`.
             ///
+            /// \remark The function uses the std::stoll function to parse the long long
+            /// integer value from the string.
+            /// \remark Uses the IsIntegerNumber function to check if the string is an
+            /// integer number.
+            ///
             /// \param string The string to parse
             /// \param value The long long integer value
             /// \return `true` if the parsing is successful, `false` otherwise
@@ -118,6 +164,11 @@ namespace Library
             /// If the parsing is successful, the unsigned long long integer value is stored
             /// in the `value` parameter and the function returns `true`. If the parsing
             /// fails, the function returns `false`.
+            ///
+            /// \remark The function uses the std::stoull function to parse the unsigned
+            /// long long integer value from the string.
+            /// \remark Uses the IsIntegerNumber function to check if the string is an
+            /// integer number.
             ///
             /// \param string The string to parse
             /// \param value The unsigned long long integer value
@@ -131,6 +182,15 @@ namespace Library
             /// parameter and the function returns `true`. If the parsing fails, the
             /// function returns `false`.
             ///
+            /// \remark The function uses the std::stoi function to parse the short
+            /// integer value from the string.
+            /// \remark Uses the IsIntegerNumber function to check if the string is an
+            /// integer number.
+            /// \warning The function uses a static_cast to convert the integer value
+            /// to a short integer value.
+            /// \warning The function does not check if the integer value is within the
+            /// range of a short integer.
+            ///
             /// \param string The string to parse
             /// \param value The short integer value
             /// \return `true` if the parsing is successful, `false` otherwise
@@ -142,6 +202,15 @@ namespace Library
             /// If the parsing is successful, the unsigned short integer value is stored
             /// in the `value` parameter and the function returns `true`. If the parsing
             /// fails, the function returns `false`.
+            ///
+            /// \remark The function uses the std::stoi function to parse the unsigned
+            /// short integer value from the string.
+            /// \remark Uses the IsIntegerNumber function to check if the string is an
+            /// integer number.
+            /// \warning The function uses a static_cast to convert the integer value
+            /// to an unsigned short integer value.
+            /// \warning The function does not check if the integer value is within the
+            /// range of an unsigned short integer.
             ///
             /// \param string The string to parse
             /// \param value The unsigned short integer value
@@ -155,6 +224,11 @@ namespace Library
             /// parameter and the function returns `true`. If the parsing fails, the
             /// function returns `false`.
             ///
+            /// \remark The function uses the std::stof function to parse the float
+            /// value from the string.
+            /// \warning The function does not check if the string is a valid float
+            /// number.
+            ///
             /// \param string The string to parse
             /// \param value The float value
             /// \return `true` if the parsing is successful, `false` otherwise
@@ -167,6 +241,11 @@ namespace Library
             /// parameter and the function returns `true`. If the parsing fails, the
             /// function returns `false`.
             ///
+            /// \remark The function uses the std::stod function to parse the double
+            /// value from the string.
+            /// \warning The function does not check if the string is a valid double
+            /// number.
+            ///
             /// \param string The string to parse
             /// \param value The double value
             /// \return `true` if the parsing is successful, `false` otherwise
@@ -178,6 +257,11 @@ namespace Library
             /// parsing is successful, the long double value is stored in the `value`
             /// parameter and the function returns `true`. If the parsing fails, the
             /// function returns `false`.
+            ///
+            /// \remark The function uses the std::stold function to parse the long
+            /// double value from the string.
+            /// \warning The function does not check if the string is a valid long
+            /// double number.
             ///
             /// \param string The string to parse
             /// \param value The long double value
