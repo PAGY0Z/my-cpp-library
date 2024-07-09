@@ -81,7 +81,7 @@ namespace Library
             /// \param argc The number of command-line arguments
             /// \param argv The array of command-line arguments
             /// \return The Singleton instance of the Params class by reference
-            [[nodiscard]] static Params &GetInstance(const unsigned int argc = 0, const char *const *argv = EMPTY_ARGV) { return Library::DesignPatterns::Singleton<Params>::GetInstance(argc, argv); }
+            [[nodiscard]] static inline Params &GetInstance(const unsigned int argc = 0, const char *const *argv = EMPTY_ARGV) { return Library::DesignPatterns::Singleton<Params>::GetInstance(argc, argv); }
 
             /// \brief Get the number of command-line arguments
             ///
@@ -89,7 +89,7 @@ namespace Library
             /// the program.
             ///
             /// \return The number of command-line arguments
-            [[nodiscard]] unsigned int GetArgc() const { return __argc; }
+            [[nodiscard]] inline unsigned int GetArgc() const { return __argc; }
 
             /// \brief Get the array of command-line arguments
             ///
@@ -97,7 +97,7 @@ namespace Library
             /// the program.
             ///
             /// \return The array of command-line arguments
-            [[nodiscard]] const char *const *GetArgv() const { return __argv; }
+            [[nodiscard]] inline const char *const *GetArgv() const { return __argv; }
 
         private:
             /// \brief Constructor

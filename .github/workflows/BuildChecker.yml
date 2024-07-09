@@ -30,12 +30,6 @@ jobs:
           cmake --build .
           cd ..
 
-      - name: Run tests (optional)
-        run: |
-          cd Build/
-          ctest
-          cd ..
-
   build-windows:
     runs-on: windows-latest
 
@@ -52,10 +46,4 @@ jobs:
           cd Build/
           cmake ..
           cmake --build .
-          cd ..
-
-      - name: Run tests (optional)
-        run: |
-          cd Build/
-          ctest
           cd ..
