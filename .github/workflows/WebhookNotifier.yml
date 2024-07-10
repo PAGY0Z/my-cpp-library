@@ -90,8 +90,12 @@ jobs:
       PIPELINE_URL: ${{ inputs.pipeline_url }}
       MESSAGE: ""
 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
   notify-webhook:
-    needs: setup-variables
+    needs: [setup-variables]
     runs-on: ubuntu-latest
 
     steps:
