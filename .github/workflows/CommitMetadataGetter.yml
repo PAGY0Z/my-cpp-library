@@ -20,20 +20,20 @@ jobs:
 
       - name: Get Commit Message
         id: get_commit_message
-        run: echo "::set-output name=COMMIT_MESSAGE::$(git log -1 --pretty=format:'%s')"
+        run: echo "COMMIT_MESSAGE=$(git log -1 --pretty=format:'%s')" >> $GITHUB_ENV
 
       - name: Get Commit Author
         id: get_commit_author
-        run: echo "::set-output name=COMMIT_AUTHOR::$(git log -1 --pretty=format:'%an')"
+        run: echo "COMMIT_AUTHOR=$(git log -1 --pretty=format:'%an')" >> $GITHUB_ENV
 
       - name: Get Commit Email
         id: get_commit_email
-        run: echo "::set-output name=COMMIT_EMAIL::$(git log -1 --pretty=format:'%ae')"
+        run: echo "COMMIT_EMAIL=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_ENV
 
       - name: Get Commit Hash
         id: get_commit_hash
-        run: echo "::set-output name=COMMIT_HASH::$(git log -1 --pretty=format:'%H')"
+        run: echo "COMMIT_HASH=$(git log -1 --pretty=format:'%H')" >> $GITHUB_ENV
 
       - name: Get Commit Date
         id: get_commit_date
-        run: echo "::set-output name=COMMIT_DATE::$(git log -1 --pretty=format:'%ad')"
+        run: echo "COMMIT_DATE=$(git log -1 --pretty=format:'%ad')" >> $GITHUB_ENV
