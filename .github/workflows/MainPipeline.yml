@@ -14,9 +14,27 @@ env:
   PIPELINE_URL: ${{ github.run_id }}
   WEBHOOK_DISCORD: "TEST1"
   WEBHOOK_TEAMS: "TEST2"
-  WEBHOOK_MESSAGE_FILE: .github/GithubPipelineNotification.txt
+  WEBHOOK_MESSAGE_FILE: ./.github/GithubPipelineNotification.txt
 
 jobs:
+  SetupEnvironmentVariable:
+    runs-on: ubuntu-latest
+    outputs:
+      REPOSITORY_URL: ${{ env.REPOSITORY_URL }}
+      PIPELINE_URL: ${{ env.PIPELINE_URL }}
+      WEBHOOK_DISCORD: ${{ env.WEBHOOK_DISCORD }}
+      WEBHOOK_TEAMS: ${{ env.WEBHOOK_TEAMS }}
+      WEBHOOK_MESSAGE_FILE: ${{ env.WEBHOOK_MESSAGE_FILE }}
+
+    steps:
+      - name: Set Environment Variables
+        run: |
+            echo "REPOSITORY_URL=${REPOSITORY_URL}" >> $GITHUB_ENV
+            echo "PIPELINE_URL=${PIPELINE_URL}" >> $GITHUB_ENV
+            echo "WEBHOOK_DISCORD=${WEBHOOK_DISCORD}" >> $GITHUB_ENV
+            echo "WEBHOOK_TEAMS=${WEBHOOK_TEAMS}" >> $GITHUB_ENV
+            echo "WEBHOOK_MESSAGE_FILE=${WEBHOOK_MESSAGE_FILE}" >> $GITHUB_ENV
+
   CommitMetadataGetter:
     uses: ./.github/workflows/CommitMetadataGetter.yml
 
@@ -56,6 +74,7 @@ jobs:
   NotifyViaWebHookDiscord:
     needs:
       [
+        SetupEnvironmentVariable,
         CommitMetadataGetter,
         ClangCodeFormatter,
         DocumentationUpdater,
@@ -65,8 +84,8 @@ jobs:
       ]
     uses: ./.github/workflows/WebhookNotifier.yml
     with:
-      webhook: ${{ github.env.WEBHOOK_DISCORD }}
-      message_file: ${{ github.env.WEBHOOK_MESSAGE_FILE }}
+      webhook: ${{ needs.SetupEnvironmentVariable.outputs.WEBHOOK_DISCORD }}
+      message_file: ${{ needs.SetupEnvironmentVariable.outputs.WEBHOOK_MESSAGE_FILE }}
       commit_message: ${{ needs.CommitMetadataGetter.outputs.COMMIT_MESSAGE }}
       commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
       commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
@@ -79,12 +98,13 @@ jobs:
       tests_status: ${{ needs.TestsChecker.outputs.TESTS_STATUS }}
       coverage_value: ${{ needs.TestsChecker.outputs.COVERAGE_VALUE }}
       branches_coverage_value: ${{ needs.TestsChecker.outputs.BRANCHES_COVERAGE_VALUE }}
-      repository_url:
-      pipeline_url:
+      repository_url: ${{ needs.SetupEnvironmentVariable.outputs.REPOSITORY_URL }}
+      pipeline_url: ${{ needs.SetupEnvironmentVariable.outputs.PIPELINE_URL }}
 
   NotifyViaWebHookTeams:
     needs:
       [
+        SetupEnvironmentVariable,
         CommitMetadataGetter,
         ClangCodeFormatter,
         DocumentationUpdater,
@@ -94,8 +114,8 @@ jobs:
       ]
     uses: ./.github/workflows/WebhookNotifier.yml
     with:
-      webhook: ${{ github.env.WEBHOOK_TEAMS }}
-      message_file: ${{ github.env.WEBHOOK_MESSAGE_FILE }}
+      webhook: ${{ needs.SetupEnvironmentVariable.outputs.WEBHOOK_TEAMS }}
+      message_file: ${{ needs.SetupEnvironmentVariable.outputs.WEBHOOK_MESSAGE_FILE }}
       commit_message: ${{ needs.CommitMetadataGetter.outputs.COMMIT_MESSAGE }}
       commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
       commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
@@ -108,5 +128,5 @@ jobs:
       tests_status: ${{ needs.TestsChecker.outputs.TESTS_STATUS }}
       coverage_value: ${{ needs.TestsChecker.outputs.COVERAGE_VALUE }}
       branches_coverage_value: ${{ needs.TestsChecker.outputs.BRANCHES_COVERAGE_VALUE }}
-      repository_url: ${{ github.env.REPOSITORY_URL }}
-      pipeline_url: ${{ github.env.PIPELINE_URL }}
+      repository_url: ${{ needs.SetupEnvironmentVariable.outputs.REPOSITORY_URL }}
+      pipeline_url: ${{ needs.SetupEnvironmentVariable.outputs.PIPELINE_URL }}
