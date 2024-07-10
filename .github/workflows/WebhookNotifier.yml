@@ -95,7 +95,8 @@ jobs:
 
       - name: Get Message
         run: |
-          MESSAGE=$(cat $(echo $MESSAGE_FILE) | envsubst)
+            MESSAGE=$(cat $MESSAGE_FILE)
+            echo "Message: $MESSAGE"
 
       - name: Display Message
         run: |
