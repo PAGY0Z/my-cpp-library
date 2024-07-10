@@ -11,7 +11,7 @@ jobs:
   build-linux:
     runs-on: ubuntu-latest
     outputs:
-      LINUX_BUILD_STATUS: ${{ github.env.LINUX_BUILD_STATUS }}
+      LINUX_BUILD_STATUS: ${{ env.LINUX_BUILD_STATUS }}
 
     steps:
       - name: Checkout code

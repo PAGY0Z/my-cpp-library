@@ -20,7 +20,7 @@ jobs:
   format-code:
     runs-on: ubuntu-latest
     outputs:
-      FORMAT_UPDATED: ${{ github.env.FORMAT_UPDATED }}
+      FORMAT_UPDATED: ${{ env.FORMAT_UPDATED }}
 
     steps:
       - name: Checkout code

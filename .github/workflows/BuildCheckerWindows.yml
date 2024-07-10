@@ -11,7 +11,7 @@ jobs:
   build-windows:
     runs-on: windows-latest
     outputs:
-      WINDOWS_BUILD_STATUS: ${{ github.env.WINDOWS_BUILD_STATUS }}
+      WINDOWS_BUILD_STATUS: ${{ env.WINDOWS_BUILD_STATUS }}
 
     steps:
       - name: Checkout code

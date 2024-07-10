@@ -20,7 +20,7 @@ jobs:
   update_documentations:
     runs-on: ubuntu-latest
     outputs:
-      DOCS_UPDATED: ${{ github.env.DOCS_UPDATED }}
+      DOCS_UPDATED: ${{ env.DOCS_UPDATED }}
 
     steps:
       - name: Checkout code
