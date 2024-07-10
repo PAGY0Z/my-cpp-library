@@ -1,30 +1,30 @@
 🔔 **Teamplate CI/CD Pipeline** 🔔
 
-- **Commit Message:** $COMMIT_MESSAGE
-- **Commit Author:** $COMMIT_AUTHOR
-- **Commit Email:** $COMMIT_EMAIL
-- **Commit Hash:** $COMMIT_HASH
-- **Commit Date:** $COMMIT_DATE
+- **Commit Message:** ${{ needs.setup-variables.outputs.COMMIT_MESSAGE }}
+- **Commit Author:** ${{ needs.setup-variables.outputs.COMMIT_AUTHOR }}
+- **Commit Email:** ${{ needs.setup-variables.outputs.COMMIT_EMAIL }}
+- **Commit Hash:** ${{ needs.setup-variables.outputs.COMMIT_HASH }}
+- **Commit Date:** ${{ needs.setup-variables.outputs.COMMIT_DATE }}
 
 **Builds Status**
-- **Linux Build Status:** $LINUX_BUILD_STATUS
-- **Windows Build Status:** $WINDOWS_BUILD_STATUS
+- **Linux Build Status:** ${{ needs.setup-variables.outputs.LINUX_BUILD_STATUS }}
+- **Windows Build Status:** ${{ needs.setup-variables.outputs.WINDOWS_BUILD_STATUS }}
 
 **Code Formatting**
-- **Code Formatting Status:** $FORMAT_UPDATED
+- **Code Formatting Status:** ${{ needs.setup-variables.outputs.FORMAT_UPDATED }}
 
 **Documentation**
-- **Documentation Update Status:** $DOCS_UPDATED
+- **Documentation Update Status:** ${{ needs.setup-variables.outputs.DOCS_UPDATED }}
 
 **Tests**
-- **Tests Status:** $TESTS_STATUS
-- **Coverage Value:** $COVERAGE_VALUE
-- **Branches Coverage Value:** $BRANCHES_COVERAGE_VALUE
+- **Tests Status:** ${{ needs.setup-variables.outputs.TESTS_STATUS }}
+- **Coverage Value:** ${{ needs.setup-variables.outputs.COVERAGE_VALUE }}
+- **Branches Coverage Value:** ${{ needs.setup-variables.outputs.BRANCHES_COVERAGE_VALUE }}
 
 🚀 **Pipeline Completed** 🚀
 
-🔗 **[View Repository]($REPOSITORY_URL)**
-🔗 **[View Commit]($REPOSITORY_URL/$COMMIT_HASH)**
-🔗 **[View Pipeline]($REPOSITORY_URL/actions/runs/$PIPELINE_URL)**
+🔗 **[View Repository](${{ needs.setup-variables.outputs.REPOSITORY_URL }})**
+🔗 **[View Commit](${{ needs.setup-variables.outputs.REPOSITORY_URL }}/${{ needs.setup-variables.outputs.COMMIT_HASH }})**
+🔗 **[View Pipeline](${{ needs.setup-variables.outputs.REPOSITORY_URL }}/actions/runs/${{ needs.setup-variables.outputs.PIPELINE_URL }})**
 
 📌 **Note:** This is an automated message.
