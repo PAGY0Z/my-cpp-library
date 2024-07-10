@@ -32,6 +32,14 @@ jobs:
       commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
       commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
 
+  DisplayCodeFormatter:
+    needs: ClangCodeFormatter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Code Formatter Output
+        run: |
+          echo "Code Formatting Status: ${{ needs.ClangCodeFormatter.outputs.FORMAT_UPDATED }}"
+
   DocumentationUpdater:
     needs: ["CommitMetadataGetter", "ClangCodeFormatter"]
     uses: ./.github/workflows/DocumentationUpdater.yml
@@ -39,10 +47,34 @@ jobs:
       commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
       commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
 
+  DisplayDocumentationUpdater:
+    needs: DocumentationUpdater
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Documentation Updater Output
+        run: |
+          echo "Documentation Update Status: ${{ needs.DocumentationUpdater.outputs.DOCS_UPDATED }}"
+
   BuildCheckerLinux:
     needs: ["CommitMetadataGetter", ClangCodeFormatter, "DocumentationUpdater"]
     uses: ./.github/workflows/BuildCheckerLinux.yml
 
+  DisplayBuildCheckerLinux:
+    needs: BuildCheckerLinux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Build Checker Linux Output
+        run: |
+          echo "Linux Build Status: ${{ needs.BuildCheckerLinux.outputs.LINUX_BUILD_STATUS }}"
+
   BuildCheckerWindows:
     needs: ["CommitMetadataGetter", ClangCodeFormatter, "DocumentationUpdater"]
     uses: ./.github/workflows/BuildCheckerWindows.yml
+
+  DisplayBuildCheckerWindows:
+    needs: BuildCheckerWindows
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Build Checker Windows Output
+        run: |
+          echo "Windows Build Status: ${{ needs.BuildCheckerWindows.outputs.WINDOWS_BUILD_STATUS }}"

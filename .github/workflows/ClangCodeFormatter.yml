@@ -3,9 +3,9 @@ name: Clang Code Formatter
 on:
   workflow_call:
     outputs:
-      UPDATED:
+      FORMAT_UPDATED:
         description: "The status of the code formatting"
-        value: ${{ jobs.format-code.outputs.UPDATED }}
+        value: ${{ jobs.format-code.outputs.FORMAT_UPDATED }}
     inputs:
       commit_author:
         type: string
@@ -20,7 +20,7 @@ jobs:
   format-code:
     runs-on: ubuntu-latest
     outputs:
-      UPDATED: ${{ steps.get_updated_status.outputs.UPDATED }}
+      FORMAT_UPDATED: ${{ github.env.FORMAT_UPDATED }}
 
     steps:
       - name: Checkout code
@@ -37,28 +37,24 @@ jobs:
             clang-format -i $file
           done
 
-      - name: Get Updated Status
-        id: get_updated_status
+      - name: Get Format Update Status
         run: |
           if [[ -n $(git status --porcelain) ]]; then
-            echo "UPDATED=FORMATTED" >> $GITHUB_ENV
+            echo "FORMAT_UPDATED=FORMATTED" >> $GITHUB_ENV
           else
-            echo "UPDATED=NOT FORMATTED" >> $GITHUB_ENV
+            echo "FORMAT_UPDATED=NOT FORMATTED" >> $GITHUB_ENV
+            exit 0
           fi
         continue-on-error: true
 
-      - name: Update GitHub Actions Log
+      - name: Config Git
         run: |
-          echo "Code formatting completed successfully!" >> ./.github/GithubActionsLogs.txt
-          date "+%Y-%m-%d %H:%M:%S" >> ./.github/GithubActionsLogs.txt
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
 
       - name: Commit & Push changes
         run: |
-          git add . || true
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
-          git commit -m "[CI] - [FORMAT] - Format Checked/Updated" || true
-          echo "Commit Author: ${{ inputs.commit_author }}"
-          echo "Commit Email: ${{ inputs.commit_email }}"
-          git commit --amend --author="${{ inputs.commit_author }} <${{ inputs.commit_email }}>" || true
-          git push origin main || true
+          git add .
+          git commit -m "[CI] - [FORMAT] - The code has been formatted"
+          git commit --amend --author="${{ inputs.commit_author }} <${{ inputs.commit_email }}>"
+          git push origin main

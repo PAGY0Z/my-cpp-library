@@ -3,9 +3,9 @@ name: Doxygen Documentation Updater
 on:
   workflow_call:
     outputs:
-      UPDATED:
-        description: "The status of the documentation update"
-        value: ${{ jobs.update_documentations.outputs.UPDATED }}
+      DOCS_UPDATED:
+        description: "The status of the code formatting"
+        value: ${{ jobs.update_documentations.outputs.DOCS_UPDATED }}
     inputs:
       commit_author:
         type: string
@@ -20,7 +20,7 @@ jobs:
   update_documentations:
     runs-on: ubuntu-latest
     outputs:
-      UPDATED: ${{ steps.get_updated_status.outputs.UPDATED }}
+      DOCS_UPDATED: ${{ github.env.DOCS_UPDATED }}
 
     steps:
       - name: Checkout code
@@ -38,28 +38,24 @@ jobs:
         run: |
           doxygen Docs/Doxyfile
 
-      - name: Get Updated Status
-        id: get_updated_status
+      - name: Get Documentations Update Status
         run: |
           if [[ -n $(git status --porcelain) ]]; then
-            echo "UPDATED=DOCS UPDATED" >> $GITHUB_ENV
+            echo "DOCS_UPDATED=DOCS UPDATED" >> $GITHUB_ENV
           else
-            echo "UPDATED=DOCS NOT UPDATED" >> $GITHUB_ENV
+            echo "DOCS_UPDATED=DOCS NOT UPDATED" >> $GITHUB_ENV
+            exit 0
           fi
         continue-on-error: true
 
-      - name: Update GitHub Actions Log
+      - name: Config Git
         run: |
-          echo "Doxygen Documentation Generation completed successfully!" >> ./.github/GithubActionsLogs.txt
-          date "+%Y-%m-%d %H:%M:%S" >> ./.github/GithubActionsLogs.txt
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
 
       - name: Commit & Push changes
         run: |
-          git add . || true
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
-          git commit -m "[CI] - [DOCS] - Documentation Checked/Updated" || true
-          echo "Commit Author: ${{ inputs.commit_author }}"
-          echo "Commit Email: ${{ inputs.commit_email }}"
-          git commit --amend --author="${{ inputs.commit_author }} <${{ inputs.commit_email }}>" || true
-          git push origin main || true
+          git add .
+          git commit -m "[CI] - [DOCS] - The documentation has been updated"
+          git commit --amend --author="${{ inputs.commit_author }} <${{ inputs.commit_email }}>"
+          git push origin main
