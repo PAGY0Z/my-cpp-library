@@ -65,8 +65,8 @@ jobs:
       ]
     uses: ./.github/workflows/WebhookNotifier.yml
     with:
-      webhook: $WEBHOOK_DISCORD
-      message_file: $WEBHOOK_MESSAGE_FILE
+      webhook: ${{ env.WEBHOOK_DISCORD }}
+      message_file: ${{ env.WEBHOOK_MESSAGE_FILE }}
       commit_message: ${{ needs.CommitMetadataGetter.outputs.COMMIT_MESSAGE }}
       commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
       commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
@@ -79,8 +79,8 @@ jobs:
       tests_status: ${{ needs.TestsChecker.outputs.TESTS_STATUS }}
       coverage_value: ${{ needs.TestsChecker.outputs.COVERAGE_VALUE }}
       branches_coverage_value: ${{ needs.TestsChecker.outputs.BRANCHES_COVERAGE_VALUE }}
-      repository_url: $(REPOSITORY_URL)
-      pipeline_url: $(PIPELINE_URL)
+      repository_url: ${{ env.REPOSITORY_URL }}
+      pipeline_url: ${{ env.PIPELINE_URL }}
 
   NotifyViaWebHookTeams:
     needs:
@@ -94,8 +94,8 @@ jobs:
       ]
     uses: ./.github/workflows/WebhookNotifier.yml
     with:
-      webhook: $WEBHOOK_TEAMS
-      message_file: $WEBHOOK_MESSAGE_FILE
+      webhook: ${{ env.WEBHOOK_TEAMS }}
+      message_file: ${{ env.WEBHOOK_MESSAGE_FILE }}
       commit_message: ${{ needs.CommitMetadataGetter.outputs.COMMIT_MESSAGE }}
       commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
       commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
@@ -108,5 +108,5 @@ jobs:
       tests_status: ${{ needs.TestsChecker.outputs.TESTS_STATUS }}
       coverage_value: ${{ needs.TestsChecker.outputs.COVERAGE_VALUE }}
       branches_coverage_value: ${{ needs.TestsChecker.outputs.BRANCHES_COVERAGE_VALUE }}
-      repository_url: $(REPOSITORY_URL)
-      pipeline_url: $(PIPELINE_URL)
+      repository_url: ${{ env.REPOSITORY_URL }}
+      pipeline_url: ${{ env.PIPELINE_URL }}
