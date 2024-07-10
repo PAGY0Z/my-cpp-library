@@ -85,13 +85,13 @@
 #ifndef FACTORY_HPP_
 #define FACTORY_HPP_
 
-#include <map>
+#include "DesignPatterns/Singleton/Singleton.hpp"
+#include "Utils/AException/AException.hpp"
+
 #include <functional>
+#include <map>
 #include <memory>
 #include <mutex>
-
-#include "Utils/AException/AException.hpp"
-#include "DesignPatterns/Singleton/Singleton.hpp"
 
 namespace Library
 {
@@ -170,10 +170,11 @@ namespace Library
             class FactoryExceptions : public Library::Utils::AException
             {
             public:
-                FactoryExceptions(FactoryExceptionsType_e type, const std::string &file_data) : Library::Utils::AException("FactoryExceptions", FACTORY_EXCEPTIONS_ERROR_MESSAGES[type].__message, file_data) {}
+                FactoryExceptions(FactoryExceptionsType_e type, const std::string &file_data)
+                    : Library::Utils::AException("FactoryExceptions", FACTORY_EXCEPTIONS_ERROR_MESSAGES[type].__message, file_data) {}
                 virtual ~FactoryExceptions() = default;
             };
-        } // namespace Exceptions
+        }    // namespace Exceptions
 
         class FactoryParams;
 
@@ -202,7 +203,7 @@ namespace Library
         ///
         /// \tparam TypeFactoryObject The type of the object that will be created by the Factory
         /// \tparam TypeKeyValue The type of the key used to identify the object type
-        template <typename TypeFactoryObject, typename TypeKeyValue = std::string>
+        template<typename TypeFactoryObject, typename TypeKeyValue = std::string>
         class Factory : public Singleton<Factory<TypeFactoryObject, TypeKeyValue>>
         {
             friend class Singleton<Factory<TypeFactoryObject, TypeKeyValue>>;
@@ -362,7 +363,8 @@ namespace Library
             ///
             /// The constructor of the Factory class. This constructor is private to
             /// ensure that only one instance of the class is created.
-            Factory() : Singleton<Factory<TypeFactoryObject, TypeKeyValue>>() {}
+            Factory()
+                : Singleton<Factory<TypeFactoryObject, TypeKeyValue>>() {}
 
             /// \brief Creator map to store the key-value pairs of object types and creator functions
             std::map<const TypeKeyValue, std::function<std::shared_ptr<TypeFactoryObject>(const FactoryParams &)>> __creators;
@@ -386,7 +388,7 @@ namespace Library
             /// \brief Virtual destructor
             virtual ~FactoryParams() = default;
         };
-    } // namespace DesignPatterns
-} // namespace Library
+    }    // namespace DesignPatterns
+}    // namespace Library
 
 #endif /* !FACTORY_HPP_ */

@@ -61,6 +61,7 @@
 /// \see program_main
 
 #include "Library.hpp"
+
 #include <iostream>
 
 /// \brief Main entry point for the program

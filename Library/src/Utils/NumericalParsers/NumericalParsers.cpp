@@ -49,8 +49,8 @@ bool Library::Utils::NumericalParsers::IsIntegerNumber(const std::string &string
 {
     try
     {
-        size_t i = 0;
-        size_t len = string.length();
+        size_t i    = 0;
+        size_t len  = string.length();
         size_t save = i;
 
         while (i < len && (string[i] == ' ' || string[i] == '\t'))

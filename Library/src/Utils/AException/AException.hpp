@@ -94,7 +94,8 @@ namespace Library
             /// \param additional_message Additional information about the exception
             /// \param file_data The file data where the exception occurred
             /// \param return_value The return value associated with the exception
-            explicit AException(const std::string &message, const std::string &additional_message = "", const std::string &file_data = "", const int return_value = 84) noexcept : __message(BuildErrorMessage(message, additional_message, file_data)), __returnValue(return_value) {}
+            explicit AException(const std::string &message, const std::string &additional_message = "", const std::string &file_data = "", const int return_value = 84) noexcept
+                : __message(BuildErrorMessage(message, additional_message, file_data)), __returnValue(return_value) {}
 
             /// \brief AException Destructor
             ///
@@ -141,7 +142,7 @@ namespace Library
                 return full_message;
             }
         };
-    } // namespace Utils
-} // namespace Library
+    }    // namespace Utils
+}    // namespace Library
 
 #endif /* !AEXCEPTION_HPP_ */
