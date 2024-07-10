@@ -31,10 +31,10 @@ jobs:
         continue-on-error: true
 
       - name: Get Build Status
+        shell: pwsh
         run: |
-          if [[ $? -eq 0 ]]; then
-            echo "WINDOWS_BUILD_STATUS=WINDOWS BUILD OK" >> $GITHUB_ENV
-          else
-            echo "WINDOWS_BUILD_STATUS=WINDOWS BUILD KO" >> $GITHUB_ENV
-          fi
-        continue-on-error: true
+          if ($?) {
+            echo "WINDOWS_BUILD_STATUS=WINDOWS BUILD OK" >> $env:GITHUB_ENV
+          } else {
+            echo "WINDOWS_BUILD_STATUS=WINDOWS BUILD KO" >> $env:GITHUB_ENV
+          }

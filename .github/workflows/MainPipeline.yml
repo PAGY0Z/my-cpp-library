@@ -79,8 +79,8 @@ jobs:
       tests_status: ${{ needs.TestsChecker.outputs.TESTS_STATUS }}
       coverage_value: ${{ needs.TestsChecker.outputs.COVERAGE_VALUE }}
       branches_coverage_value: ${{ needs.TestsChecker.outputs.BRANCHES_COVERAGE_VALUE }}
-      repository_url: $REPOSITORY_URL
-      pipeline_url: $PIPELINE_URL
+      repository_url: $(REPOSITORY_URL)
+      pipeline_url: $(PIPELINE_URL)
 
   NotifyViaWebHookTeams:
     needs:
@@ -108,5 +108,5 @@ jobs:
       tests_status: ${{ needs.TestsChecker.outputs.TESTS_STATUS }}
       coverage_value: ${{ needs.TestsChecker.outputs.COVERAGE_VALUE }}
       branches_coverage_value: ${{ needs.TestsChecker.outputs.BRANCHES_COVERAGE_VALUE }}
-      repository_url: $REPOSITORY_URL
-      pipeline_url: $PIPELINE_URL
+      repository_url: $(REPOSITORY_URL)
+      pipeline_url: $(PIPELINE_URL)
