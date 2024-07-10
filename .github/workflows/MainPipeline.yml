@@ -13,13 +13,24 @@ jobs:
   CommitMetadataGetter:
     uses: ./.github/workflows/CommitMetadataGetter.yml
 
+  DisplayMetadataGetter:
+    needs: CommitMetadataGetter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Metadata
+        run: |
+          echo "Commit Message: ${{ needs.CommitMetadataGetter.outputs.COMMIT_MESSAGE }}"
+          echo "Commit Author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}"
+          echo "Commit Email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}"
+          echo "Commit Hash: ${{ needs.CommitMetadataGetter.outputs.COMMIT_HASH }}"
+          echo "Commit Date: ${{ needs.CommitMetadataGetter.outputs.COMMIT_DATE }}"
+
   ClangCodeFormatter:
     needs: CommitMetadataGetter
     uses: ./.github/workflows/ClangCodeFormatter.yml
     with:
       commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
       commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
-
 
   DocumentationUpdater:
     needs: ["CommitMetadataGetter", "ClangCodeFormatter"]

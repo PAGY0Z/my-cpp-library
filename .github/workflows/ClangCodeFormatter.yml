@@ -58,5 +58,7 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
           git commit -m "[CI] - [FORMAT] - Format Checked/Updated" || true
+          echo "Commit Author: ${{ inputs.commit_author }}"
+          echo "Commit Email: ${{ inputs.commit_email }}"
           git commit --amend --author="${{ inputs.commit_author }} <${{ inputs.commit_email }}>" || true
           git push origin main || true

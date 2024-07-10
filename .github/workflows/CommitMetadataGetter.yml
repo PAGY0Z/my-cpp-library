@@ -57,3 +57,11 @@ jobs:
         id: get_commit_date
         run: |
           echo "COMMIT_DATE=$(git log -1 --pretty=format:'%ad')" >> $GITHUB_ENV
+
+      - name: Display All
+        run: |
+          echo "COMMIT_MESSAGE: ${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}"
+          echo "COMMIT_AUTHOR: ${{ steps.get_commit_author.outputs.COMMIT_AUTHOR }}"
+          echo "COMMIT_EMAIL: ${{ steps.get_commit_email.outputs.COMMIT_EMAIL }}"
+          echo "COMMIT_HASH: ${{ steps.get_commit_hash.outputs.COMMIT_HASH }}"
+          echo "COMMIT_DATE: ${{ steps.get_commit_date.outputs.COMMIT_DATE }}"
