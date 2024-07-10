@@ -1,0 +1,28 @@
+name: Windows CMake Build Checker
+
+on:
+  workflow_run:
+    workflows: ["Code Formatter"]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install CMake
+        run: |
+          choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --yes
+
+      - name: Build project
+        run: |
+          mkdir Build/
+          cd Build/
+          cmake ..
+          cmake --build .
+          cd ..

@@ -1,0 +1,29 @@
+name: Linux CMake Build Checker
+
+on:
+  workflow_run:
+    workflows: ["Code Formatter"]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install CMake
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake
+
+      - name: Build project
+        run: |
+          mkdir Build/
+          cd Build/
+          cmake ..
+          cmake --build .
+          cd ..

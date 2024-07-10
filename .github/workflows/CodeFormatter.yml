@@ -27,3 +27,18 @@ jobs:
           find . -type f -name "*.cpp" -o -name "*.hpp" | while read file; do
             clang-format -i $file
           done
+
+      - name: Commit changes
+        run: |
+          git add . || true
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git commit -m "[CI] - [FORMAT] - Formatting Code" || true
+
+      - name: Update commit metadatas
+        run: |
+          git commit --amend --author="$COMMIT_AUTHOR <$COMMIT_EMAIL>" -m "[CI] - [FORMAT] - Formatting Code" || true
+
+      - name: Push to GitHub
+        run: |
+          git push origin main || true
