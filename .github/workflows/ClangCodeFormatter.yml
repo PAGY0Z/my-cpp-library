@@ -55,7 +55,7 @@ jobs:
 
       - name: Commit & Push changes
         run: |
-          git add .
+          git add . || true
           git commit -m "[CI] - [FORMAT] - The code has been formatted"
           git commit --amend --author="${{ inputs.commit_author }} <${{ inputs.commit_email }}>" -m "[CI] - [FORMAT] - The code has been formatted"
           git push origin main || exit 0
