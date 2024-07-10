@@ -96,12 +96,11 @@ jobs:
       - name: Get Message
         run: |
           MESSAGE=$(cat $MESSAGE_FILE)
-          echo "MESSAGE=$MESSAGE" >> $GITHUB_ENV
 
       - name: Display Message
         run: |
-          echo "Message: ${{ env.MESSAGE }}"
+          echo "Message: $MESSAGE"
 
       - name: Notify Via Webhook
         run: |
-          curl -X POST -H 'Content-Type: application/json' -d "{\"text\":\"${{ env.MESSAGE }}\"}" ${{ inputs.webhook }}
+          curl -X POST -H 'Content-Type: application/json' -d "{\"text\":\"$MESSAGE\"}" ${{ inputs.webhook }}
