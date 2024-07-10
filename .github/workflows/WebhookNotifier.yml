@@ -69,6 +69,7 @@ on:
         required: true
 
 env:
+  WEBHOOK: ${{ inputs.webhook }}
   MESSAGE_FILE: ${{ inputs.message_file }}
   COMMIT_MESSAGE: ${{ inputs.commit_message }}
   COMMIT_AUTHOR: ${{ inputs.commit_author }}
@@ -84,6 +85,7 @@ env:
   BRANCHES_COVERAGE_VALUE: ${{ inputs.branches_coverage_value }}
   REPOSITORY_URL: ${{ inputs.repository_url }}
   PIPELINE_URL: ${{ inputs.pipeline_url }}
+  MESSAGE: ""
 
 jobs:
   notify-webhook:
@@ -95,13 +97,13 @@ jobs:
 
       - name: Get Message
         run: |
-            MESSAGE=$(cat $MESSAGE_FILE)
-            echo "Message: $MESSAGE"
+          MESSAGE=$(cat ${{ env.MESSAGE_FILE }})
+          echo "MESSAGE=$MESSAGE" >> $GITHUB_ENV
 
       - name: Display Message
         run: |
-          echo "Message: $MESSAGE"
+          echo "Commit Message: ${{ env.MESSAGE }}"
 
       - name: Notify Via Webhook
         run: |
-          curl -X POST -H 'Content-Type: application/json' -d "{\"text\":\"$MESSAGE\"}" ${{ inputs.webhook }}
+          curl -X POST -H 'Content-Type: application/json' -d "{\"text\":\"${{ env.MESSAGE }}\"}" ${{ env.WEBHOOK }}
