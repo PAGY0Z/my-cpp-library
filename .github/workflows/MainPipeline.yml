@@ -16,13 +16,19 @@ jobs:
   ClangCodeFormatter:
     needs: CommitMetadataGetter
     uses: ./.github/workflows/ClangCodeFormatter.yml
+    with:
+      commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
+      commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
 
   DocumentationUpdater:
-    needs: ClangCodeFormatter
+    needs: ["CommitMetadataGetter", "ClangCodeFormatter"]
     uses: ./.github/workflows/DocumentationUpdater.yml
+    with:
+      commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
+      commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
 
   BuildCheckerLinux:
-    needs: ClangCodeFormatter
+    needs: ["CommitMetadataGetter", "ClangCodeFormatter"]
     uses: ./.github/workflows/BuildCheckerLinux.yml
 
   BuildCheckerWindows:

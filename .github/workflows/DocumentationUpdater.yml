@@ -2,7 +2,15 @@ name: Doxygen Documentation Updater
 
 on:
   workflow_call:
-  workflow_dispatch:
+    inputs:
+      commit_author:
+        type: string
+        description: "The author of the commit"
+        required: true
+      commit_email:
+        type: string
+        description: "The email of the commit author"
+        required: true
 
 jobs:
   update_documentations:
@@ -45,4 +53,5 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
           git commit -m "[CI] - [DOCS] - Documentation Updated" || true
+          git commit --amend --author="${{ inputs.commit_author }} <${{ inputs.commit_email }}>" || true
           git push origin main || true

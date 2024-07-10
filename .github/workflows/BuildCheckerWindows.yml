@@ -8,7 +8,7 @@ jobs:
   build-windows:
     runs-on: windows-latest
     outputs:
-        BUILD_STATUS: ${{ steps.get_build_status.outputs.BUILD_STATUS }}
+      BUILD_STATUS: ${{ steps.get_build_status.outputs.BUILD_STATUS }}
 
     steps:
       - name: Checkout code
