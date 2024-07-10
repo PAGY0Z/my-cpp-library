@@ -2,6 +2,10 @@ name: Doxygen Documentation Updater
 
 on:
   workflow_call:
+    outputs:
+      UPDATED:
+        description: "The status of the documentation update"
+        value: ${{ jobs.update_documentations.outputs.UPDATED }}
     inputs:
       commit_author:
         type: string
@@ -23,10 +27,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Update Packages List
-        run: sudo apt-get update
+        run: |
+          sudo apt-get update
 
       - name: Set up Doxygen
-        run: sudo apt-get install -y doxygen
+        run: |
+          sudo apt-get install -y doxygen
 
       - name: Generate Doxygen Documentation
         run: |
@@ -36,9 +42,9 @@ jobs:
         id: get_updated_status
         run: |
           if [[ -n $(git status --porcelain) ]]; then
-            echo "::set-output name=UPDATED::DOCS UPDATED"
+            echo "UPDATED=DOCS UPDATED" >> $GITHUB_ENV
           else
-            echo "::set-output name=UPDATED::DOCS NOT UPDATED"
+            echo "UPDATED=DOCS NOT UPDATED" >> $GITHUB_ENV
           fi
         continue-on-error: true
 
@@ -52,6 +58,6 @@ jobs:
           git add . || true
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-          git commit -m "[CI] - [DOCS] - Documentation Updated" || true
+          git commit -m "[CI] - [DOCS] - Documentation Checked/Updated" || true
           git commit --amend --author="${{ inputs.commit_author }} <${{ inputs.commit_email }}>" || true
           git push origin main || true

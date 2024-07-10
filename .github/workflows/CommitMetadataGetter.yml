@@ -2,7 +2,22 @@ name: Commit Metadata Getter
 
 on:
   workflow_call:
-  workflow_dispatch:
+    outputs:
+      COMMIT_MESSAGE:
+        description: "The message of the commit"
+        value: ${{ jobs.get_commit_data.outputs.COMMIT_MESSAGE }}
+      COMMIT_AUTHOR:
+        description: "The author of the commit"
+        value: ${{ jobs.get_commit_data.outputs.COMMIT_AUTHOR }}
+      COMMIT_EMAIL:
+        description: "The email of the commit author"
+        value: ${{ jobs.get_commit_data.outputs.COMMIT_EMAIL }}
+      COMMIT_HASH:
+        description: "The hash of the commit"
+        value: ${{ jobs.get_commit_data.outputs.COMMIT_HASH }}
+      COMMIT_DATE:
+        description: "The date of the commit"
+        value: ${{ jobs.get_commit_data.outputs.COMMIT_DATE }}
 
 jobs:
   get_commit_data:
@@ -15,25 +30,30 @@ jobs:
       COMMIT_DATE: ${{ steps.get_commit_date.outputs.COMMIT_DATE }}
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3.4.0
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Get Commit Message
         id: get_commit_message
-        run: echo "COMMIT_MESSAGE=$(git log -1 --pretty=format:'%s')" >> $GITHUB_ENV
+        run: |
+          echo "COMMIT_MESSAGE=$(git log -1 --pretty=format:'%s')" >> $GITHUB_ENV
 
       - name: Get Commit Author
         id: get_commit_author
-        run: echo "COMMIT_AUTHOR=$(git log -1 --pretty=format:'%an')" >> $GITHUB_ENV
+        run: |
+          echo "COMMIT_AUTHOR=$(git log -1 --pretty=format:'%an')" >> $GITHUB_ENV
 
       - name: Get Commit Email
         id: get_commit_email
-        run: echo "COMMIT_EMAIL=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_ENV
+        run: |
+          echo "COMMIT_EMAIL=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_ENV
 
       - name: Get Commit Hash
         id: get_commit_hash
-        run: echo "COMMIT_HASH=$(git log -1 --pretty=format:'%H')" >> $GITHUB_ENV
+        run: |
+          echo "COMMIT_HASH=$(git log -1 --pretty=format:'%H')" >> $GITHUB_ENV
 
       - name: Get Commit Date
         id: get_commit_date
-        run: echo "COMMIT_DATE=$(git log -1 --pretty=format:'%ad')" >> $GITHUB_ENV
+        run: |
+          echo "COMMIT_DATE=$(git log -1 --pretty=format:'%ad')" >> $GITHUB_ENV

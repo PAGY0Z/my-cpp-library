@@ -2,6 +2,10 @@ name: Clang Code Formatter
 
 on:
   workflow_call:
+    outputs:
+      UPDATED:
+        description: "The status of the code formatting"
+        value: ${{ jobs.format-code.outputs.UPDATED }}
     inputs:
       commit_author:
         type: string
@@ -37,9 +41,9 @@ jobs:
         id: get_updated_status
         run: |
           if [[ -n $(git status --porcelain) ]]; then
-            echo "::set-output name=UPDATED::DOCS UPDATED"
+            echo "UPDATED=FORMATTED" >> $GITHUB_ENV
           else
-            echo "::set-output name=UPDATED::DOCS NOT UPDATED"
+            echo "UPDATED=NOT FORMATTED" >> $GITHUB_ENV
           fi
         continue-on-error: true
 

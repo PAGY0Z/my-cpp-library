@@ -2,7 +2,10 @@ name: Windows CMake Build Checker
 
 on:
   workflow_call:
-  workflow_dispatch:
+    outputs:
+      BUILD_STATUS:
+        description: "The status of the build"
+        value: ${{ jobs.build-windows.outputs.BUILD_STATUS }}
 
 jobs:
   build-windows:
@@ -31,8 +34,8 @@ jobs:
         id: get_build_status
         run: |
           if [[ $? -eq 0 ]]; then
-            echo "::set-output name=BUILD_STATUS::WINDOWS BUILD OK"
+            echo "BUILD_STATUS=WINDOWS BUILD OK" >> $GITHUB_ENV
           else
-            echo "::set-output name=BUILD_STATUS::WINDOWS BUILD KO"
+            echo "BUILD_STATUS=WINDOWS BUILD KO" >> $GITHUB_ENV
           fi
         continue-on-error: true
