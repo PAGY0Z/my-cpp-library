@@ -1,4 +1,4 @@
-name: C++ CMake Build Checker
+name: CMake Build Checker
 
 on:
   push:

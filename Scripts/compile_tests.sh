@@ -1,3 +1,5 @@
+#!/bin/sh
+
 mkdir Build/
 cd Build/
 cmake -DBUILD_TESTS=ON -DCODE_COVERAGE=ON ..
