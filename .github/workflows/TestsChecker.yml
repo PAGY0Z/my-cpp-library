@@ -1,0 +1,66 @@
+name: Tests Checker
+
+on:
+  workflow_call:
+    outputs:
+      TESTS_STATUS:
+        description: "The status of the tests"
+        value: ${{ jobs.build-tests.outputs.TESTS_STATUS }}
+      COVERAGE_VALUE:
+        description: "The coverage value of the tests"
+        value: ${{ jobs.build-tests.outputs.COVERAGE_VALUE }}
+      BRANCHES_COVERAGE_VALUE:
+        description: "The branches coverage value of the tests"
+        value: ${{ jobs.build-tests.outputs.BRANCHES_COVERAGE_VALUE }}
+
+jobs:
+  build-tests:
+    runs-on: ubuntu-latest
+    outputs:
+      TESTS_STATUS: ${{ env.TESTS_STATUS }}
+      COVERAGE_VALUE: ${{ env.COVERAGE_VALUE }}
+      BRANCHES_COVERAGE_VALUE: ${{ env.BRANCHES_COVERAGE_VALUE }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Tests
+        run: |
+          mkdir Build/
+          cd Build/
+          cmake -DBUILD_TESTS=ON -DCODE_COVERAGE=ON ..
+          make
+          ctest
+          cd ..
+        continue-on-error: true
+
+      - name: Get Tests Build Status
+        run: |
+          if [[ $? -eq 0 ]]; then
+            echo "TESTS_STATUS=TESTS OK" >> $GITHUB_ENV
+          else
+            echo "TESTS_STATUS=TESTS KO" >> $GITHUB_ENV
+            echo "COVERAGE_VALUE=N/A" >> $GITHUB_ENV
+            echo "BRANCHES_COVERAGE_VALUE=N/A" >> $GITHUB_ENV
+            exit 0
+          fi
+        continue-on-error: true
+
+      - name: Install gcovr
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcovr
+
+      - name: Get Coverage Value
+        run: |
+          gcovr -e Tests/ -e Build/ | grep -o 'TOTAL.*' | awk '{print $NF}' > coverage_value.txt
+          echo "COVERAGE_VALUE=$(cat coverage_value.txt)" >> $GITHUB_ENV
+          rm -rf coverage_value.txt
+        continue-on-error: true
+
+      - name: Get Branches Coverage Value
+        run: |
+          gcovr -e Tests/ -e Build/ -b | grep -o 'TOTAL.*' | awk '{print $NF}' > branches_coverage_value.txt
+          echo "BRANCHES_COVERAGE_VALUE=$(cat branches_coverage_value.txt)" >> $GITHUB_ENV
+          rm -rf branches_coverage_value.txt

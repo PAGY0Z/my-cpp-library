@@ -1,0 +1,107 @@
+name: Notify via Webhook
+
+on:
+  workflow_call:
+    inputs:
+      webhook:
+        type: string
+        description: "The webhook to send the message to"
+        required: true
+      message_file:
+        type: string
+        description: "The message file path"
+        required: true
+      commit_message:
+        type: string
+        description: "The commit message"
+        required: true
+      commit_author:
+        type: string
+        description: "The commit author"
+        required: true
+      commit_email:
+        type: string
+        description: "The commit email"
+        required: true
+      commit_hash:
+        type: string
+        description: "The commit hash"
+        required: true
+      commit_date:
+        type: string
+        description: "The commit date"
+        required: true
+      linux_build_status:
+        type: string
+        description: "The linux build status"
+        required: true
+      windows_build_status:
+        type: string
+        description: "The windows build status"
+        required: true
+      format_updated:
+        type: string
+        description: "The format updated status"
+        required: true
+      docs_updated:
+        type: string
+        description: "The docs updated status"
+        required: true
+      tests_status:
+        type: string
+        description: "The tests status"
+        required: true
+      coverage_value:
+        type: string
+        description: "The coverage value"
+        required: true
+      branches_coverage_value:
+        type: string
+        description: "The branches coverage value"
+        required: true
+      repository_url:
+        type: string
+        description: "The repository url"
+        required: true
+      pipeline_url:
+        type: string
+        description: "The pipeline url"
+        required: true
+
+env:
+  MESSAGE_FILE: ${{ inputs.message_file }}
+  COMMIT_MESSAGE: ${{ inputs.commit_message }}
+  COMMIT_AUTHOR: ${{ inputs.commit_author }}
+  COMMIT_EMAIL: ${{ inputs.commit_email }}
+  COMMIT_HASH: ${{ inputs.commit_hash }}
+  COMMIT_DATE: ${{ inputs.commit_date }}
+  LINUX_BUILD_STATUS: ${{ inputs.linux_build_status }}
+  WINDOWS_BUILD_STATUS: ${{ inputs.windows_build_status }}
+  FORMAT_UPDATED: ${{ inputs.format_updated }}
+  DOCS_UPDATED: ${{ inputs.docs_updated }}
+  TESTS_STATUS: ${{ inputs.tests_status }}
+  COVERAGE_VALUE: ${{ inputs.coverage_value }}
+  BRANCHES_COVERAGE_VALUE: ${{ inputs.branches_coverage_value }}
+  REPOSITORY_URL: ${{ inputs.repository_url }}
+  PIPELINE_URL: ${{ inputs.pipeline_url }}
+
+jobs:
+  notify-webhook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get Message
+        run: |
+          MESSAGE=$(cat $MESSAGE_FILE)
+          echo "MESSAGE=$MESSAGE" >> $GITHUB_ENV
+
+      - name: Display Message
+        run: |
+          echo "Message: ${{ env.MESSAGE }}"
+
+      - name: Notify Via Webhook
+        run: |
+          curl -X POST -H 'Content-Type: application/json' -d "{\"text\":\"${{ env.MESSAGE }}\"}" ${{ inputs.webhook }}

@@ -9,12 +9,18 @@ on:
       - "**"
   workflow_dispatch:
 
+env:
+  REPOSITORY_URL: ${{ github.event.repository.html_url }}
+  PIPELINE_URL: ${{ github.run_id }}
+  WEBHOOK_DISCORD: "TEST1"
+  WEBHOOK_TEAMS: "TEST2"
+
 jobs:
   CommitMetadataGetter:
     uses: ./.github/workflows/CommitMetadataGetter.yml
 
   DisplayMetadataGetter:
-    needs: CommitMetadataGetter
+    needs: [CommitMetadataGetter]
     runs-on: ubuntu-latest
     steps:
       - name: Display Metadata
@@ -26,14 +32,14 @@ jobs:
           echo "Commit Date: ${{ needs.CommitMetadataGetter.outputs.COMMIT_DATE }}"
 
   ClangCodeFormatter:
-    needs: CommitMetadataGetter
+    needs: [CommitMetadataGetter]
     uses: ./.github/workflows/ClangCodeFormatter.yml
     with:
       commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
       commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
 
   DisplayCodeFormatter:
-    needs: ClangCodeFormatter
+    needs: [ClangCodeFormatter]
     runs-on: ubuntu-latest
     steps:
       - name: Display Code Formatter Output
@@ -41,14 +47,14 @@ jobs:
           echo "Code Formatting Status: ${{ needs.ClangCodeFormatter.outputs.FORMAT_UPDATED }}"
 
   DocumentationUpdater:
-    needs: ["CommitMetadataGetter", "ClangCodeFormatter"]
+    needs: [CommitMetadataGetter, ClangCodeFormatter]
     uses: ./.github/workflows/DocumentationUpdater.yml
     with:
       commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
       commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
 
   DisplayDocumentationUpdater:
-    needs: DocumentationUpdater
+    needs: [DocumentationUpdater]
     runs-on: ubuntu-latest
     steps:
       - name: Display Documentation Updater Output
@@ -56,11 +62,11 @@ jobs:
           echo "Documentation Update Status: ${{ needs.DocumentationUpdater.outputs.DOCS_UPDATED }}"
 
   BuildCheckerLinux:
-    needs: ["CommitMetadataGetter", ClangCodeFormatter, "DocumentationUpdater"]
+    needs: [CommitMetadataGetter, ClangCodeFormatter, DocumentationUpdater]
     uses: ./.github/workflows/BuildCheckerLinux.yml
 
   DisplayBuildCheckerLinux:
-    needs: BuildCheckerLinux
+    needs: [BuildCheckerLinux]
     runs-on: ubuntu-latest
     steps:
       - name: Display Build Checker Linux Output
@@ -68,13 +74,92 @@ jobs:
           echo "Linux Build Status: ${{ needs.BuildCheckerLinux.outputs.LINUX_BUILD_STATUS }}"
 
   BuildCheckerWindows:
-    needs: ["CommitMetadataGetter", ClangCodeFormatter, "DocumentationUpdater"]
+    needs: [CommitMetadataGetter, ClangCodeFormatter, DocumentationUpdater]
     uses: ./.github/workflows/BuildCheckerWindows.yml
 
   DisplayBuildCheckerWindows:
-    needs: BuildCheckerWindows
+    needs: [BuildCheckerWindows]
     runs-on: ubuntu-latest
     steps:
       - name: Display Build Checker Windows Output
         run: |
           echo "Windows Build Status: ${{ needs.BuildCheckerWindows.outputs.WINDOWS_BUILD_STATUS }}"
+
+  TestsChecker:
+    needs:
+      [
+        CommitMetadataGetter,
+        ClangCodeFormatter,
+        DocumentationUpdater,
+        BuildCheckerLinux,
+        BuildCheckerWindows,
+      ]
+    uses: ./.github/workflows/TestsChecker.yml
+
+  DisplayTestsChecker:
+    needs: [TestsChecker]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Tests Checker Output
+        run: |
+          echo "Tests Status: ${{ needs.TestsChecker.outputs.TESTS_STATUS }}"
+          echo "Tests Coverage Value: ${{ needs.TestsChecker.outputs.COVERAGE_VALUE }}
+          echo "Tests Branches Coverage Value: ${{ needs.TestsChecker.outputs.BRANCHES_COVERAGE_VALUE }}"
+
+  NotifyViaWebHookDiscord:
+    needs:
+      [
+        CommitMetadataGetter,
+        ClangCodeFormatter,
+        DocumentationUpdater,
+        BuildCheckerLinux,
+        BuildCheckerWindows,
+        TestsChecker,
+      ]
+    uses: ./.github/workflows/WebhookNotifier.yml
+    with:
+      webhook: $WEBHOOK_DISCORD
+      message_file: .github/GithubPipelineNotification.txt
+      commit_message: ${{ needs.CommitMetadataGetter.outputs.COMMIT_MESSAGE }}
+      commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
+      commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
+      commit_hash: ${{ needs.CommitMetadataGetter.outputs.COMMIT_HASH }}
+      commit_date: ${{ needs.CommitMetadataGetter.outputs.COMMIT_DATE }}
+      linux_build_status: ${{ needs.BuildCheckerLinux.outputs.LINUX_BUILD_STATUS }}
+      windows_build_status: ${{ needs.BuildCheckerWindows.outputs.WINDOWS_BUILD_STATUS }}
+      format_updated: ${{ needs.ClangCodeFormatter.outputs.FORMAT_UPDATED }}
+      docs_updated: ${{ needs.DocumentationUpdater.outputs.DOCS_UPDATED }}
+      tests_status: ${{ needs.TestsChecker.outputs.TESTS_STATUS }}
+      coverage_value: ${{ needs.TestsChecker.outputs.COVERAGE_VALUE }}
+      branches_coverage_value: ${{ needs.TestsChecker.outputs.BRANCHES_COVERAGE_VALUE }}
+      repository_url: $REPOSITORY_URL
+      pipeline_url: $PIPELINE_URL
+
+  NotifyViaWebHookTeams:
+    needs:
+      [
+        CommitMetadataGetter,
+        ClangCodeFormatter,
+        DocumentationUpdater,
+        BuildCheckerLinux,
+        BuildCheckerWindows,
+        TestsChecker,
+      ]
+    uses: ./.github/workflows/WebhookNotifier.yml
+    with:
+      webhook: $WEBHOOK_TEAMS
+      message_file: .github/GithubPipelineNotification.txt
+      commit_message: ${{ needs.CommitMetadataGetter.outputs.COMMIT_MESSAGE }}
+      commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
+      commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
+      commit_hash: ${{ needs.CommitMetadataGetter.outputs.COMMIT_HASH }}
+      commit_date: ${{ needs.CommitMetadataGetter.outputs.COMMIT_DATE }}
+      linux_build_status: ${{ needs.BuildCheckerLinux.outputs.LINUX_BUILD_STATUS }}
+      windows_build_status: ${{ needs.BuildCheckerWindows.outputs.WINDOWS_BUILD_STATUS }}
+      format_updated: ${{ needs.ClangCodeFormatter.outputs.FORMAT_UPDATED }}
+      docs_updated: ${{ needs.DocumentationUpdater.outputs.DOCS_UPDATED }}
+      tests_status: ${{ needs.TestsChecker.outputs.TESTS_STATUS }}
+      coverage_value: ${{ needs.TestsChecker.outputs.COVERAGE_VALUE }}
+      branches_coverage_value: ${{ needs.TestsChecker.outputs.BRANCHES_COVERAGE_VALUE }}
+      repository_url: $REPOSITORY_URL
+      pipeline_url: $PIPELINE_URL

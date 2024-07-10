@@ -1,0 +1,31 @@
+🔔 **Teamplate CI/CD Pipeline** 🔔\\n
+\\n
+- **Commit Message:** $COMMIT_MESSAGE\\n
+- **Commit Author:** $COMMIT_AUTHOR\\n
+- **Commit Email:** $COMMIT_EMAIL\\n
+- **Commit Hash:** $COMMIT_HASH\\n
+- **Commit Date:** $COMMIT_DATE\\n
+\\n
+**Builds Status**\\n
+- **Linux Build Status:** $LINUX_BUILD_STATUS\\n
+- **Windows Build Status:** $WINDOWS_BUILD_STATUS\\n
+\\n
+**Code Formatting**\\n
+- **Code Formatting Status:** $FORMAT_UPDATED\\n
+\\n
+**Documentation**\\n
+- **Documentation Update Status:** $DOCS_UPDATED\\n
+\\n
+**Tests**\\n
+- **Tests Status:** $TESTS_STATUS\\n
+- **Coverage Value:** $COVERAGE_VALUE\\n
+- **Branches Coverage Value:** $BRANCHES_COVERAGE_VALUE\\n
+\\n
+🚀 **Pipeline Completed** 🚀\\n
+\\n
+🔗 **[View Repository]($REPOSITORY_URL)**\\n
+🔗 **[View Commit]($REPOSITORY_URL/$COMMIT_HASH)**\\n
+🔗 **[View Pipeline]($REPOSITORY_URL/actions/runs/$PIPELINE_URL)**\\n
+\\n
+📌 **Note:** This is an automated message.\\n
+\\n
