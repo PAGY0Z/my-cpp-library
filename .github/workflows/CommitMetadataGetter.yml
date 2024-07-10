@@ -23,11 +23,11 @@ jobs:
   get_commit_data:
     runs-on: ubuntu-latest
     outputs:
-      COMMIT_MESSAGE: ${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}
-      COMMIT_AUTHOR: ${{ steps.get_commit_author.outputs.COMMIT_AUTHOR }}
-      COMMIT_EMAIL: ${{ steps.get_commit_email.outputs.COMMIT_EMAIL }}
-      COMMIT_HASH: ${{ steps.get_commit_hash.outputs.COMMIT_HASH }}
-      COMMIT_DATE: ${{ steps.get_commit_date.outputs.COMMIT_DATE }}
+      COMMIT_MESSAGE: ${{ env.COMMIT_MESSAGE }}
+      COMMIT_AUTHOR: ${{ env.COMMIT_AUTHOR }}
+      COMMIT_EMAIL: ${{ env.COMMIT_EMAIL }}
+      COMMIT_HASH: ${{ env.COMMIT_HASH }}
+      COMMIT_DATE: ${{ env.COMMIT_DATE }}
 
     steps:
       - name: Checkout code
@@ -60,8 +60,8 @@ jobs:
 
       - name: Display All
         run: |
-          echo "COMMIT_MESSAGE: ${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}"
-          echo "COMMIT_AUTHOR: ${{ steps.get_commit_author.outputs.COMMIT_AUTHOR }}"
-          echo "COMMIT_EMAIL: ${{ steps.get_commit_email.outputs.COMMIT_EMAIL }}"
-          echo "COMMIT_HASH: ${{ steps.get_commit_hash.outputs.COMMIT_HASH }}"
-          echo "COMMIT_DATE: ${{ steps.get_commit_date.outputs.COMMIT_DATE }}"
+          echo "COMMIT_MESSAGE: ${{ env.COMMIT_MESSAGE }}"
+          echo "COMMIT_AUTHOR: ${{ env.COMMIT_AUTHOR }}"
+          echo "COMMIT_EMAIL: ${{ env.COMMIT_EMAIL }}"
+          echo "COMMIT_HASH: ${{ env.COMMIT_HASH }}"
+          echo "COMMIT_DATE: ${{ env.COMMIT_DATE }}"
