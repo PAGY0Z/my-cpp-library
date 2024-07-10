@@ -25,7 +25,9 @@
 var NAVTREE =
 [
   [ "My Template Project", "index.html", [
-    [ "Project Template", "index.html", "index" ],
+    [ "Project Template", "index.html", [
+      [ "Introduction", "index.html#autotoc_md2", null ]
+    ] ],
     [ "Todo List", "dd/da0/todo.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -46,7 +48,7 @@ var NAVTREE =
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Related Symbols", "functions_rela.html", null ]
+        [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [

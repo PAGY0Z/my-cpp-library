@@ -1,9 +1,9 @@
 var Factory_8hpp =
 [
-    [ "Library::DesignPatterns::Exceptions::FactoryExceptionsMessage_s", "d2/dd1/structLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptionsMessage__s.html", "d2/dd1/structLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptionsMessage__s" ],
-    [ "Library::DesignPatterns::Exceptions::FactoryExceptions", "d3/dd0/classLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptions.html", "d3/dd0/classLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptions" ],
-    [ "Library::DesignPatterns::Factory< TypeFactoryObject, TypeKeyValue >", "dd/da5/classLibrary_1_1DesignPatterns_1_1Factory.html", "dd/da5/classLibrary_1_1DesignPatterns_1_1Factory" ],
-    [ "Library::DesignPatterns::FactoryParams", "d4/df0/classLibrary_1_1DesignPatterns_1_1FactoryParams.html", "d4/df0/classLibrary_1_1DesignPatterns_1_1FactoryParams" ],
+    [ "FactoryExceptionsMessage_s", "d2/dd1/structLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptionsMessage__s.html", "d2/dd1/structLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptionsMessage__s" ],
+    [ "FactoryExceptions", "d3/dd0/classLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptions.html", "d3/dd0/classLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptions" ],
+    [ "Factory", "dd/da5/classLibrary_1_1DesignPatterns_1_1Factory.html", "dd/da5/classLibrary_1_1DesignPatterns_1_1Factory" ],
+    [ "FactoryParams", "d4/df0/classLibrary_1_1DesignPatterns_1_1FactoryParams.html", "d4/df0/classLibrary_1_1DesignPatterns_1_1FactoryParams" ],
     [ "FactoryExceptionsType_e", "d5/d03/Factory_8hpp.html#a8b0f3a9f6d73a4ed6b8cae2ed38275db", null ],
     [ "FactoryExceptionsMessage_t", "d5/d03/Factory_8hpp.html#af082f9d6b00eb48f3334a0cce1418939", null ],
     [ "FactoryExceptionsType_e", "d5/d03/Factory_8hpp.html#ac2bf3b8bac6a46ea8bc011e3bc578134", [

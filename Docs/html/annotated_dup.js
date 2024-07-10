@@ -3,8 +3,8 @@ var annotated_dup =
     [ "Library", "da/dbd/namespaceLibrary.html", [
       [ "DesignPatterns", "de/d96/namespaceLibrary_1_1DesignPatterns.html", [
         [ "Exceptions", "d0/d46/namespaceLibrary_1_1DesignPatterns_1_1Exceptions.html", [
-          [ "FactoryExceptions", "d3/dd0/classLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptions.html", "d3/dd0/classLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptions" ],
-          [ "FactoryExceptionsMessage_s", "d2/dd1/structLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptionsMessage__s.html", "d2/dd1/structLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptionsMessage__s" ]
+          [ "FactoryExceptionsMessage_s", "d2/dd1/structLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptionsMessage__s.html", "d2/dd1/structLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptionsMessage__s" ],
+          [ "FactoryExceptions", "d3/dd0/classLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptions.html", "d3/dd0/classLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptions" ]
         ] ],
         [ "Factory", "dd/da5/classLibrary_1_1DesignPatterns_1_1Factory.html", "dd/da5/classLibrary_1_1DesignPatterns_1_1Factory" ],
         [ "FactoryParams", "d4/df0/classLibrary_1_1DesignPatterns_1_1FactoryParams.html", "d4/df0/classLibrary_1_1DesignPatterns_1_1FactoryParams" ],
