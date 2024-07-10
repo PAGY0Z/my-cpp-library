@@ -69,48 +69,34 @@ on:
         required: true
 
 jobs:
-  setup-variables:
-    runs-on: ubuntu-latest
-    outputs:
-      WEBHOOK: ${{ inputs.webhook }}
-      MESSAGE_FILE: ${{ inputs.message_file }}
-      COMMIT_MESSAGE: ${{ inputs.commit_message }}
-      COMMIT_AUTHOR: ${{ inputs.commit_author }}
-      COMMIT_EMAIL: ${{ inputs.commit_email }}
-      COMMIT_HASH: ${{ inputs.commit_hash }}
-      COMMIT_DATE: ${{ inputs.commit_date }}
-      LINUX_BUILD_STATUS: ${{ inputs.linux_build_status }}
-      WINDOWS_BUILD_STATUS: ${{ inputs.windows_build_status }}
-      FORMAT_UPDATED: ${{ inputs.format_updated }}
-      DOCS_UPDATED: ${{ inputs.docs_updated }}
-      TESTS_STATUS: ${{ inputs.tests_status }}
-      COVERAGE_VALUE: ${{ inputs.coverage_value }}
-      BRANCHES_COVERAGE_VALUE: ${{ inputs.branches_coverage_value }}
-      REPOSITORY_URL: ${{ inputs.repository_url }}
-      PIPELINE_URL: ${{ inputs.pipeline_url }}
-      MESSAGE: ""
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
   notify-webhook:
-    needs: [setup-variables]
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Get Message
+      - name: Read and format message
+        id: format_message
         run: |
-          MESSAGE=$(cat ${{ needs.setup-variables.outputs.MESSAGE_FILE }})
-          echo "MESSAGE=$MESSAGE" >> $GITHUB_ENV
-
-      - name: Display Message
-        run: |
-          echo "Commit Message: ${{ github.env.MESSAGE }}"
+          MESSAGE=$(cat ${{ inputs.message_file }})
+          FORMATTED_MESSAGE=$(echo "$MESSAGE" | sed "s|{{COMMIT_MESSAGE}}|${{ inputs.commit_message }}|g")
+          FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{COMMIT_AUTHOR}}|${{ inputs.commit_author }}|g")
+          FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{COMMIT_EMAIL}}|${{ inputs.commit_email }}|g")
+          FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{COMMIT_HASH}}|${{ inputs.commit_hash }}|g")
+          FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{COMMIT_DATE}}|${{ inputs.commit_date }}|g")
+          FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{LINUX_BUILD_STATUS}}|${{ inputs.linux_build_status }}|g")
+          FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{WINDOWS_BUILD_STATUS}}|${{ inputs.windows_build_status }}|g")
+          FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{FORMAT_UPDATED}}|${{ inputs.format_updated }}|g")
+          FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{DOCS_UPDATED}}|${{ inputs.docs_updated }}|g")
+          FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{TESTS_STATUS}}|${{ inputs.tests_status }}|g")
+          FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{COVERAGE_VALUE}}|${{ inputs.coverage_value }}|g")
+          FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{BRANCHES_COVERAGE_VALUE}}|${{ inputs.branches_coverage_value }}|g")
+          FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{REPOSITORY_URL}}|${{ inputs.repository_url }}|g")
+          FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{PIPELINE_URL}}|${{ inputs.pipeline_url }}|g")
+          echo "FORMATTED_MESSAGE=$FORMATTED_MESSAGE" >> $GITHUB_ENV
+          echo "Formatted Message: $FORMATTED_MESSAGE"
 
       - name: Notify Via Webhook
         run: |
-          curl -X POST -H 'Content-Type: application/json' -d "{\"text\":\"${{ github.env.MESSAGE }}\"}" ${{ needs.setup-variables.outputs.WEBHOOK }}
+          curl -X POST -H 'Content-Type: application/json' -d "{\"text\":\"${{ env.FORMATTED_MESSAGE }}\"}" ${{ inputs.webhook }}
