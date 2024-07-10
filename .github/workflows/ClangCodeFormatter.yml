@@ -43,7 +43,6 @@ jobs:
             echo "FORMAT_UPDATED=FORMATTED" >> $GITHUB_ENV
           else
             echo "FORMAT_UPDATED=NOT FORMATTED" >> $GITHUB_ENV
-            exit 0
           fi
         continue-on-error: true
 
@@ -56,6 +55,6 @@ jobs:
       - name: Commit & Push changes
         run: |
           git add . || true
-          git commit -m "[CI] - [FORMAT] - The code has been formatted"
-          git commit --amend --author="${{ inputs.commit_author }} <${{ inputs.commit_email }}>" -m "[CI] - [FORMAT] - The code has been formatted"
+          git commit -m "[CI] - [FORMAT] - The code has been formatted" || true
+          git commit --amend --author="${{ inputs.commit_author }} <${{ inputs.commit_email }}>" -m "[CI] - [FORMAT] - The code has been formatted" || true
           git push origin main || exit 0

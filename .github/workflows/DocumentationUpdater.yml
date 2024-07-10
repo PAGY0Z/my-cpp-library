@@ -44,7 +44,6 @@ jobs:
             echo "DOCS_UPDATED=DOCS UPDATED" >> $GITHUB_ENV
           else
             echo "DOCS_UPDATED=DOCS NOT UPDATED" >> $GITHUB_ENV
-            exit 0
           fi
         continue-on-error: true
 
@@ -57,6 +56,6 @@ jobs:
       - name: Commit & Push changes
         run: |
           git add . || true
-          git commit -m "[CI] - [DOCS] - The documentation has been updated"
-          git commit --amend --author="${{ inputs.commit_author }} <${{ inputs.commit_email }}>" -m "[CI] - [DOCS] - The documentation has been updated"
+          git commit -m "[CI] - [DOCS] - The documentation has been updated"  || true
+          git commit --amend --author="${{ inputs.commit_author }} <${{ inputs.commit_email }}>" -m "[CI] - [DOCS] - The documentation has been updated"  || true
           git push origin main || exit 0
