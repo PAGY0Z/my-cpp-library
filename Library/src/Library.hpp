@@ -48,10 +48,9 @@
 
 #include "DesignPatterns/Factory/Factory.hpp"
 #include "DesignPatterns/Singleton/Singleton.hpp"
-
 #include "Utils/AException/AException.hpp"
-#include "Utils/Params/Params.hpp"
 #include "Utils/NumericalParsers/NumericalParsers.hpp"
+#include "Utils/Params/Params.hpp"
 
 /// \brief Program entry point
 ///

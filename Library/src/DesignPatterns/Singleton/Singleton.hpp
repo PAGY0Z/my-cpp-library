@@ -66,7 +66,7 @@ namespace Library
         /// one instance of the class is created in a thread-safe manner.
         ///
         /// \tparam Type The type of the class that will be a Singleton
-        template <typename Type>
+        template<typename Type>
         class Singleton
         {
         public:
@@ -80,7 +80,7 @@ namespace Library
             /// \tparam Args Variadic template parameter pack for constructor arguments.
             /// \param args Arguments to be forwarded to the class constructor.
             /// \return Reference to the single instance of the class.
-            template <typename... Args>
+            template<typename... Args>
             [[nodiscard]] static Type &GetInstance(Args &&...args)
             {
                 std::call_once(__initInstanceFlag, &Singleton::InitSingleton<Args...>, std::forward<Args>(args)...);
@@ -98,7 +98,7 @@ namespace Library
             /// \brief Initializes the Singleton instance.
             /// \tparam Args Variadic template parameter pack for constructor arguments.
             /// \param args Arguments to be forwarded to the class constructor.
-            template <typename... Args>
+            template<typename... Args>
             static void InitSingleton(Args &&...args)
             {
                 __instance.reset(new Type(std::forward<Args>(args)...));
@@ -110,7 +110,7 @@ namespace Library
             /// \brief Flag to ensure that the instance is initialized only once.
             inline static std::once_flag __initInstanceFlag;
         };
-    } // namespace DesignPatterns
-} // namespace Library
+    }    // namespace DesignPatterns
+}    // namespace Library
 
 #endif /* !SINGLETON_HPP_ */

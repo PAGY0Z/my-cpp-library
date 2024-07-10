@@ -5,9 +5,11 @@
 ** Tests_Useless
 */
 
-#include <gtest/gtest.h>
 #include "Library.hpp"
 
-TEST(ExampleTest, BasicAssertions) {
+#include <gtest/gtest.h>
+
+TEST(ExampleTest, BasicAssertions)
+{
     EXPECT_EQ(1, 1);
 }

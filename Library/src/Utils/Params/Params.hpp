@@ -46,10 +46,10 @@
 #ifndef PARAMS_HPP_
 #define PARAMS_HPP_
 
-#include <vector>
-#include <string>
-
 #include "DesignPatterns/Singleton/Singleton.hpp"
+
+#include <string>
+#include <vector>
 
 static const char *const emptyArgv[] = {NULL};
 
@@ -109,7 +109,8 @@ namespace Library
             ///
             /// \param argc The number of command-line arguments
             /// \param argv The array of command-line arguments
-            Params(const unsigned int argc, const char *const *argv) : Library::DesignPatterns::Singleton<Params>(), __argc(argc), __argv(argv) {}
+            Params(const unsigned int argc, const char *const *argv)
+                : Library::DesignPatterns::Singleton<Params>(), __argc(argc), __argv(argv) {}
 
             /// \brief The number of command-line arguments
             const unsigned int __argc;
@@ -117,7 +118,7 @@ namespace Library
             /// \brief The array of command-line arguments
             const char *const *__argv;
         };
-    } // namespace Utils
-} // namespace Library
+    }    // namespace Utils
+}    // namespace Library
 
 #endif /* !PARAMS_HPP_ */
