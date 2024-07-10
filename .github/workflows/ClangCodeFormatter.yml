@@ -1,11 +1,11 @@
-name: Doxygen Documentation Updater
+name: Clang Code Formatter
 
 on:
   workflow_call:
   workflow_dispatch:
 
 jobs:
-  update_documentations:
+  format-code:
     runs-on: ubuntu-latest
     outputs:
       UPDATED: ${{ steps.get_updated_status.outputs.UPDATED }}
@@ -14,15 +14,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Update Packages List
-        run: sudo apt-get update
-
-      - name: Set up Doxygen
-        run: sudo apt-get install -y doxygen
-
-      - name: Generate Doxygen Documentation
+      - name: Install ClangFormat
         run: |
-          doxygen Docs/Doxyfile
+          sudo apt-get update
+          sudo apt-get install -y clang-format
+
+      - name: Format code
+        run: |
+          find . -type f -name "*.cpp" -o -name "*.hpp" | while read file; do
+            clang-format -i $file
+          done
 
       - name: Get Updated Status
         id: get_updated_status
@@ -36,7 +37,7 @@ jobs:
 
       - name: Update GitHub Actions Log
         run: |
-          echo "Doxygen Documentation Generation completed successfully!" >> ./.github/GithubActionsLogs.txt
+          echo "Code formatting completed successfully!" >> ./.github/GithubActionsLogs.txt
           date "+%Y-%m-%d %H:%M:%S" >> ./.github/GithubActionsLogs.txt
 
       - name: Commit & Push changes
@@ -44,5 +45,5 @@ jobs:
           git add . || true
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-          git commit -m "[CI] - [DOCS] - Documentation Updated" || true
+          git commit -m "[CI] - [FORMAT] - Format Checked/Updated" || true
           git push origin main || true

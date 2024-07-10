@@ -1,0 +1,39 @@
+name: Commit Metadata Getter
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  get_commit_data:
+    runs-on: ubuntu-latest
+    outputs:
+      COMMIT_MESSAGE: ${{ steps.get_commit_message.outputs.COMMIT_MESSAGE }}
+      COMMIT_AUTHOR: ${{ steps.get_commit_author.outputs.COMMIT_AUTHOR }}
+      COMMIT_EMAIL: ${{ steps.get_commit_email.outputs.COMMIT_EMAIL }}
+      COMMIT_HASH: ${{ steps.get_commit_hash.outputs.COMMIT_HASH }}
+      COMMIT_DATE: ${{ steps.get_commit_date.outputs.COMMIT_DATE }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3.4.0
+
+      - name: Get Commit Message
+        id: get_commit_message
+        run: echo "::set-output name=COMMIT_MESSAGE::$(git log -1 --pretty=format:'%s')"
+
+      - name: Get Commit Author
+        id: get_commit_author
+        run: echo "::set-output name=COMMIT_AUTHOR::$(git log -1 --pretty=format:'%an')"
+
+      - name: Get Commit Email
+        id: get_commit_email
+        run: echo "::set-output name=COMMIT_EMAIL::$(git log -1 --pretty=format:'%ae')"
+
+      - name: Get Commit Hash
+        id: get_commit_hash
+        run: echo "::set-output name=COMMIT_HASH::$(git log -1 --pretty=format:'%H')"
+
+      - name: Get Commit Date
+        id: get_commit_date
+        run: echo "::set-output name=COMMIT_DATE::$(git log -1 --pretty=format:'%ad')"

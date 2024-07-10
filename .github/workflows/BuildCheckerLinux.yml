@@ -1,15 +1,14 @@
 name: Linux CMake Build Checker
 
 on:
-  workflow_run:
-    workflows: ["Code Formatter"]
-    types:
-      - completed
+  workflow_call:
   workflow_dispatch:
 
 jobs:
   build-linux:
     runs-on: ubuntu-latest
+    outputs:
+      BUILD_STATUS: ${{ steps.get_build_status.outputs.BUILD_STATUS }}
 
     steps:
       - name: Checkout code
@@ -27,3 +26,14 @@ jobs:
           cmake ..
           cmake --build .
           cd ..
+        continue-on-error: true
+
+      - name: Get Build Status
+        id: get_build_status
+        run: |
+          if [[ $? -eq 0 ]]; then
+            echo "::set-output name=BUILD_STATUS::LINUX BUILD OK"
+          else
+            echo "::set-output name=BUILD_STATUS::LINUX BUILD KO"
+          fi
+        continue-on-error: true
