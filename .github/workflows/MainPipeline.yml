@@ -39,29 +39,29 @@ jobs:
     uses: ./.github/workflows/CommitMetadataGetter.yml
 
   ClangCodeFormatter:
-    needs: [CommitMetadataGetter]
+    needs: [SetupEnvironmentVariable, CommitMetadataGetter]
     uses: ./.github/workflows/ClangCodeFormatter.yml
     with:
       commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
       commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
 
   DocumentationUpdater:
-    needs: [CommitMetadataGetter, ClangCodeFormatter]
+    needs: [SetupEnvironmentVariable, CommitMetadataGetter, ClangCodeFormatter]
     uses: ./.github/workflows/DocumentationUpdater.yml
     with:
       commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
       commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
 
   BuildCheckerLinux:
-    needs: [CommitMetadataGetter, ClangCodeFormatter, DocumentationUpdater]
+    needs: [SetupEnvironmentVariable, CommitMetadataGetter, ClangCodeFormatter, DocumentationUpdater]
     uses: ./.github/workflows/BuildCheckerLinux.yml
 
   BuildCheckerWindows:
-    needs: [CommitMetadataGetter, ClangCodeFormatter, DocumentationUpdater]
+    needs: [SetupEnvironmentVariable, CommitMetadataGetter, ClangCodeFormatter, DocumentationUpdater]
     uses: ./.github/workflows/BuildCheckerWindows.yml
 
   TestsChecker:
-    needs: [CommitMetadataGetter, ClangCodeFormatter, DocumentationUpdater]
+    needs: [SetupEnvironmentVariable, CommitMetadataGetter, ClangCodeFormatter, DocumentationUpdater]
     uses: ./.github/workflows/TestsChecker.yml
 
   NotifyViaWebHookDiscord:
