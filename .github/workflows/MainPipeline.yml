@@ -61,14 +61,7 @@ jobs:
     uses: ./.github/workflows/BuildCheckerWindows.yml
 
   TestsChecker:
-    needs:
-      [
-        CommitMetadataGetter,
-        ClangCodeFormatter,
-        DocumentationUpdater,
-        BuildCheckerLinux,
-        BuildCheckerWindows,
-      ]
+    needs: [CommitMetadataGetter, ClangCodeFormatter, DocumentationUpdater]
     uses: ./.github/workflows/TestsChecker.yml
 
   NotifyViaWebHookDiscord:
