@@ -95,7 +95,6 @@ jobs:
           FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{REPOSITORY_URL}}|${{ inputs.repository_url }}|g")
           FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{PIPELINE_URL}}|${{ inputs.pipeline_url }}|g")
           echo "FORMATTED_MESSAGE=$FORMATTED_MESSAGE" >> $GITHUB_ENV
-          echo "Formatted Message: $FORMATTED_MESSAGE"
 
       - name: Notify Via Webhook
         run: |
