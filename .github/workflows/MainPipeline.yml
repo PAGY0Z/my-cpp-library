@@ -12,8 +12,8 @@ on:
 env:
   REPOSITORY_URL: ${{ github.event.repository.html_url }}
   PIPELINE_URL: ${{ github.run_id }}
-  WEBHOOK_DISCORD: https://discord.com/api/webhooks/1265009748017807392/dvtDWUMb8t1ZYGlGPYuohwubH7RE3HZkE2ONxN6_Z_iQutK5DEO2zbJuBTbVyOUmGOi_
-  WEBHOOK_TEAMS: https://discord.com/api/webhooks/1265009748017807392/dvtDWUMb8t1ZYGlGPYuohwubH7RE3HZkE2ONxN6_Z_iQutK5DEO2zbJuBTbVyOUmGOi_
+  WEBHOOK_DISCORD: https://discord.com/api/webhooks/1265009751855468686/72jOj5C3mr9oeJ5X7Zmue65NROn2unFtkZdUTAmv9ybPQa7vDg_2h-LApMwVHLASnM6c
+  WEBHOOK_TEAMS: https://discord.com/api/webhooks/1265009751855468686/72jOj5C3mr9oeJ5X7Zmue65NROn2unFtkZdUTAmv9ybPQa7vDg_2h-LApMwVHLASnM6c
   WEBHOOK_MESSAGE_FILE: ./.github/GithubPipelineNotification.txt
 
 jobs:
