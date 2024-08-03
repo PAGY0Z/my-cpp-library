@@ -16,6 +16,10 @@ if(CODE_COVERAGE AND CMAKE_COMPILER_IS_GNUCXX)
     add_link_options(--coverage)
 endif()
 
+if(MSVC)
+    add_compile_options(/W4 /WX)
+endif()
+
 add_subdirectory(Library)
 add_subdirectory(${PROJECT_NAME})
 
