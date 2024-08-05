@@ -58,13 +58,13 @@ jobs:
           COVERAGE_VALUE="${{ inputs.coverage_value }}"
           BRANCHES_COVERAGE_VALUE="${{ inputs.branches_coverage_value }}"
 
-          LINUX_BUILD_STATUS_ENCODED=$(echo "${LINUX_BUILD_STATUS}" | sed 's/ /%20/g')
-          WINDOWS_BUILD_STATUS_ENCODED=$(echo "${WINDOWS_BUILD_STATUS}" | sed 's/ /%20/g')
-          FORMAT_UPDATED_ENCODED=$(echo "${FORMAT_UPDATED}" | sed 's/ /%20/g')
-          DOCS_UPDATED_ENCODED=$(echo "${DOCS_UPDATED}" | sed 's/ /%20/g')
-          TESTS_STATUS_ENCODED=$(echo "${TESTS_STATUS}" | sed 's/ /%20/g')
-          COVERAGE_VALUE_ENCODED=$(echo "${COVERAGE_VALUE}" | sed 's/ /%20/g')
-          BRANCHES_COVERAGE_VALUE_ENCODED=$(echo "${BRANCHES_COVERAGE_VALUE}" | sed 's/ /%20/g')
+          LINUX_BUILD_STATUS=$(echo "${LINUX_BUILD_STATUS}" | sed 's/ /%20/g')
+          WINDOWS_BUILD_STATUS=$(echo "${WINDOWS_BUILD_STATUS}" | sed 's/ /%20/g')
+          FORMAT_UPDATED=$(echo "${FORMAT_UPDATED}" | sed 's/ /%20/g')
+          DOCS_UPDATED=$(echo "${DOCS_UPDATED}" | sed 's/ /%20/g')
+          TESTS_STATUS=$(echo "${TESTS_STATUS}" | sed 's/ /%20/g')
+          COVERAGE_VALUE=$(echo "${COVERAGE_VALUE}" | sed 's/ /%20/g')
+          BRANCHES_COVERAGE_VALUE=$(echo "${BRANCHES_COVERAGE_VALUE}" | sed 's/ /%20/g')
 
           curl -o ./.github/Badges/linux-build.svg "https://img.shields.io/badge/Linux%20Build-${LINUX_BUILD_STATUS}-blue"
           curl -o ./.github/Badges/windows-build.svg "https://img.shields.io/badge/Windows%20Build-${WINDOWS_BUILD_STATUS}-blue"
