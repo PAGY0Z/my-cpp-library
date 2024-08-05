@@ -1,5 +1,11 @@
 # Project Template
 
+<div align="center" style="margin-bottom: 20px;">
+  <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+    <img src="./.github/Files/R-Type_Logo.png" alt="R-Type Logo" style="height: 100px;">
+    <img src="./.github/Files/Epitech_Logo.png" alt="Epitech Logo" style="height: 100px;">
+  </div>
+</div>
 ---
 
 <div align="center" style="margin-bottom: 20px;">
@@ -26,4 +32,5 @@
 ---
 
 ## Introduction
+
 Welcome to the project template! This README file serves as a starting point for your project. It contains essential information to help you get started.
