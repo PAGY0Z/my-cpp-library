@@ -98,7 +98,7 @@ jobs:
           FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{BRANCHES_COVERAGE_VALUE}}|${{ inputs.branches_coverage_value }}|g")
           FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{REPOSITORY_URL}}|${{ inputs.repository_url }}|g")
           FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{PIPELINE_URL}}|${{ inputs.pipeline_url }}|g")
-          echo "FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | jq -Rsa)" >> $GITHUB_ENV
+          echo "FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | jq -Rsa .)" >> $GITHUB_ENV
 
       - name: Notify Via Webhook
         run: |
