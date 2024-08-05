@@ -50,13 +50,13 @@ jobs:
 
       - name: Get the values to set the badges
         run: |
-          LINUX_BUILD_STATUS=${{ inputs.linux_build_status }}
-          WINDOWS_BUILD_STATUS=${{ inputs.windows_build_status }}
-          FORMAT_UPDATED=${{ inputs.format_updated }}
-          DOCS_UPDATED=${{ inputs.docs_updated }}
-          TESTS_STATUS=${{ inputs.tests_status }}
-          COVERAGE_VALUE=${{ inputs.coverage_value }}
-          BRANCHES_COVERAGE_VALUE=${{ inputs.branches_coverage_value }}
+          LINUX_BUILD_STATUS="${{ inputs.linux_build_status }}"
+          WINDOWS_BUILD_STATUS="${{ inputs.windows_build_status }}"
+          FORMAT_UPDATED="${{ inputs.format_updated }}"
+          DOCS_UPDATED="${{ inputs.docs_updated }}"
+          TESTS_STATUS="${{ inputs.tests_status }}"
+          COVERAGE_VALUE="${{ inputs.coverage_value }}"
+          BRANCHES_COVERAGE_VALUE="${{ inputs.branches_coverage_value }}"
 
           curl -o ./.github/Badges/linux-build.svg "https://img.shields.io/badge/Linux%20Build-${LINUX_BUILD_STATUS}-blue"
           curl -o ./.github/Badges/windows-build.svg "https://img.shields.io/badge/Windows%20Build-${WINDOWS_BUILD_STATUS}-blue"
