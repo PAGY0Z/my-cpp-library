@@ -1,23 +1,23 @@
 🔔 **Template CI/CD Pipeline** 🔔
 
-**Commit Information**
+⚙️ **Commit Information**
 - **Commit Message:** {{COMMIT_MESSAGE}}
 - **Commit Author:** {{COMMIT_AUTHOR}}
 - **Commit Email:** {{COMMIT_EMAIL}}
 - **Commit Hash:** {{COMMIT_HASH}}
 - **Commit Date:** {{COMMIT_DATE}}
 
-**Builds Status**
+🛠️ **Builds Status**
 - **Linux Build Status:** {{LINUX_BUILD_STATUS}}
 - **Windows Build Status:** {{WINDOWS_BUILD_STATUS}}
 
-**Code Formatting**
+🪄 **Code Formatting**
 - **Code Formatting Status:** {{FORMAT_UPDATED}}
 
-**Documentation**
+📖 **Documentation**
 - **Documentation Update Status:** {{DOCS_UPDATED}}
 
-**Tests**
+✅ **Tests**
 - **Tests Status:** {{TESTS_STATUS}}
 - **Coverage Value:** {{COVERAGE_VALUE}}
 - **Branches Coverage Value:** {{BRANCHES_COVERAGE_VALUE}}
