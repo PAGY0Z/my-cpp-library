@@ -102,4 +102,4 @@ jobs:
 
       - name: Notify Via Webhook
         run: |
-          curl -X POST -H 'Content-Type: application/json' -d "{\"${{ inputs.webhook_field }}\":${{ env.FORMATTED_MESSAGE }}}" ${{ inputs.webhook }}
+          curl -X POST -H 'Content-Type: application/json' -d "{\"${{ inputs.webhook_field }}\":\"${{ env.FORMATTED_MESSAGE }}\"}" ${{ inputs.webhook }}
