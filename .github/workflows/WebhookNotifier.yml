@@ -3,6 +3,10 @@ name: Notify via Webhook
 on:
   workflow_call:
     inputs:
+      webhook_field:
+        type: string
+        description: "The webhook field"
+        required: true
       webhook:
         type: string
         description: "The webhook to send the message to"
@@ -98,4 +102,4 @@ jobs:
 
       - name: Notify Via Webhook
         run: |
-          curl -X POST -H 'Content-Type: application/json' -d '{"text":"${{ env.FORMATTED_MESSAGE }}"}' ${{ inputs.webhook }}
+          curl -X POST -H 'Content-Type: application/json' -d '{"${{ inputs.webhook_field }}":"${{ env.FORMATTED_MESSAGE }}"}' ${{ inputs.webhook }}

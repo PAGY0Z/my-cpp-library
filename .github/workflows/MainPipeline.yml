@@ -12,7 +12,9 @@ on:
 env:
   REPOSITORY_URL: ${{ github.event.repository.html_url }}
   PIPELINE_URL: ${{ github.run_id }}
+  WEBHOOK_DISCORD_FIELD: content
   WEBHOOK_DISCORD: https://discord.com/api/webhooks/1270126985083093122/r6cD90A4a_sFh3D8ebgWZNgukRM2CAsaSSZvfEBn3JFrKofO4EXeyk5pC6jRe585BU39
+  WEBHOOK_TEAMS_FIELD: content
   WEBHOOK_TEAMS: https://discord.com/api/webhooks/1270126985083093122/r6cD90A4a_sFh3D8ebgWZNgukRM2CAsaSSZvfEBn3JFrKofO4EXeyk5pC6jRe585BU39
   WEBHOOK_MESSAGE_FILE: ./.github/GithubPipelineNotification.txt
 
@@ -22,7 +24,9 @@ jobs:
     outputs:
       REPOSITORY_URL: ${{ env.REPOSITORY_URL }}
       PIPELINE_URL: ${{ env.PIPELINE_URL }}
+      WEBHOOK_DISCORD_FIELD: ${{ env.WEBHOOK_DISCORD_FIELD }}
       WEBHOOK_DISCORD: ${{ env.WEBHOOK_DISCORD }}
+      WEBHOOK_TEAMS_FIELD: ${{ env.WEBHOOK_TEAMS_FIELD }}
       WEBHOOK_TEAMS: ${{ env.WEBHOOK_TEAMS }}
       WEBHOOK_MESSAGE_FILE: ${{ env.WEBHOOK_MESSAGE_FILE }}
 
@@ -95,6 +99,7 @@ jobs:
       ]
     uses: ./.github/workflows/WebhookNotifier.yml
     with:
+      webhook_field: ${{ needs.SetupEnvironmentVariable.outputs.WEBHOOK_DISCORD_FIELD }}
       webhook: ${{ needs.SetupEnvironmentVariable.outputs.WEBHOOK_DISCORD }}
       message_file: ${{ needs.SetupEnvironmentVariable.outputs.WEBHOOK_MESSAGE_FILE }}
       commit_message: ${{ needs.CommitMetadataGetter.outputs.COMMIT_MESSAGE }}
@@ -125,6 +130,7 @@ jobs:
       ]
     uses: ./.github/workflows/WebhookNotifier.yml
     with:
+      webhook_field: ${{ needs.SetupEnvironmentVariable.outputs.WEBHOOK_TEAMS_FIELD }}
       webhook: ${{ needs.SetupEnvironmentVariable.outputs.WEBHOOK_TEAMS }}
       message_file: ${{ needs.SetupEnvironmentVariable.outputs.WEBHOOK_MESSAGE_FILE }}
       commit_message: ${{ needs.CommitMetadataGetter.outputs.COMMIT_MESSAGE }}
