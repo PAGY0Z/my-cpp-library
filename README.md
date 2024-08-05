@@ -1,11 +1,12 @@
 # Project Template
 
 <div align="center" style="margin-bottom: 20px;">
-  <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
-    <img src="./.github/Files/R-Type_Logo.png" alt="R-Type Logo" style="height: 100px;">
-    <img src="./.github/Files/Epitech_Logo.png" alt="Epitech Logo" style="height: 100px;">
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+    <img src="./.github/Files/Epitech_Logo.png" alt="Epitech Logo" style="width: 85%;">
+    <img src="./.github/Files/R-Type_Logo.png" alt="R-Type Logo" style="width: 60%;">
   </div>
 </div>
+
 ---
 
 <div align="center" style="margin-bottom: 20px;">
