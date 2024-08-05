@@ -57,9 +57,7 @@ jobs:
           TESTS_STATUS=${{ inputs.tests_status }}
           COVERAGE_VALUE=${{ inputs.coverage_value }}
           BRANCHES_COVERAGE_VALUE=${{ inputs.branches_coverage_value }}
-    
-      - name: Set the badges
-        run: |
+
           curl -o ./.github/Badges/linux-build.svg "https://img.shields.io/badge/Linux%20Build-${LINUX_BUILD_STATUS}-blue"
           curl -o ./.github/Badges/windows-build.svg "https://img.shields.io/badge/Windows%20Build-${WINDOWS_BUILD_STATUS}-blue"
           curl -o ./.github/Badges/format-updated.svg "https://img.shields.io/badge/Format%20Updated-${FORMAT_UPDATED}-blue"
