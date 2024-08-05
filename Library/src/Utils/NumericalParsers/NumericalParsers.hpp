@@ -265,7 +265,7 @@ namespace Library
             /// \return `true` if the parsing is successful, `false` otherwise
             [[nodiscard]] bool ParseBool(const std::string &string, bool &value) noexcept;
         }    // namespace NumericalParsers
-    }    // namespace Utils
+    }        // namespace Utils
 }    // namespace Library
 
 #endif /* !NUMERICALPARSERS_HPP_ */
