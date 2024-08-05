@@ -48,29 +48,6 @@
 
 #include <string>
 
-//  * @warning this is a warning only for demonstration purposes
-//  *
-//  * @note this is a note to show that notes work. They can also include `code`:
-//  * @code{.c}
-//  * void this_looks_awesome();
-//  * @endcode
-//  *
-//  * @bug example bug
-//  *
-//  * @deprecated None of this will be deprecated, because it's beautiful!
-//  *
-//  * @invariant This is an invariant
-//  *
-//  * @pre This is a precondition
-//  *
-//  * @post This is a postcondition
-//  *
-//  * @todo This theme is never finished!
-//  *
-//  * @remark This is awesome!
-//  *
-//  */
-
 namespace Library
 {
     namespace Utils
@@ -288,7 +265,7 @@ namespace Library
             /// \return `true` if the parsing is successful, `false` otherwise
             [[nodiscard]] bool ParseBool(const std::string &string, bool &value) noexcept;
         }    // namespace NumericalParsers
-    }        // namespace Utils
+    }    // namespace Utils
 }    // namespace Library
 
 #endif /* !NUMERICALPARSERS_HPP_ */
