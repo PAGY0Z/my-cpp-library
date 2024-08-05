@@ -12,8 +12,8 @@ on:
 env:
   REPOSITORY_URL: ${{ github.event.repository.html_url }}
   PIPELINE_URL: ${{ github.run_id }}
-  WEBHOOK_DISCORD: https://discord.com/api/webhooks/1265009751855468686/72jOj5C3mr9oeJ5X7Zmue65NROn2unFtkZdUTAmv9ybPQa7vDg_2h-LApMwVHLASnM6c
-  WEBHOOK_TEAMS: https://discord.com/api/webhooks/1265009751855468686/72jOj5C3mr9oeJ5X7Zmue65NROn2unFtkZdUTAmv9ybPQa7vDg_2h-LApMwVHLASnM6c
+  WEBHOOK_DISCORD:
+  WEBHOOK_TEAMS:
   WEBHOOK_MESSAGE_FILE: ./.github/GithubPipelineNotification.txt
 
 jobs:
@@ -29,11 +29,11 @@ jobs:
     steps:
       - name: Set Environment Variables
         run: |
-            echo "REPOSITORY_URL=${REPOSITORY_URL}" >> $GITHUB_ENV
-            echo "PIPELINE_URL=${PIPELINE_URL}" >> $GITHUB_ENV
-            echo "WEBHOOK_DISCORD=${WEBHOOK_DISCORD}" >> $GITHUB_ENV
-            echo "WEBHOOK_TEAMS=${WEBHOOK_TEAMS}" >> $GITHUB_ENV
-            echo "WEBHOOK_MESSAGE_FILE=${WEBHOOK_MESSAGE_FILE}" >> $GITHUB_ENV
+          echo "REPOSITORY_URL=${REPOSITORY_URL}" >> $GITHUB_ENV
+          echo "PIPELINE_URL=${PIPELINE_URL}" >> $GITHUB_ENV
+          echo "WEBHOOK_DISCORD=${WEBHOOK_DISCORD}" >> $GITHUB_ENV
+          echo "WEBHOOK_TEAMS=${WEBHOOK_TEAMS}" >> $GITHUB_ENV
+          echo "WEBHOOK_MESSAGE_FILE=${WEBHOOK_MESSAGE_FILE}" >> $GITHUB_ENV
 
   CommitMetadataGetter:
     uses: ./.github/workflows/CommitMetadataGetter.yml
@@ -53,15 +53,33 @@ jobs:
       commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
 
   BuildCheckerLinux:
-    needs: [SetupEnvironmentVariable, CommitMetadataGetter, ClangCodeFormatter, DocumentationUpdater]
+    needs:
+      [
+        SetupEnvironmentVariable,
+        CommitMetadataGetter,
+        ClangCodeFormatter,
+        DocumentationUpdater,
+      ]
     uses: ./.github/workflows/BuildCheckerLinux.yml
 
   BuildCheckerWindows:
-    needs: [SetupEnvironmentVariable, CommitMetadataGetter, ClangCodeFormatter, DocumentationUpdater]
+    needs:
+      [
+        SetupEnvironmentVariable,
+        CommitMetadataGetter,
+        ClangCodeFormatter,
+        DocumentationUpdater,
+      ]
     uses: ./.github/workflows/BuildCheckerWindows.yml
 
   TestsChecker:
-    needs: [SetupEnvironmentVariable, CommitMetadataGetter, ClangCodeFormatter, DocumentationUpdater]
+    needs:
+      [
+        SetupEnvironmentVariable,
+        CommitMetadataGetter,
+        ClangCodeFormatter,
+        DocumentationUpdater,
+      ]
     uses: ./.github/workflows/TestsChecker.yml
 
   NotifyViaWebHookDiscord:
@@ -123,3 +141,26 @@ jobs:
       branches_coverage_value: ${{ needs.TestsChecker.outputs.BRANCHES_COVERAGE_VALUE }}
       repository_url: ${{ needs.SetupEnvironmentVariable.outputs.REPOSITORY_URL }}
       pipeline_url: ${{ needs.SetupEnvironmentVariable.outputs.PIPELINE_URL }}
+
+  BadgesUpdater:
+    needs:
+      [
+        SetupEnvironmentVariable,
+        CommitMetadataGetter,
+        ClangCodeFormatter,
+        DocumentationUpdater,
+        BuildCheckerLinux,
+        BuildCheckerWindows,
+        TestsChecker,
+      ]
+    uses: ./.github/workflows/BadgesUpdater.yml
+    with:
+      commit_author: ${{ needs.CommitMetadataGetter.outputs.COMMIT_AUTHOR }}
+      commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
+      linux_build_status: ${{ needs.BuildCheckerLinux.outputs.LINUX_BUILD_STATUS }}
+      windows_build_status: ${{ needs.BuildCheckerWindows.outputs.WINDOWS_BUILD_STATUS }}
+      format_updated: ${{ needs.ClangCodeFormatter.outputs.FORMAT_UPDATED }}
+      docs_updated: ${{ needs.DocumentationUpdater.outputs.DOCS_UPDATED }}
+      tests_status: ${{ needs.TestsChecker.outputs.TESTS_STATUS }}
+      coverage_value: ${{ needs.TestsChecker.outputs.COVERAGE_VALUE }}
+      branches_coverage_value: ${{ needs.TestsChecker.outputs.BRANCHES_COVERAGE_VALUE }}
