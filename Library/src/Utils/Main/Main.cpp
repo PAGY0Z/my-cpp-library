@@ -26,6 +26,7 @@
 ///
 /// \par Example:
 /// \code
+///
 /// #include "Library.hpp"
 /// #include <iostream>
 ///

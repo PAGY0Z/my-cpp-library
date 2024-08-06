@@ -37,11 +37,11 @@
 /// \endcode
 ///
 /// \see Library.hpp
-/// \see Utils/Params/Params.hpp
+/// \see DesignPatterns/Factory/Factory.hpp
+/// \see DesignPatterns/Singleton/Singleton.hpp
 /// \see Utils/AException/AException.hpp
 /// \see Utils/NumericalParsers/NumericalParsers.hpp
-/// \see DesignPatterns/Singleton/Singleton.hpp
-/// \see DesignPatterns/Factory/Factory.hpp
+/// \see Utils/Params/Params.hpp
 
 #ifndef LIBRARY_HPP_
 #define LIBRARY_HPP_

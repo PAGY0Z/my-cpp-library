@@ -29,19 +29,15 @@
 /// {
 ///     Params &params = Params::GetInstance(argc, argv);
 ///
-///     std::cout << "argc: " << params.GetArgc() << std::endl;
-///     std::cout << "argv: ";
-///     for (const auto &param : params.GetParamsVector())
-///         std::cout << param << " ";
-///     std::cout << std::endl;
+///     for (unsigned int i = 0; i < params.GetArgc(); i++)
+///         std::cout << "Argv[" << i << "]: " << params.GetArgv()[i] << std::endl;
 ///
 ///     return 0;
 /// }
 /// \endcode
 ///
 /// \see Singleton.hpp
-/// \see std::vector
-/// \see std::string
+/// \see Params.hpp
 
 #ifndef PARAMS_HPP_
 #define PARAMS_HPP_
@@ -104,8 +100,7 @@ namespace Library
             ///
             /// The constructor of the Params class. This constructor is private to
             /// ensure that only one instance of the class is created. The constructor
-            /// stores the `argc` and `argv` values passed to the `main` function and
-            /// populates the `__paramsVector` with the command-line arguments.
+            /// stores the `argc` and `argv` values passed to the `main` function.
             ///
             /// \param argc The number of command-line arguments
             /// \param argv The array of command-line arguments
