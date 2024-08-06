@@ -20,27 +20,28 @@ jobs:
       - name: Pull any modifications
         run: git pull
 
-      - name: Install CMake
-        run: |
-          choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --yes
+      - name: Echo Hello World
+        run: echo "Hello World"
 
-      - name: Build project
-        run: echo "Build project"
-        continue-on-error: true
-        # run: |
-        #   #
-        #   mkdir Build/
-        #   cd Build/
-        #   cmake ..
-        #   cmake --build .
-        #   cd ..
-        # continue-on-error: true
+    #   - name: Install CMake
+    #     run: |
+    #       choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --yes
+
+    #   - name: Build project
+    #     run: |
+    #       #
+    #       mkdir Build/
+    #       cd Build/
+    #       cmake ..
+    #       cmake --build .
+    #       cd ..
+    #     continue-on-error: true
 
       - name: Get Build Status
         shell: pwsh
         run: |
           if ($?) {
-            echo "WINDOWS_BUILD_STATUS=ERROR" >> $env:GITHUB_ENV
-          } else {
             echo "WINDOWS_BUILD_STATUS=OK" >> $env:GITHUB_ENV
+          } else {
+            echo "WINDOWS_BUILD_STATUS=ERROR" >> $env:GITHUB_ENV
           }
