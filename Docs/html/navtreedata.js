@@ -28,6 +28,7 @@ var NAVTREE =
     [ "Project Template", "index.html", [
       [ "Introduction", "index.html#autotoc_md4", null ]
     ] ],
+    [ "CONTRIBUTING", "d2/dc1/md_CONTRIBUTING.html", null ],
     [ "Todo List", "dd/da0/todo.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
