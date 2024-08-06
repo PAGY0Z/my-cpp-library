@@ -1,3 +1,5 @@
+‎
+
 🔔 **Template CI/CD Pipeline** 🔔
 
 ⚙️ **Commit Information**
@@ -29,3 +31,5 @@
 🔗 **[View Pipeline]({{REPOSITORY_URL}}/actions/runs/{{PIPELINE_URL}})**
 
 📌 **Note:** This is an automated message.
+
+‎
