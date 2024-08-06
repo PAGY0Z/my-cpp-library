@@ -41,9 +41,9 @@ jobs:
       - name: Get Documentations Update Status
         run: |
           if [[ -n $(git status --porcelain) ]]; then
-            echo "DOCS_UPDATED=DOCS UPDATED" >> $GITHUB_ENV
+            echo "DOCS_UPDATED=UPDATED" >> $GITHUB_ENV
           else
-            echo "DOCS_UPDATED=DOCS NOT UPDATED" >> $GITHUB_ENV
+            echo "DOCS_UPDATED=NOT UPDATED" >> $GITHUB_ENV
           fi
         continue-on-error: true
 

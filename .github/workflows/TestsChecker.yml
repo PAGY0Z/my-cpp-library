@@ -41,9 +41,9 @@ jobs:
       - name: Get Tests Build Status
         run: |
           if [[ $? -eq 0 ]]; then
-            echo "TESTS_STATUS=TESTS OK" >> $GITHUB_ENV
+            echo "TESTS_STATUS=OK" >> $GITHUB_ENV
           else
-            echo "TESTS_STATUS=TESTS KO" >> $GITHUB_ENV
+            echo "TESTS_STATUS=ERROR" >> $GITHUB_ENV
             echo "COVERAGE_VALUE=N/A" >> $GITHUB_ENV
             echo "BRANCHES_COVERAGE_VALUE=N/A" >> $GITHUB_ENV
             exit 0

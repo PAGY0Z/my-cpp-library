@@ -37,8 +37,8 @@ jobs:
       - name: Get Build Status
         run: |
           if [[ $? -eq 0 ]]; then
-            echo "LINUX_BUILD_STATUS=LINUX BUILD OK" >> $GITHUB_ENV
+            echo "LINUX_BUILD_STATUS=OK" >> $GITHUB_ENV
           else
-            echo "LINUX_BUILD_STATUS=LINUX BUILD KO" >> $GITHUB_ENV
+            echo "LINUX_BUILD_STATUS=ERROR" >> $GITHUB_ENV
           fi
         continue-on-error: true

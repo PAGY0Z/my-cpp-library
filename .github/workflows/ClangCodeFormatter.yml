@@ -40,9 +40,9 @@ jobs:
       - name: Get Format Update Status
         run: |
           if [[ -n $(git status --porcelain) ]]; then
-            echo "FORMAT_UPDATED=FORMATTED" >> $GITHUB_ENV
+            echo "FORMAT_UPDATED=UPDATED" >> $GITHUB_ENV
           else
-            echo "FORMAT_UPDATED=NOT FORMATTED" >> $GITHUB_ENV
+            echo "FORMAT_UPDATED=NOT UPDATED" >> $GITHUB_ENV
           fi
         continue-on-error: true
 

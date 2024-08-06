@@ -37,7 +37,7 @@ jobs:
         shell: pwsh
         run: |
           if ($?) {
-            echo "WINDOWS_BUILD_STATUS=WINDOWS BUILD KO" >> $env:GITHUB_ENV
+            echo "WINDOWS_BUILD_STATUS=ERROR" >> $env:GITHUB_ENV
           } else {
-            echo "WINDOWS_BUILD_STATUS=WINDOWS BUILD OK" >> $env:GITHUB_ENV
+            echo "WINDOWS_BUILD_STATUS=OK" >> $env:GITHUB_ENV
           }

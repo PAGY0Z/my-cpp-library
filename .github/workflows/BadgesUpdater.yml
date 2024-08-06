@@ -66,13 +66,13 @@ jobs:
           COVERAGE_VALUE=$(echo "${COVERAGE_VALUE}" | sed 's/ /%20/g' | sed 's/%/%25/g')
           BRANCHES_COVERAGE_VALUE=$(echo "${BRANCHES_COVERAGE_VALUE}" | sed 's/ /%20/g' | sed 's/%/%25/g')
 
-          curl -o ./.github/Badges/linux-build.svg "https://img.shields.io/badge/Linux%20Build-${LINUX_BUILD_STATUS}-blue"
-          curl -o ./.github/Badges/windows-build.svg "https://img.shields.io/badge/Windows%20Build-${WINDOWS_BUILD_STATUS}-blue"
-          curl -o ./.github/Badges/format-updated.svg "https://img.shields.io/badge/Format%20Updated-${FORMAT_UPDATED}-blue"
-          curl -o ./.github/Badges/docs-updated.svg "https://img.shields.io/badge/Docs%20Updated-${DOCS_UPDATED}-blue"
-          curl -o ./.github/Badges/tests-status.svg "https://img.shields.io/badge/Tests%20Status-${TESTS_STATUS}-blue"
-          curl -o ./.github/Badges/coverage-value.svg "https://img.shields.io/badge/Coverage%20Value-${COVERAGE_VALUE}-blue"
-          curl -o ./.github/Badges/branches-coverage-value.svg "https://img.shields.io/badge/Branches%20Coverage%20Value-${BRANCHES_COVERAGE_VALUE}-blue"
+          curl -o ./.github/Badges/linux-build.svg "https://img.shields.io/badge/Linux-${LINUX_BUILD_STATUS}-blue"
+          curl -o ./.github/Badges/windows-build.svg "https://img.shields.io/badge/Windows-${WINDOWS_BUILD_STATUS}-blue"
+          curl -o ./.github/Badges/format-updated.svg "https://img.shields.io/badge/Formating-${FORMAT_UPDATED}-blue"
+          curl -o ./.github/Badges/docs-updated.svg "https://img.shields.io/badge/Documentation-${DOCS_UPDATED}-blue"
+          curl -o ./.github/Badges/tests-status.svg "https://img.shields.io/badge/Tests-${TESTS_STATUS}-blue"
+          curl -o ./.github/Badges/coverage-value.svg "https://img.shields.io/badge/Coverage-${COVERAGE_VALUE}-blue"
+          curl -o ./.github/Badges/branches-coverage-value.svg "https://img.shields.io/badge/Branches%20Coverage-${BRANCHES_COVERAGE_VALUE}-blue"
 
       - name: Config Git
         run: |
