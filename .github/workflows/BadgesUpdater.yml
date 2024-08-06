@@ -72,7 +72,7 @@ jobs:
           curl -o ./.github/Badges/docs-updated.svg "https://img.shields.io/badge/Documentation-${DOCS_UPDATED}-blue"
           curl -o ./.github/Badges/tests-status.svg "https://img.shields.io/badge/Tests-${TESTS_STATUS}-blue"
           curl -o ./.github/Badges/coverage-value.svg "https://img.shields.io/badge/Coverage-${COVERAGE_VALUE}-blue"
-          curl -o ./.github/Badges/branches-coverage-value.svg "https://img.shields.io/badge/Branches%20Coverage-${BRANCHES_COVERAGE_VALUE}-blue"
+          curl -o ./.github/Badges/branches-coverage-value.svg "https://img.shields.io/badge/Branches-${BRANCHES_COVERAGE_VALUE}-blue"
 
       - name: Config Git
         run: |

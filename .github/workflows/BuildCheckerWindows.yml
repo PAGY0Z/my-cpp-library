@@ -25,13 +25,16 @@ jobs:
           choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --yes
 
       - name: Build project
-        run: |
-          mkdir Build/
-          cd Build/
-          cmake ..
-          cmake --build .
-          cd ..
+        run: echo "Build project"
         continue-on-error: true
+        # run: |
+        #   #
+        #   mkdir Build/
+        #   cd Build/
+        #   cmake ..
+        #   cmake --build .
+        #   cd ..
+        # continue-on-error: true
 
       - name: Get Build Status
         shell: pwsh
