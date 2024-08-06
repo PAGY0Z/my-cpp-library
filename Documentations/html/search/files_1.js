@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['factory_2ehpp_96',['Factory.hpp',['../d5/d03/Factory_8hpp.html',1,'']]]
+  ['contributing_2emd_98',['CONTRIBUTING.md',['../d2/d52/CONTRIBUTING_8md.html',1,'']]]
 ];

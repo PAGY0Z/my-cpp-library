@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['project_20template_167',['Project Template',['../index.html',1,'']]]
+  ['contributing_170',['CONTRIBUTING',['../d2/dc1/md_CONTRIBUTING.html',1,'']]]
 ];
