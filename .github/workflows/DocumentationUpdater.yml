@@ -36,7 +36,7 @@ jobs:
 
       - name: Generate Doxygen Documentation
         run: |
-          doxygen Docs/Doxyfile
+          doxygen Documentations/Doxyfile
 
       - name: Get Documentations Update Status
         run: |
