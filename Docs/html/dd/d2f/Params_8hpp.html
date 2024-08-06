@@ -139,22 +139,17 @@ Variables</h2></td></tr>
 <div class="line">{</div>
 <div class="line">    Params &amp;params = Params::GetInstance(argc, argv);</div>
 <div class="line"> </div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;argc: &quot;</span> &lt;&lt; params.GetArgc() &lt;&lt; std::endl;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;argv: &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;param : params.GetParamsVector())</div>
-<div class="line">        std::cout &lt;&lt; param &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line">    std::cout &lt;&lt; std::endl;</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; params.GetArgc(); i++)</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Argv[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]: &quot;</span> &lt;&lt; params.GetArgv()[i] &lt;&lt; std::endl;</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aMain_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="../../d5/de0/Main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdoc">Main entry point for the program.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de0/Main_8cpp_source.html#l00092">Main.cpp:92</a></div></div>
+<div class="ttc" id="aMain_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="../../d5/de0/Main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdoc">Main entry point for the program.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de0/Main_8cpp_source.html#l00093">Main.cpp:93</a></div></div>
 <div class="ttc" id="aParams_8hpp_html"><div class="ttname"><a href="../../dd/d2f/Params_8hpp.html">Params.hpp</a></div><div class="ttdoc">Params Singleton Class implementation.</div></div>
 </div><!-- fragment --></dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../de/d21/Singleton_8hpp.html" title="Singleton Template Class [Thread-Safe] implementation.">Singleton.hpp</a> </dd>
 <dd>
-std::vector </dd>
-<dd>
-std::string </dd></dl>
+<a class="el" href="../../dd/d2f/Params_8hpp.html" title="Params Singleton Class implementation.">Params.hpp</a> </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
@@ -170,7 +165,7 @@ std::string </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00056">56</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00052">52</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
 
 </div>
 </div>
@@ -195,7 +190,7 @@ std::string </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00054">54</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00050">50</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
 
 </div>
 </div>
