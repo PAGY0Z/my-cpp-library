@@ -1,5 +1,3 @@
-# Project Template
-
 <div align="center" style="margin-bottom: 20px;">
   <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
     <img src="./.github/Files/Epitech_Logo.png" alt="Epitech Logo" style="width: 85%;">
@@ -32,6 +30,8 @@
 </div>
 
 ---
+
+# Project Template
 
 ## Introduction
 

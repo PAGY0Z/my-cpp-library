@@ -114,19 +114,19 @@ namespace Library
             /// \note - UNKNOWN_ERROR_AT_CLEAR: An unknown error occurred at clear
             typedef enum FactoryExceptionsType_e
             {
-                /// @brief The key is already registered
+                /// \brief The key is already registered
                 ALREADY_REGISTERED,
-                /// @brief The key is unknown at create
+                /// \brief The key is unknown at create
                 UNKNOWN_KEY_AT_CREATE,
-                /// @brief An unknown error occurred at register
+                /// \brief An unknown error occurred at register
                 UNKNOWN_ERROR_AT_REGISTER,
-                /// @brief An unknown error occurred at create
+                /// \brief An unknown error occurred at create
                 UNKNOWN_ERROR_AT_CREATE,
-                /// @brief The key is unknown at unregister
+                /// \brief The key is unknown at unregister
                 UNKNOWN_KEY_AT_UNREGISTER,
-                /// @brief An unknown error occurred at unregister
+                /// \brief An unknown error occurred at unregister
                 UNKNOWN_ERROR_AT_UNREGISTER,
-                /// @brief An unknown error occurred at clear
+                /// \brief An unknown error occurred at clear
                 UNKNOWN_ERROR_AT_CLEAR
             } FactoryExceptionsType_e;
 
@@ -141,9 +141,9 @@ namespace Library
             /// \note - __message: The message associated with the exception
             typedef struct FactoryExceptionsMessage_s
             {
-                /// @brief The type of exception
+                /// \brief The type of exception
                 const FactoryExceptionsType_e __type;
-                /// @brief The message associated with the exception
+                /// \brief The message associated with the exception
                 const std::string &__message;
             } FactoryExceptionsMessage_t;
 
