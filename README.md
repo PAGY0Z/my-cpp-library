@@ -15,6 +15,7 @@
       <h3 style="white-space: nowrap; color: #2c3e50;">🛠️ Build</h3>
       <div style="margin: 10px 0;"><img src="./.github/Badges/linux-build.svg" alt="Linux Build" style="width: auto;"></div>
       <div style="margin: 10px 0;"><img src="./.github/Badges/windows-build.svg" alt="Windows Build" style="width: auto;"></div>
+      <div style="margin: 10px 0;"><img src="./.github/Badges/macos-build.svg" alt="MacOS Build" style="width: auto;"></div>
     </div>
     <div style="margin: 0 20px; text-align: center; flex-wrap: nowrap;">
       <h3 style="white-space: nowrap; color: #2c3e50;">🪄 | 📖 Updates</h3>

@@ -19,6 +19,10 @@ on:
         type: string
         description: "The windows build status"
         required: true
+      macos_build_status:
+        type: string
+        description: "The macos build status"
+        required: true
       format_updated:
         type: string
         description: "The format updated status"
@@ -52,6 +56,7 @@ jobs:
         run: |
           LINUX_BUILD_STATUS="${{ inputs.linux_build_status }}"
           WINDOWS_BUILD_STATUS="${{ inputs.windows_build_status }}"
+          MACOS_BUILD_STATUS="${{ inputs.macos_build_status }}"
           FORMAT_UPDATED="${{ inputs.format_updated }}"
           DOCS_UPDATED="${{ inputs.docs_updated }}"
           TESTS_STATUS="${{ inputs.tests_status }}"
@@ -60,6 +65,7 @@ jobs:
 
           LINUX_BUILD_STATUS=$(echo "${LINUX_BUILD_STATUS}" | sed 's/ /%20/g')
           WINDOWS_BUILD_STATUS=$(echo "${WINDOWS_BUILD_STATUS}" | sed 's/ /%20/g')
+          MACOS_BUILD_STATUS=$(echo "${MACOS_BUILD_STATUS}" | sed 's/ /%20/g')
           FORMAT_UPDATED=$(echo "${FORMAT_UPDATED}" | sed 's/ /%20/g')
           DOCS_UPDATED=$(echo "${DOCS_UPDATED}" | sed 's/ /%20/g')
           TESTS_STATUS=$(echo "${TESTS_STATUS}" | sed 's/ /%20/g')
@@ -68,6 +74,7 @@ jobs:
 
           curl -o ./.github/Badges/linux-build.svg "https://img.shields.io/badge/Linux-${LINUX_BUILD_STATUS}-blue"
           curl -o ./.github/Badges/windows-build.svg "https://img.shields.io/badge/Windows-${WINDOWS_BUILD_STATUS}-blue"
+          curl -o ./.github/Badges/macos-build.svg "https://img.shields.io/badge/MacOS-${MACOS_BUILD_STATUS}-blue"
           curl -o ./.github/Badges/format-updated.svg "https://img.shields.io/badge/Formating-${FORMAT_UPDATED}-blue"
           curl -o ./.github/Badges/docs-updated.svg "https://img.shields.io/badge/Documentation-${DOCS_UPDATED}-blue"
           curl -o ./.github/Badges/tests-status.svg "https://img.shields.io/badge/Tests-${TESTS_STATUS}-blue"

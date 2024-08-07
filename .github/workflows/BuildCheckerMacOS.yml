@@ -1,17 +1,17 @@
-name: Windows CMake Build Checker
+name: MacOS CMake Build Checker
 
 on:
   workflow_call:
     outputs:
-      WINDOWS_BUILD_STATUS:
+      MACOS_BUILD_STATUS:
         description: "The status of the build"
-        value: ${{ jobs.build-windows.outputs.WINDOWS_BUILD_STATUS }}
+        value: ${{ jobs.build-macos.outputs.MACOS_BUILD_STATUS }}
 
 jobs:
-  build-windows:
-    runs-on: windows-latest
+  build-macos:
+    runs-on: macos-latest
     outputs:
-      WINDOWS_BUILD_STATUS: ${{ env.WINDOWS_BUILD_STATUS }}
+      MACOS_BUILD_STATUS: ${{ env.MACOS_BUILD_STATUS }}
 
     steps:
       - name: Checkout code
@@ -25,7 +25,7 @@ jobs:
 
       #   - name: Install CMake
       #     run: |
-      #       choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --yes
+      #       brew install cmake
 
       #   - name: Build project
       #     run: |
@@ -40,7 +40,7 @@ jobs:
         shell: pwsh
         run: |
           if ($?) {
-            echo "WINDOWS_BUILD_STATUS=OK" >> $env:GITHUB_ENV
+            echo "MACOS_BUILD_STATUS=OK" >> $env:GITHUB_ENV
           } else {
-            echo "WINDOWS_BUILD_STATUS=ERROR" >> $env:GITHUB_ENV
+            echo "MACOS_BUILD_STATUS=ERROR" >> $env:GITHUB_ENV
           }

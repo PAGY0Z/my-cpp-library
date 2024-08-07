@@ -76,6 +76,16 @@ jobs:
       ]
     uses: ./.github/workflows/BuildCheckerWindows.yml
 
+  BuildCheckerMacOS:
+    needs:
+      [
+        SetupEnvironmentVariable,
+        CommitMetadataGetter,
+        ClangCodeFormatter,
+        DocumentationUpdater,
+      ]
+    uses: ./.github/workflows/BuildCheckerMacOS.yml
+
   TestsChecker:
     needs:
       [
@@ -95,6 +105,7 @@ jobs:
         DocumentationUpdater,
         BuildCheckerLinux,
         BuildCheckerWindows,
+        BuildCheckerMacOS,
         TestsChecker,
       ]
     uses: ./.github/workflows/WebhookNotifier.yml
@@ -109,6 +120,7 @@ jobs:
       commit_date: ${{ needs.CommitMetadataGetter.outputs.COMMIT_DATE }}
       linux_build_status: ${{ needs.BuildCheckerLinux.outputs.LINUX_BUILD_STATUS }}
       windows_build_status: ${{ needs.BuildCheckerWindows.outputs.WINDOWS_BUILD_STATUS }}
+      macos_build_status: ${{ needs.BuildCheckerMacOS.outputs.MACOS_BUILD_STATUS }}
       format_updated: ${{ needs.ClangCodeFormatter.outputs.FORMAT_UPDATED }}
       docs_updated: ${{ needs.DocumentationUpdater.outputs.DOCS_UPDATED }}
       tests_status: ${{ needs.TestsChecker.outputs.TESTS_STATUS }}
@@ -126,6 +138,7 @@ jobs:
         DocumentationUpdater,
         BuildCheckerLinux,
         BuildCheckerWindows,
+        BuildCheckerMacOS,
         TestsChecker,
       ]
     uses: ./.github/workflows/WebhookNotifier.yml
@@ -140,6 +153,7 @@ jobs:
       commit_date: ${{ needs.CommitMetadataGetter.outputs.COMMIT_DATE }}
       linux_build_status: ${{ needs.BuildCheckerLinux.outputs.LINUX_BUILD_STATUS }}
       windows_build_status: ${{ needs.BuildCheckerWindows.outputs.WINDOWS_BUILD_STATUS }}
+      macos_build_status: ${{ needs.BuildCheckerMacOS.outputs.MACOS_BUILD_STATUS }}
       format_updated: ${{ needs.ClangCodeFormatter.outputs.FORMAT_UPDATED }}
       docs_updated: ${{ needs.DocumentationUpdater.outputs.DOCS_UPDATED }}
       tests_status: ${{ needs.TestsChecker.outputs.TESTS_STATUS }}
@@ -157,6 +171,7 @@ jobs:
         DocumentationUpdater,
         BuildCheckerLinux,
         BuildCheckerWindows,
+        BuildCheckerMacOS,
         TestsChecker,
       ]
     uses: ./.github/workflows/BadgesUpdater.yml
@@ -165,6 +180,7 @@ jobs:
       commit_email: ${{ needs.CommitMetadataGetter.outputs.COMMIT_EMAIL }}
       linux_build_status: ${{ needs.BuildCheckerLinux.outputs.LINUX_BUILD_STATUS }}
       windows_build_status: ${{ needs.BuildCheckerWindows.outputs.WINDOWS_BUILD_STATUS }}
+      macos_build_status: ${{ needs.BuildCheckerMacOS.outputs.MACOS_BUILD_STATUS }}
       format_updated: ${{ needs.ClangCodeFormatter.outputs.FORMAT_UPDATED }}
       docs_updated: ${{ needs.DocumentationUpdater.outputs.DOCS_UPDATED }}
       tests_status: ${{ needs.TestsChecker.outputs.TESTS_STATUS }}

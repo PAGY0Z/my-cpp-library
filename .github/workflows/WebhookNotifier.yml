@@ -43,6 +43,10 @@ on:
         type: string
         description: "The windows build status"
         required: true
+      macos_build_status:
+        type: string
+        description: "The macos build status"
+        required: true
       format_updated:
         type: string
         description: "The format updated status"
@@ -91,6 +95,7 @@ jobs:
           FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{COMMIT_DATE}}|${{ inputs.commit_date }}|g")
           FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{LINUX_BUILD_STATUS}}|${{ inputs.linux_build_status }}|g")
           FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{WINDOWS_BUILD_STATUS}}|${{ inputs.windows_build_status }}|g")
+          FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{MACOS_BUILD_STATUS}}|${{ inputs.macos_build_status }}|g")
           FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{FORMAT_UPDATED}}|${{ inputs.format_updated }}|g")
           FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{DOCS_UPDATED}}|${{ inputs.docs_updated }}|g")
           FORMATTED_MESSAGE=$(echo "$FORMATTED_MESSAGE" | sed "s|{{TESTS_STATUS}}|${{ inputs.tests_status }}|g")

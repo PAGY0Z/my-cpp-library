@@ -12,6 +12,7 @@
 🛠️ **Builds Status**
 - **Linux Build Status:** {{LINUX_BUILD_STATUS}}
 - **Windows Build Status:** {{WINDOWS_BUILD_STATUS}}
+- **MacOS Build Status:** {{MACOS_BUILD_STATUS}}
 
 🪄 **Code Formatting**
 - **Code Formatting Status:** {{FORMAT_UPDATED}}
