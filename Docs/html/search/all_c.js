@@ -14,6 +14,5 @@ var searchData=
   ['parseunsignedlonglong_58',['ParseUnsignedLongLong',['../d9/d15/namespaceLibrary_1_1Utils_1_1NumericalParsers.html#ac6af890be81579ad7d904ee51a6b48eb',1,'Library::Utils::NumericalParsers']]],
   ['parseunsignedshort_59',['ParseUnsignedShort',['../d9/d15/namespaceLibrary_1_1Utils_1_1NumericalParsers.html#aaa18e6478780103929bd8d9863788e78',1,'Library::Utils::NumericalParsers']]],
   ['program_5fmain_60',['program_main',['../df/d67/Library_8hpp.html#a2ee2dd3cbf92cf1a7734a8cfef1416e7',1,'program_main():&#160;program_main.cpp'],['../d8/d7d/program__main_8cpp.html#a2ee2dd3cbf92cf1a7734a8cfef1416e7',1,'program_main():&#160;program_main.cpp']]],
-  ['program_5fmain_2ecpp_61',['program_main.cpp',['../d8/d7d/program__main_8cpp.html',1,'']]],
-  ['project_20template_62',['Project Template',['../index.html',1,'']]]
+  ['program_5fmain_2ecpp_61',['program_main.cpp',['../d8/d7d/program__main_8cpp.html',1,'']]]
 ];

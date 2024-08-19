@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "My Template Project", "index.html", [
-    [ "Project Template", "index.html", [
+    [ "Project Template", "index.html#autotoc_md3", [
       [ "Introduction", "index.html#autotoc_md4", null ]
     ] ],
     [ "CONTRIBUTING", "d2/dc1/md_CONTRIBUTING.html", null ],
