@@ -15,6 +15,15 @@ var namespaceLibrary_1_1Utils =
       [ "ParseBool", "d9/d15/namespaceLibrary_1_1Utils_1_1NumericalParsers.html#af5d5e09dd65a776af6fe4ea3127df571", null ]
     ] ],
     [ "AException", "da/d0a/classLibrary_1_1Utils_1_1AException.html", "da/d0a/classLibrary_1_1Utils_1_1AException" ],
+    [ "LoggerIdentifier", "d5/d22/structLibrary_1_1Utils_1_1LoggerIdentifier.html", "d5/d22/structLibrary_1_1Utils_1_1LoggerIdentifier" ],
+    [ "Logger", "d2/deb/classLibrary_1_1Utils_1_1Logger.html", "d2/deb/classLibrary_1_1Utils_1_1Logger" ],
     [ "Params", "d1/d5c/classLibrary_1_1Utils_1_1Params.html", "d1/d5c/classLibrary_1_1Utils_1_1Params" ],
-    [ "CreateFileData", "d0/dd6/namespaceLibrary_1_1Utils.html#ace6736b6dec805de7bcb69bda880756b", null ]
+    [ "LoggerLevel", "d0/dd6/namespaceLibrary_1_1Utils.html#ad6c82eb65a3e968377359156c9cd8443", [
+      [ "INFO", "d0/dd6/namespaceLibrary_1_1Utils.html#ad6c82eb65a3e968377359156c9cd8443a551b723eafd6a31d444fcb2f5920fbd3", null ],
+      [ "WARN", "d0/dd6/namespaceLibrary_1_1Utils.html#ad6c82eb65a3e968377359156c9cd8443a32bd8a1db2275458673903bdb84cb277", null ],
+      [ "ERROR", "d0/dd6/namespaceLibrary_1_1Utils.html#ad6c82eb65a3e968377359156c9cd8443abb1ca97ec761fc37101737ba0aa2e7c5", null ],
+      [ "ALL", "d0/dd6/namespaceLibrary_1_1Utils.html#ad6c82eb65a3e968377359156c9cd8443a5fb1f955b45e38e31789286a1790398d", null ]
+    ] ],
+    [ "CreateFileData", "d0/dd6/namespaceLibrary_1_1Utils.html#ace6736b6dec805de7bcb69bda880756b", null ],
+    [ "LOGGER_IDENTIFIERS", "d0/dd6/namespaceLibrary_1_1Utils.html#aa4556b613d54a356c903309e8813f766", null ]
 ];

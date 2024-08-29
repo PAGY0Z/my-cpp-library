@@ -119,6 +119,7 @@ Functions</h2></td></tr>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">try</span></div>
 <div class="line">    {</div>
+<div class="line">        <a class="code" href="../../d2/deb/classLibrary_1_1Utils_1_1Logger.html">Library::Utils::Logger</a> &amp;logger = <a class="code" href="../../d2/deb/classLibrary_1_1Utils_1_1Logger.html#aad93c663de9fad06d26763b4a31421e1">Library::Utils::Logger::GetInstance</a>();</div>
 <div class="line">        <a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html">Library::Utils::Params</a> &amp;params = <a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a1580f0c3c92e2a7ae2b751e2956a7633">Library::Utils::Params::GetInstance</a>(argc, argv);</div>
 <div class="line">        <span class="keywordflow">return</span> <a class="code" href="../../df/d67/Library_8hpp.html#a2ee2dd3cbf92cf1a7734a8cfef1416e7">program_main</a>();</div>
 <div class="line">    }</div>
@@ -140,17 +141,21 @@ Functions</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aLibrary_8hpp_html"><div class="ttname"><a href="../../df/d67/Library_8hpp.html">Library.hpp</a></div><div class="ttdoc">Header file for the Library.</div></div>
-<div class="ttc" id="aLibrary_8hpp_html_a2ee2dd3cbf92cf1a7734a8cfef1416e7"><div class="ttname"><a href="../../df/d67/Library_8hpp.html#a2ee2dd3cbf92cf1a7734a8cfef1416e7">program_main</a></div><div class="ttdeci">int program_main()</div><div class="ttdoc">Program entry point.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d7d/program__main_8cpp_source.html#l00012">program_main.cpp:12</a></div></div>
-<div class="ttc" id="aMain_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="../../d5/de0/Main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdoc">Main entry point for the program.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de0/Main_8cpp_source.html#l00093">Main.cpp:93</a></div></div>
+<div class="ttc" id="aLibrary_8hpp_html_a2ee2dd3cbf92cf1a7734a8cfef1416e7"><div class="ttname"><a href="../../df/d67/Library_8hpp.html#a2ee2dd3cbf92cf1a7734a8cfef1416e7">program_main</a></div><div class="ttdeci">int program_main()</div><div class="ttdoc">Program entry point.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d7d/program__main_8cpp_source.html#l00010">program_main.cpp:10</a></div></div>
+<div class="ttc" id="aMain_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="../../d5/de0/Main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdoc">Main entry point for the program.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de0/Main_8cpp_source.html#l00095">Main.cpp:95</a></div></div>
 <div class="ttc" id="aclassLibrary_1_1Utils_1_1AException_html"><div class="ttname"><a href="../../da/d0a/classLibrary_1_1Utils_1_1AException.html">Library::Utils::AException</a></div><div class="ttdoc">AException Class.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d40/AException_8hpp_source.html#l00085">AException.hpp:86</a></div></div>
 <div class="ttc" id="aclassLibrary_1_1Utils_1_1AException_html_a924edac227eff85212e6a9279a81b649"><div class="ttname"><a href="../../da/d0a/classLibrary_1_1Utils_1_1AException.html#a924edac227eff85212e6a9279a81b649">Library::Utils::AException::what</a></div><div class="ttdeci">virtual const char * what() const noexcept override final</div><div class="ttdoc">Get the exception message.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d40/AException_8hpp_source.html#l00110">AException.hpp:110</a></div></div>
 <div class="ttc" id="aclassLibrary_1_1Utils_1_1AException_html_a9ddee9ec97a7d09789b8737d39b935b0"><div class="ttname"><a href="../../da/d0a/classLibrary_1_1Utils_1_1AException.html#a9ddee9ec97a7d09789b8737d39b935b0">Library::Utils::AException::GetReturnValue</a></div><div class="ttdeci">int GetReturnValue() const noexcept</div><div class="ttdoc">Get the return value associated with the exception.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d40/AException_8hpp_source.html#l00117">AException.hpp:117</a></div></div>
+<div class="ttc" id="aclassLibrary_1_1Utils_1_1Logger_html"><div class="ttname"><a href="../../d2/deb/classLibrary_1_1Utils_1_1Logger.html">Library::Utils::Logger</a></div><div class="ttdoc">Logger Singleton Class.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d11/Logger_8hpp_source.html#l00122">Logger.hpp:123</a></div></div>
+<div class="ttc" id="aclassLibrary_1_1Utils_1_1Logger_html_aad93c663de9fad06d26763b4a31421e1"><div class="ttname"><a href="../../d2/deb/classLibrary_1_1Utils_1_1Logger.html#aad93c663de9fad06d26763b4a31421e1">Library::Utils::Logger::GetInstance</a></div><div class="ttdeci">static Logger &amp; GetInstance()</div><div class="ttdoc">Get the Logger instance.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d11/Logger_8hpp_source.html#l00133">Logger.hpp:133</a></div></div>
 <div class="ttc" id="aclassLibrary_1_1Utils_1_1Params_html"><div class="ttname"><a href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html">Library::Utils::Params</a></div><div class="ttdoc">Params Singleton Class.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/Params_8hpp_source.html#l00066">Params.hpp:67</a></div></div>
 <div class="ttc" id="aclassLibrary_1_1Utils_1_1Params_html_a1580f0c3c92e2a7ae2b751e2956a7633"><div class="ttname"><a href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a1580f0c3c92e2a7ae2b751e2956a7633">Library::Utils::Params::GetInstance</a></div><div class="ttdeci">static Params &amp; GetInstance(const unsigned int argc=0, const char *const *argv=EMPTY_ARGV)</div><div class="ttdoc">Get the Singleton instance of the Params class.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/Params_8hpp_source.html#l00080">Params.hpp:80</a></div></div>
 </div><!-- fragment --></dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/d67/Library_8hpp.html" title="Header file for the Library.">Library.hpp</a> </dd>
 <dd>
 <a class="el" href="../../dd/d2f/Params_8hpp.html" title="Params Singleton Class implementation.">Utils/Params/Params.hpp</a> </dd>
+<dd>
+<a class="el" href="../../d9/d11/Logger_8hpp.html" title="Logger Singleton Class [Thread-Safe] implementation.">Utils/Logger/Logger.hpp</a> </dd>
 <dd>
 <a class="el" href="../../d3/d40/AException_8hpp.html" title="AException Class implementation.">Utils/AException/AException.hpp</a> </dd>
 <dd>
@@ -197,30 +202,31 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The return value of the program_main function or 84 if an unexpected error occurs</dd></dl>
 <dl class="section remark"><dt>Remarks</dt><dd>Catching all exceptions and printing an error message to the standard error stream is a good practice to ensure that the program does not crash unexpectedly. This allows the program to gracefully handle errors and provide useful information to the user. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/de0/Main_8cpp_source.html#l00093">93</a> of file <a class="el" href="../../d5/de0/Main_8cpp_source.html">Main.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;{</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html">Library::Utils::Params</a> &amp;params = <a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a1580f0c3c92e2a7ae2b751e2956a7633">Library::Utils::Params::GetInstance</a>(argc, argv);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../df/d67/Library_8hpp.html#a2ee2dd3cbf92cf1a7734a8cfef1416e7">program_main</a>();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">catch</span> (<span class="keyword">const</span> <a class="code" href="../../da/d0a/classLibrary_1_1Utils_1_1AException.html">Library::Utils::AException</a> &amp;except)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        std::cerr &lt;&lt; except.<a class="code" href="../../da/d0a/classLibrary_1_1Utils_1_1AException.html#a924edac227eff85212e6a9279a81b649">what</a>() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> except.<a class="code" href="../../da/d0a/classLibrary_1_1Utils_1_1AException.html#a9ddee9ec97a7d09789b8737d39b935b0">GetReturnValue</a>();</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;except)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        std::cerr &lt;&lt; except.what() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> 84;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">catch</span> (...)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    {</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;An unexpected error occurred&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">return</span> 84;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="../../d5/de0/Main_8cpp_source.html#l00095">95</a> of file <a class="el" href="../../d5/de0/Main_8cpp_source.html">Main.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <a class="code" href="../../d2/deb/classLibrary_1_1Utils_1_1Logger.html">Library::Utils::Logger</a> &amp;logger = <a class="code" href="../../d2/deb/classLibrary_1_1Utils_1_1Logger.html#aad93c663de9fad06d26763b4a31421e1">Library::Utils::Logger::GetInstance</a>();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html">Library::Utils::Params</a> &amp;params = <a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a1580f0c3c92e2a7ae2b751e2956a7633">Library::Utils::Params::GetInstance</a>(argc, argv);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../df/d67/Library_8hpp.html#a2ee2dd3cbf92cf1a7734a8cfef1416e7">program_main</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">catch</span> (<span class="keyword">const</span> <a class="code" href="../../da/d0a/classLibrary_1_1Utils_1_1AException.html">Library::Utils::AException</a> &amp;except)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        std::cerr &lt;&lt; except.<a class="code" href="../../da/d0a/classLibrary_1_1Utils_1_1AException.html#a924edac227eff85212e6a9279a81b649">what</a>() &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">return</span> except.<a class="code" href="../../da/d0a/classLibrary_1_1Utils_1_1AException.html#a9ddee9ec97a7d09789b8737d39b935b0">GetReturnValue</a>();</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;except)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        std::cerr &lt;&lt; except.what() &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> 84;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">catch</span> (...)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;An unexpected error occurred&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">return</span> 84;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>

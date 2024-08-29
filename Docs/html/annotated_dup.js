@@ -12,6 +12,8 @@ var annotated_dup =
       ] ],
       [ "Utils", "d0/dd6/namespaceLibrary_1_1Utils.html", [
         [ "AException", "da/d0a/classLibrary_1_1Utils_1_1AException.html", "da/d0a/classLibrary_1_1Utils_1_1AException" ],
+        [ "LoggerIdentifier", "d5/d22/structLibrary_1_1Utils_1_1LoggerIdentifier.html", "d5/d22/structLibrary_1_1Utils_1_1LoggerIdentifier" ],
+        [ "Logger", "d2/deb/classLibrary_1_1Utils_1_1Logger.html", "d2/deb/classLibrary_1_1Utils_1_1Logger" ],
         [ "Params", "d1/d5c/classLibrary_1_1Utils_1_1Params.html", "d1/d5c/classLibrary_1_1Utils_1_1Params" ]
       ] ]
     ] ]

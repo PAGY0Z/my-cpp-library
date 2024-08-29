@@ -92,7 +92,6 @@ $(document).ready(function(){initNavTree('d8/d7d/program__main_8cpp.html','../..
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../df/d67/Library_8hpp_source.html">Library.hpp</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
 </div>
 <p><a href="../../d8/d7d/program__main_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -127,25 +126,10 @@ No exceptions should be let through this function. All exceptions should be caug
 <dl class="section return"><dt>Returns</dt><dd>The exit code of the program </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/de0/Main_8cpp.html" title="Main entry point for the program.">Main.cpp</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d7d/program__main_8cpp_source.html#l00012">12</a> of file <a class="el" href="../../d8/d7d/program__main_8cpp_source.html">program_main.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">int</span> value = 0;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Hello, World!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a1580f0c3c92e2a7ae2b751e2956a7633">Library::Utils::Params::GetInstance</a>().GetArgc() &lt;= 1)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Usage: ./Template &lt;value&gt;&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">return</span> 84;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d9/d15/namespaceLibrary_1_1Utils_1_1NumericalParsers.html#a0c84f12768873cd4caadc998db4cdc43">Library::Utils::NumericalParsers::ParseInt</a>(<a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a1580f0c3c92e2a7ae2b751e2956a7633">Library::Utils::Params::GetInstance</a>().GetArgv()[1], value))</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Invalid value&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">return</span> 84;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Value: &quot;</span> &lt;&lt; value &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="ttc" id="aclassLibrary_1_1Utils_1_1Params_html_a1580f0c3c92e2a7ae2b751e2956a7633"><div class="ttname"><a href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a1580f0c3c92e2a7ae2b751e2956a7633">Library::Utils::Params::GetInstance</a></div><div class="ttdeci">static Params &amp; GetInstance(const unsigned int argc=0, const char *const *argv=EMPTY_ARGV)</div><div class="ttdoc">Get the Singleton instance of the Params class.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/Params_8hpp_source.html#l00080">Params.hpp:80</a></div></div>
-<div class="ttc" id="anamespaceLibrary_1_1Utils_1_1NumericalParsers_html_a0c84f12768873cd4caadc998db4cdc43"><div class="ttname"><a href="../../d9/d15/namespaceLibrary_1_1Utils_1_1NumericalParsers.html#a0c84f12768873cd4caadc998db4cdc43">Library::Utils::NumericalParsers::ParseInt</a></div><div class="ttdeci">bool ParseInt(const std::string &amp;string, int &amp;value) noexcept</div><div class="ttdoc">Parse an integer from a string.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dea/NumericalParsers_8cpp_source.html#l00075">NumericalParsers.cpp:75</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../d8/d7d/program__main_8cpp_source.html#l00010">10</a> of file <a class="el" href="../../d8/d7d/program__main_8cpp_source.html">program_main.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>

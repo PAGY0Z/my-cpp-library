@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_121',['main',['../d5/de0/Main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'Main.cpp']]]
+  ['logger_145',['Logger',['../d2/deb/classLibrary_1_1Utils_1_1Logger.html#a60c6e433fb2a5e3d565a8a1d8d1a4496',1,'Library::Utils::Logger']]]
 ];

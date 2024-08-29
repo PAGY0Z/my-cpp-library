@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['_7eaexception_140',['~AException',['../da/d0a/classLibrary_1_1Utils_1_1AException.html#a938b8a01910f8d8cd36afcbd4efcaefb',1,'Library::Utils::AException']]],
-  ['_7efactoryexceptions_141',['~FactoryExceptions',['../d3/dd0/classLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptions.html#a1c7b177d1adf5d65bae19d2fbf791ae4',1,'Library::DesignPatterns::Exceptions::FactoryExceptions']]],
-  ['_7efactoryparams_142',['~FactoryParams',['../d4/df0/classLibrary_1_1DesignPatterns_1_1FactoryParams.html#a46daf184d8959d734f943103f6f1d9d1',1,'Library::DesignPatterns::FactoryParams']]],
-  ['_7esingleton_143',['~Singleton',['../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#a1fd9efb5c5297ddb9434196f75400445',1,'Library::DesignPatterns::Singleton']]]
+  ['what_164',['what',['../da/d0a/classLibrary_1_1Utils_1_1AException.html#a924edac227eff85212e6a9279a81b649',1,'Library::Utils::AException']]],
+  ['write_165',['Write',['../d2/deb/classLibrary_1_1Utils_1_1Logger.html#ac0a1479721d7f41c3a7c63cbc5f77f6d',1,'Library::Utils::Logger']]],
+  ['writeerror_166',['WriteError',['../d2/deb/classLibrary_1_1Utils_1_1Logger.html#a4b6278aac84f90f243c8590e732a25ce',1,'Library::Utils::Logger']]],
+  ['writeinfo_167',['WriteInfo',['../d2/deb/classLibrary_1_1Utils_1_1Logger.html#a79f3213d715189e575a4f09cdfe97cfb',1,'Library::Utils::Logger']]],
+  ['writewarn_168',['WriteWarn',['../d2/deb/classLibrary_1_1Utils_1_1Logger.html#aef81b0e1d0921f4e35f8fbe954926072',1,'Library::Utils::Logger']]]
 ];
