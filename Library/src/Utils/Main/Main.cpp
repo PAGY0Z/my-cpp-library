@@ -34,6 +34,7 @@
 /// {
 ///     try
 ///     {
+///         Library::Utils::Logger &logger = Library::Utils::Logger::GetInstance();
 ///         Library::Utils::Params &params = Library::Utils::Params::GetInstance(argc, argv);
 ///         return program_main();
 ///     }
@@ -58,6 +59,7 @@
 ///
 /// \see Library.hpp
 /// \see Utils/Params/Params.hpp
+/// \see Utils/Logger/Logger.hpp
 /// \see Utils/AException/AException.hpp
 /// \see program_main
 
@@ -94,6 +96,7 @@ int main(int argc, char **argv)
 {
     try
     {
+        Library::Utils::Logger &logger = Library::Utils::Logger::GetInstance();
         Library::Utils::Params &params = Library::Utils::Params::GetInstance(argc, argv);
         return program_main();
     }

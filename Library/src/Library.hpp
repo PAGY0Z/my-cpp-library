@@ -40,6 +40,7 @@
 /// \see DesignPatterns/Factory/Factory.hpp
 /// \see DesignPatterns/Singleton/Singleton.hpp
 /// \see Utils/AException/AException.hpp
+/// \see Utils/Logger/Logger.hpp
 /// \see Utils/NumericalParsers/NumericalParsers.hpp
 /// \see Utils/Params/Params.hpp
 
@@ -49,6 +50,7 @@
 #include "DesignPatterns/Factory/Factory.hpp"
 #include "DesignPatterns/Singleton/Singleton.hpp"
 #include "Utils/AException/AException.hpp"
+#include "Utils/Logger/Logger.hpp"
 #include "Utils/NumericalParsers/NumericalParsers.hpp"
 #include "Utils/Params/Params.hpp"
 

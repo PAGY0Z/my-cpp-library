@@ -171,7 +171,7 @@ namespace Library
             {
             public:
                 FactoryExceptions(FactoryExceptionsType_e type, const std::string &file_data)
-                    : Library::Utils::AException("FactoryExceptions", FACTORY_EXCEPTIONS_ERROR_MESSAGES[type].__message, file_data) {}
+                    : Library::Utils::AException("FactoryExceptions", FACTORY_EXCEPTIONS_ERROR_MESSAGES[static_cast<int>(type)].__message, file_data) {}
                 virtual ~FactoryExceptions() = default;
             };
         }    // namespace Exceptions
