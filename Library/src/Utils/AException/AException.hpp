@@ -44,7 +44,7 @@
 ///
 /// > I can't believe it ! I can create custom exceptions with additional information !
 /// > Don't tell me that I can also get the return value associated with the exception !
-/// > 
+/// >
 /// > Anyway, why would I need that ? I'm a perfect coder ! I never make mistakes !
 /// *- PAGY0Z*
 

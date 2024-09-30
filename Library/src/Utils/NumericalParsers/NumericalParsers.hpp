@@ -51,7 +51,7 @@
 /// > And you are telling me that I can parse a string to a long double ?
 /// > And you are telling me that I can parse a string to a boolean ?
 /// > ...
-/// > 
+/// >
 /// > I don't believe you ! You are a liar ! AND IT WORKS ?!?!?!
 /// *- PAGY0Z*
 

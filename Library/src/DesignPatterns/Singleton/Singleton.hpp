@@ -53,7 +53,7 @@
 ///
 /// > Thread-Safe Singleton INCOMIIIThread-Safe SiIIIIIIIIIING !!!ngleton INCOMIIIIThread-Safe Singleton INCOMIIINGIIIIIIIIING !!! !!!
 /// > ...
-/// > 
+/// >
 /// > Guess what ? that's what I call a thread-safe singleton !
 /// *- PAGY0Z*
 
