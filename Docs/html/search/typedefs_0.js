@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['factoryexceptionsmessage_5ft_188',['FactoryExceptionsMessage_t',['../d0/d46/namespaceLibrary_1_1DesignPatterns_1_1Exceptions.html#af082f9d6b00eb48f3334a0cce1418939',1,'Library::DesignPatterns::Exceptions']]],
-  ['factoryexceptionstype_5fe_189',['FactoryExceptionsType_e',['../d0/d46/namespaceLibrary_1_1DesignPatterns_1_1Exceptions.html#a8b0f3a9f6d73a4ed6b8cae2ed38275db',1,'Library::DesignPatterns::Exceptions']]]
+  ['colorcode_5ft_307',['ColorCode_t',['../d0/dd6/namespaceLibrary_1_1Utils.html#acf487823b862822c6266e172dff41024',1,'Library::Utils']]],
+  ['componenttypeid_308',['ComponentTypeID',['../dc/da7/classLibrary_1_1DesignPatterns_1_1ECS.html#afb4935761189821866e9569cfb6576d2',1,'Library::DesignPatterns::ECS']]]
 ];

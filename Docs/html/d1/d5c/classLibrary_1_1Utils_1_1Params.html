@@ -147,12 +147,12 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a90eb13cd6c374744c5d3d13cf2500d48"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a90eb13cd6c374744c5d3d13cf2500d48">__argc</a></td></tr>
-<tr class="memdesc:a90eb13cd6c374744c5d3d13cf2500d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of command-line arguments.  <a href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a90eb13cd6c374744c5d3d13cf2500d48">More...</a><br /></td></tr>
-<tr class="separator:a90eb13cd6c374744c5d3d13cf2500d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5940ac04d803be304a9de25a2752313"><td class="memItemLeft" align="right" valign="top">const char *const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#aa5940ac04d803be304a9de25a2752313">__argv</a></td></tr>
-<tr class="memdesc:aa5940ac04d803be304a9de25a2752313"><td class="mdescLeft">&#160;</td><td class="mdescRight">The array of command-line arguments.  <a href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#aa5940ac04d803be304a9de25a2752313">More...</a><br /></td></tr>
-<tr class="separator:aa5940ac04d803be304a9de25a2752313"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ceca091229b695347567e5f610ce7f9"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a4ceca091229b695347567e5f610ce7f9">__ac</a></td></tr>
+<tr class="memdesc:a4ceca091229b695347567e5f610ce7f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of command-line arguments.  <a href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a4ceca091229b695347567e5f610ce7f9">More...</a><br /></td></tr>
+<tr class="separator:a4ceca091229b695347567e5f610ce7f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac856ce7dfe2f8c171dee6fcfe91016c9"><td class="memItemLeft" align="right" valign="top">const char *const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#ac856ce7dfe2f8c171dee6fcfe91016c9">__av</a></td></tr>
+<tr class="memdesc:ac856ce7dfe2f8c171dee6fcfe91016c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The array of command-line arguments.  <a href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#ac856ce7dfe2f8c171dee6fcfe91016c9">More...</a><br /></td></tr>
+<tr class="separator:ac856ce7dfe2f8c171dee6fcfe91016c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -173,7 +173,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p><a class="el" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html" title="Params Singleton Class.">Params</a> Singleton Class. </p>
 <p>The <a class="el" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html" title="Params Singleton Class.">Params</a> class is a Singleton class that provides a global point of access to the command-line arguments passed to the program. The class stores the <code>argc</code> and <code>argv</code> values passed to the <code>main</code> function and provides methods to access these values. The class is implemented as a Singleton to ensure that only one instance of the class is created and that the command-line arguments are stored in a thread-safe manner. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00066">66</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00074">74</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1fd43e82ced39a4f5991311f2f378495"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1fd43e82ced39a4f5991311f2f378495">&#9670;&nbsp;</a></span>Params()</h2>
@@ -219,11 +219,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00107">107</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                : <a class="code" href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html">Library::DesignPatterns::Singleton&lt;Params&gt;</a>(), <a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a90eb13cd6c374744c5d3d13cf2500d48">__argc</a>(argc), <a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#aa5940ac04d803be304a9de25a2752313">__argv</a>(argv) {}</div>
+<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00115">115</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                : <a class="code" href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html">Library::DesignPatterns::Singleton&lt;Params&gt;</a>(), <a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a4ceca091229b695347567e5f610ce7f9">__ac</a>(argc), <a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#ac856ce7dfe2f8c171dee6fcfe91016c9">__av</a>(argv) {}</div>
 <div class="ttc" id="aclassLibrary_1_1DesignPatterns_1_1Singleton_html"><div class="ttname"><a href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html">Library::DesignPatterns::Singleton&lt; Params &gt;</a></div></div>
-<div class="ttc" id="aclassLibrary_1_1Utils_1_1Params_html_a90eb13cd6c374744c5d3d13cf2500d48"><div class="ttname"><a href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a90eb13cd6c374744c5d3d13cf2500d48">Library::Utils::Params::__argc</a></div><div class="ttdeci">const unsigned int __argc</div><div class="ttdoc">The number of command-line arguments.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/Params_8hpp_source.html#l00111">Params.hpp:111</a></div></div>
-<div class="ttc" id="aclassLibrary_1_1Utils_1_1Params_html_aa5940ac04d803be304a9de25a2752313"><div class="ttname"><a href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#aa5940ac04d803be304a9de25a2752313">Library::Utils::Params::__argv</a></div><div class="ttdeci">const char *const  * __argv</div><div class="ttdoc">The array of command-line arguments.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/Params_8hpp_source.html#l00114">Params.hpp:114</a></div></div>
+<div class="ttc" id="aclassLibrary_1_1Utils_1_1Params_html_a4ceca091229b695347567e5f610ce7f9"><div class="ttname"><a href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a4ceca091229b695347567e5f610ce7f9">Library::Utils::Params::__ac</a></div><div class="ttdeci">const unsigned int __ac</div><div class="ttdoc">The number of command-line arguments.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/Params_8hpp_source.html#l00119">Params.hpp:119</a></div></div>
+<div class="ttc" id="aclassLibrary_1_1Utils_1_1Params_html_ac856ce7dfe2f8c171dee6fcfe91016c9"><div class="ttname"><a href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#ac856ce7dfe2f8c171dee6fcfe91016c9">Library::Utils::Params::__av</a></div><div class="ttdeci">const char *const  * __av</div><div class="ttdoc">The array of command-line arguments.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/Params_8hpp_source.html#l00122">Params.hpp:122</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -273,9 +273,9 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The Singleton instance of the <a class="el" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html" title="Params Singleton Class.">Params</a> class by reference </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00080">80</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#a12d2ec1a9657d79655c5b5d9da4afc61">Library::DesignPatterns::Singleton&lt;Params&gt;::GetInstance</a>(argc, argv); }</div>
-<div class="ttc" id="aclassLibrary_1_1DesignPatterns_1_1Singleton_html_a12d2ec1a9657d79655c5b5d9da4afc61"><div class="ttname"><a href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#a12d2ec1a9657d79655c5b5d9da4afc61">Library::DesignPatterns::Singleton::GetInstance</a></div><div class="ttdeci">static Type &amp; GetInstance(Args &amp;&amp;...args)</div><div class="ttdoc">Retrieves the single instance of the class, creating it if necessary.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d21/Singleton_8hpp_source.html#l00084">Singleton.hpp:84</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00088">88</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#a12d2ec1a9657d79655c5b5d9da4afc61">Library::DesignPatterns::Singleton&lt;Params&gt;::GetInstance</a>(argc, argv); }</div>
+<div class="ttc" id="aclassLibrary_1_1DesignPatterns_1_1Singleton_html_a12d2ec1a9657d79655c5b5d9da4afc61"><div class="ttname"><a href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#a12d2ec1a9657d79655c5b5d9da4afc61">Library::DesignPatterns::Singleton::GetInstance</a></div><div class="ttdeci">static Type &amp; GetInstance(Args &amp;&amp;...args)</div><div class="ttdoc">Retrieves the single instance of the class, creating it if necessary.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d21/Singleton_8hpp_source.html#l00095">Singleton.hpp:95</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -306,8 +306,8 @@ Additional Inherited Members</h2></td></tr>
 <p>This method returns the number of command-line arguments passed to the program.</p>
 <dl class="section return"><dt>Returns</dt><dd>The number of command-line arguments </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00088">88</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a90eb13cd6c374744c5d3d13cf2500d48">__argc</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00096">96</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a4ceca091229b695347567e5f610ce7f9">__ac</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -338,8 +338,8 @@ Additional Inherited Members</h2></td></tr>
 <p>This method returns the array of command-line arguments passed to the program.</p>
 <dl class="section return"><dt>Returns</dt><dd>The array of command-line arguments </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00096">96</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#aa5940ac04d803be304a9de25a2752313">__argv</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00104">104</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="../../d1/d5c/classLibrary_1_1Utils_1_1Params.html#ac856ce7dfe2f8c171dee6fcfe91016c9">__av</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -364,13 +364,13 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00050">50</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00058">58</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a90eb13cd6c374744c5d3d13cf2500d48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90eb13cd6c374744c5d3d13cf2500d48">&#9670;&nbsp;</a></span>__argc</h2>
+<a id="a4ceca091229b695347567e5f610ce7f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ceca091229b695347567e5f610ce7f9">&#9670;&nbsp;</a></span>__ac</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -379,7 +379,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned int Library::Utils::Params::__argc</td>
+          <td class="memname">const unsigned int Library::Utils::Params::__ac</td>
         </tr>
       </table>
   </td>
@@ -391,12 +391,12 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The number of command-line arguments. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00111">111</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00119">119</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
 
 </div>
 </div>
-<a id="aa5940ac04d803be304a9de25a2752313"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5940ac04d803be304a9de25a2752313">&#9670;&nbsp;</a></span>__argv</h2>
+<a id="ac856ce7dfe2f8c171dee6fcfe91016c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac856ce7dfe2f8c171dee6fcfe91016c9">&#9670;&nbsp;</a></span>__av</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -405,7 +405,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const char* const* Library::Utils::Params::__argv</td>
+          <td class="memname">const char* const* Library::Utils::Params::__av</td>
         </tr>
       </table>
   </td>
@@ -417,7 +417,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The array of command-line arguments. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00114">114</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d2f/Params_8hpp_source.html#l00122">122</a> of file <a class="el" href="../../dd/d2f/Params_8hpp_source.html">Params.hpp</a>.</p>
 
 </div>
 </div>

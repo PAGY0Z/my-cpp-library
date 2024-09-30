@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['singleton_109',['Singleton',['../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html',1,'Library::DesignPatterns']]],
-  ['singleton_3c_20factory_3c_20typefactoryobject_2c_20std_3a_3astring_20_3e_20_3e_110',['Singleton&lt; Factory&lt; TypeFactoryObject, std::string &gt; &gt;',['../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html',1,'Library::DesignPatterns']]],
-  ['singleton_3c_20logger_20_3e_111',['Singleton&lt; Logger &gt;',['../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html',1,'Library::DesignPatterns']]],
-  ['singleton_3c_20params_20_3e_112',['Singleton&lt; Params &gt;',['../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html',1,'Library::DesignPatterns']]]
+  ['isystem_174',['ISystem',['../d1/d6c/classLibrary_1_1DesignPatterns_1_1ECS_1_1ISystem.html',1,'Library::DesignPatterns::ECS']]]
 ];

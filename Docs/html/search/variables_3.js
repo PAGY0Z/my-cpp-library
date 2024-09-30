@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['logger_5fidentifiers_187',['LOGGER_IDENTIFIERS',['../d0/dd6/namespaceLibrary_1_1Utils.html#aa4556b613d54a356c903309e8813f766',1,'Library::Utils']]]
+  ['emptyargv_300',['emptyArgv',['../dd/d2f/Params_8hpp.html#a71a53879ab2d4dd6ee6eda9af5caee66',1,'Params.hpp']]]
 ];

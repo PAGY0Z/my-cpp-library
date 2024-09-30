@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d_147',['operator=',['../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#a7ccfeadfeaa099d5f80c8dcbe22c1916',1,'Library::DesignPatterns::Singleton']]]
+  ['logger_235',['Logger',['../d2/deb/classLibrary_1_1Utils_1_1Logger.html#a60c6e433fb2a5e3d565a8a1d8d1a4496',1,'Library::Utils::Logger']]]
 ];

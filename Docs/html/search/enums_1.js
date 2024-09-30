@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loggerlevel_191',['LoggerLevel',['../d0/dd6/namespaceLibrary_1_1Utils.html#ad6c82eb65a3e968377359156c9cd8443',1,'Library::Utils']]]
+  ['factoryexceptionstype_5fe_313',['FactoryExceptionsType_e',['../d0/d46/namespaceLibrary_1_1DesignPatterns_1_1Exceptions.html#ac2bf3b8bac6a46ea8bc011e3bc578134',1,'Library::DesignPatterns::Exceptions']]]
 ];

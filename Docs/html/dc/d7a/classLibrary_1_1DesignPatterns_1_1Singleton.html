@@ -156,7 +156,7 @@ class Library::DesignPatterns::Singleton&lt; Type &gt;</h3>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d21/Singleton_8hpp_source.html#l00070">70</a> of file <a class="el" href="../../de/d21/Singleton_8hpp_source.html">Singleton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d21/Singleton_8hpp_source.html#l00078">78</a> of file <a class="el" href="../../de/d21/Singleton_8hpp_source.html">Singleton.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a409c49ca93834d7e0731d6ab13bd14ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a409c49ca93834d7e0731d6ab13bd14ff">&#9670;&nbsp;</a></span>Singleton() <span class="overload">[1/2]</span></h2>
@@ -308,25 +308,25 @@ template&lt;typename... Args&gt; </div>
 <p>Retrieves the single instance of the class, creating it if necessary. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Args</td><td>Variadic template parameter pack for constructor arguments. </td></tr>
+    <tr><td class="paramname">Args</td><td>Variadic template parameter pack for constructor arguments.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">args</td><td>Arguments to be forwarded to the class constructor. </td></tr>
+    <tr><td class="paramname">args</td><td>Arguments to be forwarded to the class constructor.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the single instance of the class. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d21/Singleton_8hpp_source.html#l00084">84</a> of file <a class="el" href="../../de/d21/Singleton_8hpp_source.html">Singleton.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                std::call_once(<a class="code" href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#aa96317ddc206f0d889eb254f7538a5c2">__initInstanceFlag</a>, &amp;Singleton::InitSingleton&lt;Args...&gt;, std::forward&lt;Args&gt;(args)...);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">return</span> *<a class="code" href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#a5df5e7ae7b84561b4889d18219100bb9">__instance</a>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            }</div>
-<div class="ttc" id="aclassLibrary_1_1DesignPatterns_1_1Singleton_html_a5df5e7ae7b84561b4889d18219100bb9"><div class="ttname"><a href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#a5df5e7ae7b84561b4889d18219100bb9">Library::DesignPatterns::Singleton::__instance</a></div><div class="ttdeci">static std::unique_ptr&lt; Type &gt; __instance</div><div class="ttdoc">Unique pointer to hold the single instance of the class.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d21/Singleton_8hpp_source.html#l00108">Singleton.hpp:108</a></div></div>
-<div class="ttc" id="aclassLibrary_1_1DesignPatterns_1_1Singleton_html_aa96317ddc206f0d889eb254f7538a5c2"><div class="ttname"><a href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#aa96317ddc206f0d889eb254f7538a5c2">Library::DesignPatterns::Singleton::__initInstanceFlag</a></div><div class="ttdeci">static std::once_flag __initInstanceFlag</div><div class="ttdoc">Flag to ensure that the instance is initialized only once.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d21/Singleton_8hpp_source.html#l00111">Singleton.hpp:111</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../de/d21/Singleton_8hpp_source.html#l00095">95</a> of file <a class="el" href="../../de/d21/Singleton_8hpp_source.html">Singleton.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                std::call_once(<a class="code" href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#aa96317ddc206f0d889eb254f7538a5c2">__initInstanceFlag</a>, &amp;Singleton::InitSingleton&lt;Args...&gt;, std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordflow">return</span> *<a class="code" href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#a5df5e7ae7b84561b4889d18219100bb9">__instance</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            }</div>
+<div class="ttc" id="aclassLibrary_1_1DesignPatterns_1_1Singleton_html_a5df5e7ae7b84561b4889d18219100bb9"><div class="ttname"><a href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#a5df5e7ae7b84561b4889d18219100bb9">Library::DesignPatterns::Singleton::__instance</a></div><div class="ttdeci">static std::unique_ptr&lt; Type &gt; __instance</div><div class="ttdoc">Unique pointer to hold the single instance of the class.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d21/Singleton_8hpp_source.html#l00121">Singleton.hpp:121</a></div></div>
+<div class="ttc" id="aclassLibrary_1_1DesignPatterns_1_1Singleton_html_aa96317ddc206f0d889eb254f7538a5c2"><div class="ttname"><a href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#aa96317ddc206f0d889eb254f7538a5c2">Library::DesignPatterns::Singleton::__initInstanceFlag</a></div><div class="ttdeci">static std::once_flag __initInstanceFlag</div><div class="ttdoc">Flag to ensure that the instance is initialized only once.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d21/Singleton_8hpp_source.html#l00124">Singleton.hpp:124</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -361,7 +361,7 @@ template&lt;typename... Args&gt; </div>
 <p>Initializes the <a class="el" href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html" title="Singleton Template Class.">Singleton</a> instance. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Args</td><td>Variadic template parameter pack for constructor arguments. </td></tr>
+    <tr><td class="paramname">Args</td><td>Variadic template parameter pack for constructor arguments.</td></tr>
   </table>
   </dd>
 </dl>
@@ -372,10 +372,10 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d21/Singleton_8hpp_source.html#l00102">102</a> of file <a class="el" href="../../de/d21/Singleton_8hpp_source.html">Singleton.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                <a class="code" href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#a5df5e7ae7b84561b4889d18219100bb9">__instance</a>.reset(<span class="keyword">new</span> Type(std::forward&lt;Args&gt;(args)...));</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            }</div>
+<p class="definition">Definition at line <a class="el" href="../../de/d21/Singleton_8hpp_source.html#l00115">115</a> of file <a class="el" href="../../de/d21/Singleton_8hpp_source.html">Singleton.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <a class="code" href="../../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#a5df5e7ae7b84561b4889d18219100bb9">__instance</a>.reset(<span class="keyword">new</span> Type(std::forward&lt;Args&gt;(args)...));</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -404,7 +404,7 @@ template&lt;typename Type &gt; </div>
 
 <p>Unique pointer to hold the single instance of the class. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d21/Singleton_8hpp_source.html#l00108">108</a> of file <a class="el" href="../../de/d21/Singleton_8hpp_source.html">Singleton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d21/Singleton_8hpp_source.html#l00121">121</a> of file <a class="el" href="../../de/d21/Singleton_8hpp_source.html">Singleton.hpp</a>.</p>
 
 </div>
 </div>
@@ -432,7 +432,7 @@ template&lt;typename Type &gt; </div>
 
 <p>Flag to ensure that the instance is initialized only once. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d21/Singleton_8hpp_source.html#l00111">111</a> of file <a class="el" href="../../de/d21/Singleton_8hpp_source.html">Singleton.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d21/Singleton_8hpp_source.html#l00124">124</a> of file <a class="el" href="../../de/d21/Singleton_8hpp_source.html">Singleton.hpp</a>.</p>
 
 </div>
 </div>

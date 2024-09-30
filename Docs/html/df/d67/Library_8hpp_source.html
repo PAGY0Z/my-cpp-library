@@ -96,26 +96,32 @@ $(document).ready(function(){initNavTree('df/d67/Library_8hpp_source.html','../.
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">** Library</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#ifndef LIBRARY_HPP_</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#define LIBRARY_HPP_</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d03/Factory_8hpp.html">DesignPatterns/Factory/Factory.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d21/Singleton_8hpp.html">DesignPatterns/Singleton/Singleton.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d40/AException_8hpp.html">Utils/AException/AException.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d11/Logger_8hpp.html">Utils/Logger/Logger.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d63/NumericalParsers_8hpp.html">Utils/NumericalParsers/NumericalParsers.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d2f/Params_8hpp.html">Utils/Params/Params.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;[[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="../../df/d67/Library_8hpp.html#a2ee2dd3cbf92cf1a7734a8cfef1416e7">program_main</a>();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !LIBRARY_HPP_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#ifndef LIBRARY_HPP_</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#define LIBRARY_HPP_</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d48/ECS_8hpp.html">DesignPatterns/ECS/ECS.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d03/Factory_8hpp.html">DesignPatterns/Factory/Factory.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d21/Singleton_8hpp.html">DesignPatterns/Singleton/Singleton.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d40/AException_8hpp.html">Utils/AException/AException.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/ddf/Clock_8hpp.html">Utils/Clock/Clock.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d11/Logger_8hpp.html">Utils/Logger/Logger.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d63/NumericalParsers_8hpp.html">Utils/NumericalParsers/NumericalParsers.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d2f/Params_8hpp.html">Utils/Params/Params.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/dbc/Profiler_8hpp.html">Utils/Profiler/Profiler.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;[[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="../../df/d67/Library_8hpp.html#a2ee2dd3cbf92cf1a7734a8cfef1416e7">program_main</a>();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !LIBRARY_HPP_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aAException_8hpp_html"><div class="ttname"><a href="../../d3/d40/AException_8hpp.html">AException.hpp</a></div><div class="ttdoc">AException Class implementation.</div></div>
+<div class="ttc" id="aClock_8hpp_html"><div class="ttname"><a href="../../d5/ddf/Clock_8hpp.html">Clock.hpp</a></div><div class="ttdoc">Clock Class definition.</div></div>
+<div class="ttc" id="aECS_8hpp_html"><div class="ttname"><a href="../../da/d48/ECS_8hpp.html">ECS.hpp</a></div><div class="ttdoc">ECS Class implementation.</div></div>
 <div class="ttc" id="aFactory_8hpp_html"><div class="ttname"><a href="../../d5/d03/Factory_8hpp.html">Factory.hpp</a></div><div class="ttdoc">Factory Template Class [Thread-Safe] implementation.</div></div>
 <div class="ttc" id="aLibrary_8hpp_html_a2ee2dd3cbf92cf1a7734a8cfef1416e7"><div class="ttname"><a href="../../df/d67/Library_8hpp.html#a2ee2dd3cbf92cf1a7734a8cfef1416e7">program_main</a></div><div class="ttdeci">int program_main()</div><div class="ttdoc">Program entry point.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d7d/program__main_8cpp_source.html#l00010">program_main.cpp:10</a></div></div>
 <div class="ttc" id="aLogger_8hpp_html"><div class="ttname"><a href="../../d9/d11/Logger_8hpp.html">Logger.hpp</a></div><div class="ttdoc">Logger Singleton Class [Thread-Safe] implementation.</div></div>
 <div class="ttc" id="aNumericalParsers_8hpp_html"><div class="ttname"><a href="../../db/d63/NumericalParsers_8hpp.html">NumericalParsers.hpp</a></div><div class="ttdoc">NumericalParsers implementation.</div></div>
 <div class="ttc" id="aParams_8hpp_html"><div class="ttname"><a href="../../dd/d2f/Params_8hpp.html">Params.hpp</a></div><div class="ttdoc">Params Singleton Class implementation.</div></div>
+<div class="ttc" id="aProfiler_8hpp_html"><div class="ttname"><a href="../../dc/dbc/Profiler_8hpp.html">Profiler.hpp</a></div><div class="ttdoc">Profiler Class implementation.</div></div>
 <div class="ttc" id="aSingleton_8hpp_html"><div class="ttname"><a href="../../de/d21/Singleton_8hpp.html">Singleton.hpp</a></div><div class="ttdoc">Singleton Template Class [Thread-Safe] implementation.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

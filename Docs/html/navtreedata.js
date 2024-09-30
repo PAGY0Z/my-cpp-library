@@ -25,8 +25,8 @@
 var NAVTREE =
 [
   [ "My Template Project", "index.html", [
-    [ "Project Template", "index.html#autotoc_md3", [
-      [ "Introduction", "index.html#autotoc_md4", null ]
+    [ "Project Template", "index.html#autotoc_md14", [
+      [ "Introduction", "index.html#autotoc_md15", null ]
     ] ],
     [ "CONTRIBUTING", "d2/dc1/md_CONTRIBUTING.html", null ],
     [ "Todo List", "dd/da0/todo.html", null ],
@@ -49,6 +49,7 @@ var NAVTREE =
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -66,7 +67,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"annotated.html",
+"df/d67/Library_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

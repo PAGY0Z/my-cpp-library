@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['logger_106',['Logger',['../d2/deb/classLibrary_1_1Utils_1_1Logger.html',1,'Library::Utils']]],
-  ['loggeridentifier_107',['LoggerIdentifier',['../d5/d22/structLibrary_1_1Utils_1_1LoggerIdentifier.html',1,'Library::Utils']]]
+  ['ecs_169',['ECS',['../dc/da7/classLibrary_1_1DesignPatterns_1_1ECS.html',1,'Library::DesignPatterns']]]
 ];

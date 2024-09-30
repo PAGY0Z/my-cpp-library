@@ -1,8 +1,17 @@
 var searchData=
 [
-  ['getargc_34',['GetArgc',['../d1/d5c/classLibrary_1_1Utils_1_1Params.html#aaf9272b522f487fd8e258d24349cbc93',1,'Library::Utils::Params']]],
-  ['getargv_35',['GetArgv',['../d1/d5c/classLibrary_1_1Utils_1_1Params.html#aa2847af083396358e0425cda8695f341',1,'Library::Utils::Params']]],
-  ['getcount_36',['GetCount',['../d2/deb/classLibrary_1_1Utils_1_1Logger.html#a2dbfa9aceb36d22cd486fd2c5354f69a',1,'Library::Utils::Logger']]],
-  ['getinstance_37',['GetInstance',['../dd/da5/classLibrary_1_1DesignPatterns_1_1Factory.html#ac9386e8a538cf9d9fca84440723eee62',1,'Library::DesignPatterns::Factory::GetInstance()'],['../dc/d7a/classLibrary_1_1DesignPatterns_1_1Singleton.html#a12d2ec1a9657d79655c5b5d9da4afc61',1,'Library::DesignPatterns::Singleton::GetInstance()'],['../d2/deb/classLibrary_1_1Utils_1_1Logger.html#aad93c663de9fad06d26763b4a31421e1',1,'Library::Utils::Logger::GetInstance()'],['../d1/d5c/classLibrary_1_1Utils_1_1Params.html#a1580f0c3c92e2a7ae2b751e2956a7633',1,'Library::Utils::Params::GetInstance()']]],
-  ['getreturnvalue_38',['GetReturnValue',['../da/d0a/classLibrary_1_1Utils_1_1AException.html#a9ddee9ec97a7d09789b8737d39b935b0',1,'Library::Utils::AException']]]
+  ['factory_59',['Factory',['../dd/da5/classLibrary_1_1DesignPatterns_1_1Factory.html#ad5a93d17d8cf30b41956230660c78a33',1,'Library::DesignPatterns::Factory::Factory()'],['../dd/da5/classLibrary_1_1DesignPatterns_1_1Factory.html',1,'Library::DesignPatterns::Factory&lt; TypeFactoryObject, TypeKeyValue &gt;']]],
+  ['factory_2ehpp_60',['Factory.hpp',['../d5/d03/Factory_8hpp.html',1,'']]],
+  ['factory_5fexceptions_5ferror_5fmessages_61',['FACTORY_EXCEPTIONS_ERROR_MESSAGES',['../d0/d46/namespaceLibrary_1_1DesignPatterns_1_1Exceptions.html#a23800aa3cae9d76204a11dc40bb618c2',1,'Library::DesignPatterns::Exceptions']]],
+  ['factoryexceptions_62',['FactoryExceptions',['../d3/dd0/classLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptions.html#aa23a16d3bf0ad51a48586d64fd0199f9',1,'Library::DesignPatterns::Exceptions::FactoryExceptions::FactoryExceptions()'],['../d3/dd0/classLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptions.html',1,'Library::DesignPatterns::Exceptions::FactoryExceptions']]],
+  ['factoryexceptionsmessage_5fs_63',['FactoryExceptionsMessage_s',['../d2/dd1/structLibrary_1_1DesignPatterns_1_1Exceptions_1_1FactoryExceptionsMessage__s.html',1,'Library::DesignPatterns::Exceptions']]],
+  ['factoryexceptionsmessage_5ft_64',['FactoryExceptionsMessage_t',['../d0/d46/namespaceLibrary_1_1DesignPatterns_1_1Exceptions.html#af082f9d6b00eb48f3334a0cce1418939',1,'Library::DesignPatterns::Exceptions']]],
+  ['factoryexceptionstype_5fe_65',['FactoryExceptionsType_e',['../d0/d46/namespaceLibrary_1_1DesignPatterns_1_1Exceptions.html#ac2bf3b8bac6a46ea8bc011e3bc578134',1,'Library::DesignPatterns::Exceptions::FactoryExceptionsType_e()'],['../d0/d46/namespaceLibrary_1_1DesignPatterns_1_1Exceptions.html#a8b0f3a9f6d73a4ed6b8cae2ed38275db',1,'Library::DesignPatterns::Exceptions::FactoryExceptionsType_e()']]],
+  ['factoryparams_66',['FactoryParams',['../d4/df0/classLibrary_1_1DesignPatterns_1_1FactoryParams.html#af67b7e6c678ae92ac288236fa29c21e9',1,'Library::DesignPatterns::FactoryParams::FactoryParams()'],['../d4/df0/classLibrary_1_1DesignPatterns_1_1FactoryParams.html',1,'Library::DesignPatterns::FactoryParams']]],
+  ['fg_5fblue_67',['FG_BLUE',['../d0/dd6/namespaceLibrary_1_1Utils.html#ab82f4e100f547bfdddb5065425a3d425a4dadaec950873641ce17ab91aa034f4c',1,'Library::Utils']]],
+  ['fg_5fdefault_68',['FG_DEFAULT',['../d0/dd6/namespaceLibrary_1_1Utils.html#ab82f4e100f547bfdddb5065425a3d425a3bb8f200bb13d665a3583ae1f94a23b4',1,'Library::Utils']]],
+  ['fg_5fgreen_69',['FG_GREEN',['../d0/dd6/namespaceLibrary_1_1Utils.html#ab82f4e100f547bfdddb5065425a3d425a7e4a79778641d8310dbf43c3cde72fc3',1,'Library::Utils']]],
+  ['fg_5fred_70',['FG_RED',['../d0/dd6/namespaceLibrary_1_1Utils.html#ab82f4e100f547bfdddb5065425a3d425abdcfd3e4bd5cdf9f29d5d2c207544a12',1,'Library::Utils']]],
+  ['fg_5fyellow_71',['FG_YELLOW',['../d0/dd6/namespaceLibrary_1_1Utils.html#ab82f4e100f547bfdddb5065425a3d425a04fd6cda55230416d407b9ae1b98f522',1,'Library::Utils']]],
+  ['file_5fdata_72',['FILE_DATA',['../d3/d40/AException_8hpp.html#a56c171ce5fb653a8b2a10fa534cd870b',1,'AException.hpp']]]
 ];

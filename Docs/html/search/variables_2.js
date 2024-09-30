@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['factory_5fexceptions_5ferror_5fmessages_186',['FACTORY_EXCEPTIONS_ERROR_MESSAGES',['../d0/d46/namespaceLibrary_1_1DesignPatterns_1_1Exceptions.html#a23800aa3cae9d76204a11dc40bb618c2',1,'Library::DesignPatterns::Exceptions']]]
+  ['default_5fcolor_298',['DEFAULT_COLOR',['../d0/dd6/namespaceLibrary_1_1Utils.html#aeb85c6e38b7486475dcceeed219d64a0',1,'Library::Utils']]],
+  ['duration_299',['duration',['../d8/d65/structLibrary_1_1Utils_1_1Profiler_1_1ProfilerData.html#a44c0348e8774e8751610ae68db3c653b',1,'Library::Utils::Profiler::ProfilerData']]]
 ];
