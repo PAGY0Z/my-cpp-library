@@ -38,6 +38,14 @@
 ///
 /// \see Singleton.hpp
 /// \see Params.hpp
+///
+/// ## Quotes
+///
+/// > Parameters ? Everywhere ? I don't ever have to manage them again ?
+/// > Why didn't I think of this before ?
+/// >
+/// > The guy who invented this is a genius !
+/// *- Said no one... Ever*
 
 #ifndef PARAMS_HPP_
 #define PARAMS_HPP_
@@ -77,7 +85,7 @@ namespace Library
             /// \param argc The number of command-line arguments
             /// \param argv The array of command-line arguments
             /// \return The Singleton instance of the Params class by reference
-            [[nodiscard]] static inline Params &GetInstance(const unsigned int argc = 0, const char *const *argv = EMPTY_ARGV) { return Library::DesignPatterns::Singleton<Params>::GetInstance(argc, argv); }
+            static inline Params &GetInstance(const unsigned int argc = 0, const char *const *argv = EMPTY_ARGV) { return Library::DesignPatterns::Singleton<Params>::GetInstance(argc, argv); }
 
             /// \brief Get the number of command-line arguments
             ///
@@ -85,7 +93,7 @@ namespace Library
             /// the program.
             ///
             /// \return The number of command-line arguments
-            [[nodiscard]] inline unsigned int GetArgc() const { return __argc; }
+            inline unsigned int GetArgc() const { return __ac; }
 
             /// \brief Get the array of command-line arguments
             ///
@@ -93,7 +101,7 @@ namespace Library
             /// the program.
             ///
             /// \return The array of command-line arguments
-            [[nodiscard]] inline const char *const *GetArgv() const { return __argv; }
+            inline const char *const *GetArgv() const { return __av; }
 
         private:
             /// \brief Constructor
@@ -105,13 +113,13 @@ namespace Library
             /// \param argc The number of command-line arguments
             /// \param argv The array of command-line arguments
             Params(const unsigned int argc, const char *const *argv)
-                : Library::DesignPatterns::Singleton<Params>(), __argc(argc), __argv(argv) {}
+                : Library::DesignPatterns::Singleton<Params>(), __ac(argc), __av(argv) {}
 
             /// \brief The number of command-line arguments
-            const unsigned int __argc;
+            const unsigned int __ac;
 
             /// \brief The array of command-line arguments
-            const char *const *__argv;
+            const char *const *__av;
         };
     }    // namespace Utils
 }    // namespace Library

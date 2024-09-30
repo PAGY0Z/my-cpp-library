@@ -48,6 +48,14 @@
 /// \see std::call_once
 /// \see std::once_flag
 /// \see std::unique_ptr
+///
+/// ## Quotes
+///
+/// > Thread-Safe Singleton INCOMIIIThread-Safe SiIIIIIIIIIING !!!ngleton INCOMIIIIThread-Safe Singleton INCOMIIINGIIIIIIIIING !!! !!!
+/// > ...
+/// > 
+/// > Guess what ? that's what I call a thread-safe singleton !
+/// *- PAGY0Z*
 
 #ifndef SINGLETON_HPP_
 #define SINGLETON_HPP_
@@ -77,8 +85,11 @@ namespace Library
             Singleton &operator=(const Singleton &) = delete;
 
             /// \brief Retrieves the single instance of the class, creating it if necessary.
+            ///
             /// \tparam Args Variadic template parameter pack for constructor arguments.
+            ///
             /// \param args Arguments to be forwarded to the class constructor.
+            ///
             /// \return Reference to the single instance of the class.
             template<typename... Args>
             [[nodiscard]] static Type &GetInstance(Args &&...args)
@@ -96,7 +107,9 @@ namespace Library
 
         private:
             /// \brief Initializes the Singleton instance.
+            ///
             /// \tparam Args Variadic template parameter pack for constructor arguments.
+            ///
             /// \param args Arguments to be forwarded to the class constructor.
             template<typename... Args>
             static void InitSingleton(Args &&...args)

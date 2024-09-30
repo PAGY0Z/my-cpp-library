@@ -62,6 +62,13 @@
 /// \see Utils/Logger/Logger.hpp
 /// \see Utils/AException/AException.hpp
 /// \see program_main
+///
+/// ## Quotes
+///
+/// > What a beautiful day to start a new project !
+/// >
+/// > I can't wait to see what amazing things we will create !
+/// *- PAGY0Z*
 
 #include "Library.hpp"
 
@@ -96,9 +103,15 @@ int main(int argc, char **argv)
 {
     try
     {
-        Library::Utils::Logger &logger = Library::Utils::Logger::GetInstance();
-        Library::Utils::Params &params = Library::Utils::Params::GetInstance(argc, argv);
-        return program_main();
+        Library::Utils::Logger   &logger   = Library::Utils::Logger::GetInstance();
+        Library::Utils::Params   &params   = Library::Utils::Params::GetInstance(argc, argv);
+        Library::Utils::Profiler &profiler = Library::Utils::Profiler::GetInstance();
+
+        int program_main_return_value = program_main();
+
+        profiler.Dump();
+
+        return program_main_return_value;
     }
     catch (const Library::Utils::AException &except)
     {

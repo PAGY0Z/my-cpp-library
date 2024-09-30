@@ -37,22 +37,35 @@
 /// \endcode
 ///
 /// \see Library.hpp
+/// \see DesignPatterns/ECS/ECS.hpp
 /// \see DesignPatterns/Factory/Factory.hpp
 /// \see DesignPatterns/Singleton/Singleton.hpp
 /// \see Utils/AException/AException.hpp
+/// \see Utils/Clock/Clock.hpp
 /// \see Utils/Logger/Logger.hpp
 /// \see Utils/NumericalParsers/NumericalParsers.hpp
 /// \see Utils/Params/Params.hpp
+/// \see Utils/Profiler/Profiler.hpp
+///
+/// ## Quotes
+///
+/// > Library : the pinnacle of code reusability !
+/// >
+/// > #reuse #recycle #reusablecode #cleancode #codequality #codeefficiency #mycpuwillthankme
+/// *- PAGY0Z*
 
 #ifndef LIBRARY_HPP_
 #define LIBRARY_HPP_
 
+#include "DesignPatterns/ECS/ECS.hpp"
 #include "DesignPatterns/Factory/Factory.hpp"
 #include "DesignPatterns/Singleton/Singleton.hpp"
 #include "Utils/AException/AException.hpp"
+#include "Utils/Clock/Clock.hpp"
 #include "Utils/Logger/Logger.hpp"
 #include "Utils/NumericalParsers/NumericalParsers.hpp"
 #include "Utils/Params/Params.hpp"
+#include "Utils/Profiler/Profiler.hpp"
 
 /// \brief Program entry point
 ///
@@ -68,6 +81,7 @@
 ///
 /// \warning This function should not be called directly. It is called by the main
 /// function in the Main.cpp file.
+///
 /// \warning No exceptions should be let through this function. All exceptions
 /// should be caught and handled by the program_main function. Any uncaught
 /// exceptions will be caught by the main function but it is recommended to catch

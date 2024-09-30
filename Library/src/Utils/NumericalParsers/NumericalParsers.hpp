@@ -42,6 +42,18 @@
 /// \endcode
 ///
 /// \see NumericalParsers.cpp
+///
+/// ## Quotes
+///
+/// > So you are telling me that I can parse a string to an integer ?
+/// > And you are telling me that I can parse a string to a float ?
+/// > And you are telling me that I can parse a string to a double ?
+/// > And you are telling me that I can parse a string to a long double ?
+/// > And you are telling me that I can parse a string to a boolean ?
+/// > ...
+/// > 
+/// > I don't believe you ! You are a liar ! AND IT WORKS ?!?!?!
+/// *- PAGY0Z*
 
 #ifndef NUMERICALPARSERS_HPP_
 #define NUMERICALPARSERS_HPP_

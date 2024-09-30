@@ -28,7 +28,7 @@
 ///
 /// int main()
 /// {
-///     Library::Utils::Logger &logger = Library::Utils::Logger::GetInstance();
+///     Library::Utils::Logger &logger = Library::Utils::GetInstance();
 ///
 ///     logger.WriteInfo("This is an informational message");
 ///     logger.WriteWarn("This is a warning message");
@@ -40,6 +40,15 @@
 ///
 /// \see Singleton.hpp
 /// \see Logger.hpp
+///
+/// ## Quotes
+///
+/// > Logging ? Everywhere ? I don't ever have to manage it again ?
+/// > It will be so easy to debug my code now... Debugging ? What is that ?
+/// >
+/// > Debugging is for the weak ! I am a god of programming ! I use logging to debug !
+/// > What am I saying ? I don't need to debug ! My code is perfect !
+/// *- PAGY0Z*
 
 #ifndef LOGGER_HPP_
 #define LOGGER_HPP_
@@ -55,6 +64,49 @@ namespace Library
 {
     namespace Utils
     {
+        /// \brief Color Code Enumeration
+        ///
+        /// The ColorCode enumeration defines the different color codes that can be
+        /// used to format text in the console. The color codes are used to change
+        /// the color of the text in the console.
+        ///
+        /// \note The enumeration values are as follows:
+        /// \note - FG_RED: Red foreground color
+        /// \note - FG_GREEN: Green foreground color
+        /// \note - FG_YELLOW: Yellow foreground color
+        /// \note - FG_BLUE: Blue foreground color
+        /// \note - FG_DEFAULT: Default foreground color
+        /// \note - BG_RED: Red background color
+        /// \note - BG_GREEN: Green background color
+        /// \note - BG_BLUE: Blue background color
+        /// \note - BG_DEFAULT: Default background color
+        typedef enum ColorCode_e
+        {
+            FG_RED     = 31,
+            FG_GREEN   = 32,
+            FG_YELLOW  = 33,
+            FG_BLUE    = 34,
+            FG_DEFAULT = 39,
+            BG_RED     = 41,
+            BG_GREEN   = 42,
+            BG_BLUE    = 44,
+            BG_DEFAULT = 49
+        } ColorCode_t;
+
+        class ColorModifier
+        {
+        private:
+            ColorCode_t code;
+
+        public:
+            ColorModifier(ColorCode_t pCode)
+                : code(pCode) {}
+            friend std::ostream &operator<<(std::ostream &os, const ColorModifier &mod)
+            {
+                return os << "\033[" << mod.code << "m";
+            }
+        };
+
         /// \brief Logger Level Enumeration
         ///
         /// The LoggerLevel enumeration defines the different levels of severity
@@ -86,20 +138,32 @@ namespace Library
         /// \note The structure includes the following members:
         /// \note - __level: The level of severity
         /// \note - __identifier: The identifier associated with the level of severity
+        /// \note - __color: The color associated with the level of severity
         struct LoggerIdentifier
         {
             /// \brief The level of severity
             const LoggerLevel __level;
             /// \brief The identifier associated with the level of severity
             const std::string &__identifier;
+            /// \brief The color associated with the level of severity
+            const ColorModifier &__color;
         };
+
+        /// \brief Default Color Modifier
+        ///
+        /// The DEFAULT_COLOR constant defines the default color modifier that is
+        /// used to reset the color of the text in the console.
+        ///
+        /// \note The default color modifier is used to reset the color of the text
+        /// in the console to the default color.
+        static const ColorModifier DEFAULT_COLOR = ColorModifier(FG_DEFAULT);
 
         /// \brief Logger Identifiers
         static const LoggerIdentifier LOGGER_IDENTIFIERS[] = {
-            {LoggerLevel::INFO, "INFO"},
-            {LoggerLevel::WARN, "WARN"},
-            {LoggerLevel::ERROR, "ERROR"},
-            {LoggerLevel::ALL, "ALL"}};
+            {LoggerLevel::INFO, "INFO", ColorModifier(FG_GREEN)},
+            {LoggerLevel::WARN, "WARN", ColorModifier(FG_YELLOW)},
+            {LoggerLevel::ERROR, "ERROR", ColorModifier(FG_RED)},
+            {LoggerLevel::ALL, "ALL", DEFAULT_COLOR}};
 
         /// \brief Logger Singleton Class
         ///
@@ -191,6 +255,7 @@ namespace Library
                 WriteInfo("Logger initialized");
             }
 
+        private:
             /// \brief Write a message to the console
             ///
             /// This method writes a message to the console at the specified level of
@@ -206,7 +271,7 @@ namespace Library
             void Write(const std::string &message, const LoggerLevel level = LoggerLevel::INFO)
             {
                 std::lock_guard<std::mutex> lock(__mutex);
-                std::cout << "[" << LOGGER_IDENTIFIERS[static_cast<size_t>(level)].__identifier << " n°" << __counts[static_cast<size_t>(level)] << "] " << message << std::endl;
+                std::cout << LOGGER_IDENTIFIERS[static_cast<size_t>(level)].__color << "[" << LOGGER_IDENTIFIERS[static_cast<size_t>(level)].__identifier << " n°" << __counts[static_cast<size_t>(level)] << "] " << message << DEFAULT_COLOR << std::endl;
                 __counts[static_cast<size_t>(level)]++;
                 if (level != LoggerLevel::ALL)
                 {
@@ -214,6 +279,7 @@ namespace Library
                 }
             }
 
+        private:
             mutable std::mutex                                              __mutex;
             std::array<size_t, (static_cast<size_t>(LoggerLevel::ALL) + 1)> __counts;
         };
